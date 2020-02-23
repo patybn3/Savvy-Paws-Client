@@ -37,18 +37,18 @@
         <div class="col-12 col-lg-3 side-section">
           <div class="btn-group-vertical">
             <br>
-          <button type="button" class="btn btn-primary button" id="button-one">
-            Home</button><br>
-          <button type="button" class="btn btn-primary button" id="button-two">
-            Sign Up</button><br>
-          <button type="button" class="btn btn-primary button" id="button-three">
-            Sign In</button><br>
-          <button type="button" class="btn btn-primary button" id="button-four">
-            User Portal</button><br>
-          <button type="button" class="btn btn-primary button" id="button-six">
-            Change Password</button><br>
-          <button type="button" class="btn btn-primary button" id="button-five">
-            Log Out</button><br>
+          <input type="submit" class="btn btn-primary button" id="button-home" value="Home">
+          <br>
+          <input type="submit" class="btn btn-primary button" id="button-signup" value="Sign Up">
+          <br>
+          <input type="submit" class="btn btn-primary button" id="button-login" value="Sign In">
+           <br>
+          <input type="submit" class="btn btn-primary button" id="button-portal" value="User Portal">
+           <br>
+          <input type="submit" class="btn btn-primary button" id="button-changepw" value="Change Password">
+           <br>
+          <input type="submit" class="btn btn-primary button" id="button-logout" value="Log Out">
+          <br>
         </div>
         </div>
       </div>
@@ -61,6 +61,7 @@
         <form id="sign-up">
           <fieldset>
             <legend>Sign Up!</legend>
+            <p id="sign-up-message"></p>
             <div class="form group">
               <label>First Name</label>
               <input type="text" class="form-control" name="credentials[first_name]"
@@ -84,9 +85,11 @@
               <br>
               <input type='submit' class="btn btn-primary button" value='Sign Up!'>
               <br>
-              <label>Already Signed Up?</label>
+              <label>Already a Member?</label><br>
               <button type="button" class="btn btn-primary button" id="already-signedup">
-              Sign In!</button><br>
+              Sign In!</button>Or
+              <button type="button" class="btn btn-primary button" class="go-back">
+              Go Back</button><br>
             </div>
           </fieldset>
         </form>
@@ -112,9 +115,11 @@
             <br>
             <input type='submit' class="btn btn-primary button" value='Sign In!'>
             <br>
-            <label>Not a Member?</label>
+            <label>Not a Member?</label><br>
             <button type="button" class="btn btn-primary button" id="not-member">
-            Sign Up!</button><br>
+            Sign Up!</button>Or
+            <button type="button" class="btn btn-primary button" class="go-back">
+            Go Back</button><br>
           </div>
         </fieldset>
       </form>
@@ -122,7 +127,7 @@
     </div>
   </div>
   <!--Third Modal, change Password-->
-  <div class="modal fade" id="modal-signup" tabindex="-1" role="dialog"
+  <div class="modal fade" id="modal-changepw" tabindex="-1" role="dialog"
   aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="false">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -138,10 +143,9 @@
           <input type="password" class="form-control" name="password[new]"
           placeholder="Reenter Password Here">
           <br>
+          <button type="button" class="btn btn-primary button" class="go-back">
+          Go Back</button>
           <input type='submit' class="btn btn-primary button" value="Submit">
-          <br>
-          <button type="button" class="btn btn-primary button" id="go-back">
-          Go Back</button><br>
         </div>
       </fieldset>
     </form>

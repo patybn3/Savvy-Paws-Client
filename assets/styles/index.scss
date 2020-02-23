@@ -13,12 +13,12 @@ body {
 }
 
 #logo {
-  padding-left: 100px;
   display: inline-block;
-  vertical-align: top;
-  width: 100px;
   height: auto;
   margin-top: -150px;
+  padding-left: 100px;
+  vertical-align: top;
+  width: 100px;
 }
 
 h1 {
@@ -31,5 +31,10 @@ h1 {
 }
 
 .side-section {
-  background-color: $white-color
+  background-color: $white-color;
+}
+
+.success {
+  color: $success-message;
+  font-size: 20px;
 }
