@@ -12,6 +12,143 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <h1>Browser Template</h1>
+      <nav id="navbar">
+      <h1>Savvy Paws</h1>
+      <div id="logo">
+        <img src="./public/logo.png" alt="Puppy logo"/>
+      </div>
+    </nav>
+    <!-- Two main columns -->
+    <div class="container">
+      <div class="row">
+        <!--This div creates an space between the navbar and the main sections-->
+        <!-- <div class="col-4" id="space">Blank</div> -->
+
+        <!-- About me Section-->
+        <div class="col-12 col-lg-8 main-section">
+          <h2 id="About-me-title">About Savvy Paws</h2>
+          <h5>Welcome to Savvy Paws</h5>
+          <p>Savvy Paws is an online application dedicated...</p>
+        </div>
+        <!--About Me Section ends here-->
+        <!-- this div separate the two boxes-->
+        <div class="col-0 col-lg-1"></div>
+        <!-- Second column plus buttons-->
+        <div class="col-12 col-lg-3 side-section">
+          <div class="btn-group-vertical">
+            <br>
+          <button type="button" class="btn btn-primary button" id="button-one">
+            Home</button><br>
+          <button type="button" class="btn btn-primary button" id="button-two">
+            Sign Up</button><br>
+          <button type="button" class="btn btn-primary button" id="button-three">
+            Sign In</button><br>
+          <button type="button" class="btn btn-primary button" id="button-four">
+            User Portal</button><br>
+          <button type="button" class="btn btn-primary button" id="button-six">
+            Change Password</button><br>
+          <button type="button" class="btn btn-primary button" id="button-five">
+            Log Out</button><br>
+        </div>
+        </div>
+      </div>
+    </div>
+<!-- Modals, first modal is sign up -->
+      <div class="modal fade" id="modal-signup" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="false">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <form id="sign-up">
+          <fieldset>
+            <legend>Sign Up!</legend>
+            <div class="form group">
+              <label>First Name</label>
+              <input type="text" class="form-control" name="credentials[first_name]"
+              placeholder="Name Here">
+              <br>
+              <label>Last Name</label>
+              <input type="text" class="form-control" name="credentials[last_name]"
+              placeholder="Last Name Here">
+              <br>
+              <label>Email</label>
+              <input type="email" class="form-control" name="credentials[email]"
+              placeholder="email@email.com">
+              <br>
+              <label>Password</label>
+              <input type="password" class="form-control" name="credentials[password]"
+              placeholder="Enter Password Here">
+              <br>
+              <label>Confirm Password</label>
+              <input type="password" class="form-control" name="credentials[password_confirmation]"
+              placeholder="Reenter Password Here">
+              <br>
+              <input type='submit' class="btn btn-primary button" value='Sign Up!'>
+              <br>
+              <label>Already Signed Up?</label>
+              <button type="button" class="btn btn-primary button" id="already-signedup">
+              Sign In!</button><br>
+            </div>
+          </fieldset>
+        </form>
+        </div>
+      </div>
+    </div>
+    <!-- Second Modal, Sign In-->
+    <div class="modal fade" id="modal-signin" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+      <form id="sign-in">
+        <fieldset>
+          <legend>Sign In!</legend>
+          <div class="form group">
+            <label>Email</label>
+            <input type="email" class="form-control" name="credentials[email]"
+            placeholder="email@email.com">
+            <br>
+            <label>Password</label>
+            <input type="password" class="form-control" name="credentials[password]"
+            placeholder="Enter Password Here">
+            <br>
+            <input type='submit' class="btn btn-primary button" value='Sign In!'>
+            <br>
+            <label>Not a Member?</label>
+            <button type="button" class="btn btn-primary button" id="not-member">
+            Sign Up!</button><br>
+          </div>
+        </fieldset>
+      </form>
+      </div>
+    </div>
+  </div>
+  <!--Third Modal, change Password-->
+  <div class="modal fade" id="modal-signup" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="false">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+    <form id="change-password">
+      <fieldset>
+        <legend>Change Password</legend>
+        <div class="form group">
+          <label>Current Password</label>
+          <input type="password" class="form-control" name="password[old]"
+          placeholder="Enter Password Here">
+          <br>
+          <label>New Password</label>
+          <input type="password" class="form-control" name="password[new]"
+          placeholder="Reenter Password Here">
+          <br>
+          <input type='submit' class="btn btn-primary button" value="Submit">
+          <br>
+          <button type="button" class="btn btn-primary button" id="go-back">
+          Go Back</button><br>
+        </div>
+      </fieldset>
+    </form>
+    </div>
+  </div>
+</div>
+<!--Modals End here-->
+
     </body>
 </html>

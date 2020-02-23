@@ -1,1 +1,35 @@
 @import '~bootstrap/scss/bootstrap';
+@import 'variables';
+
+body {
+  background: $background-color;
+}
+
+#navbar {
+  background: $navbar-color;
+  color: $white-color;
+  height: 150px;
+  margin: auto;
+}
+
+#logo {
+  padding-left: 100px;
+  display: inline-block;
+  vertical-align: top;
+  width: 100px;
+  height: auto;
+  margin-top: -150px;
+}
+
+h1 {
+  padding: 50px 260px;
+  text-shadow: 4px 4px $shadow;
+}
+
+.main-section {
+  background: $white-color;
+}
+
+.side-section {
+  background-color: $white-color
+}
