@@ -39,7 +39,7 @@ h1 {
   font-size: 35px;
 }
 
-.space {
+.space, .space-blank {
   color: $white-color;
   font-size: 35px;
 }
@@ -64,16 +64,28 @@ h1 {
 
 #footer {
   background-color: $shadow;
+  bottom: 0;
   color: $white-color;
-  display: fixed;
-  margin: auto;
-  padding: 10px 0 20px 30px;
+  left: 0;
+  position: fixed;
+  text-align: left;
+  width: 100%;
+  padding: 10px 0px 10px 15px;
 }
 
 .button {
   background-color: $buttons !important;
+  font-size: 17px !important;
+}
+
+.go-back {
+  font-size: 17px !important;
 }
 
 .button:hover, .button:active, .button:visited {
- background-color: $buttons-hover !important;
+  background-color: $buttons-hover !important;
+}
+
+#sign-in, #sign-up, #change-pw {
+  text-align: center;
 }

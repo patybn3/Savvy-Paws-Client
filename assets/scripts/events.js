@@ -86,6 +86,14 @@ const onShowPortal = event => {
     .catch(ui.showPortalFail)
 }
 
+const onGoBack = event => {
+  event.preventDefault()
+
+  api.showModal()
+    .then(ui.goBackSuccess)
+    .catch(ui.goBackFail)
+}
+
 module.exports = {
   onShowSignUpModal,
   onShowLogInModal,
@@ -95,5 +103,6 @@ module.exports = {
   onChangePw,
   onLogout,
   onShowHome,
-  onShowPortal
+  onShowPortal,
+  onGoBack
 }

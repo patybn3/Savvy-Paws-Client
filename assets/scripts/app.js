@@ -3,6 +3,7 @@
 // use require with a reference to bundle the file and use it in this file
 // const example = require('./example')
 const eventsFile = require('./events')
+const eventsPets = require('./pets/events')
 // use require without a reference to ensure a file is bundled
 // require('./example')
 
@@ -21,8 +22,17 @@ $(() => {
   $('#button-logout').on('click', eventsFile.onLogout)
   $('#button-home').on('click', eventsFile.onShowHome)
   $('#button-portal').on('click', eventsFile.onShowPortal)
+  $('.go-back').on('click', eventsFile.onGoBack)
   // hides and shows
   $('#button-changepw').hide()
   $('#button-logout').hide()
   $('#button-portal').hide()
+  $('#get-pets').hide()
+  $('#clear-pets').hide()
+  $('#new-pets').hide()
+  $('.add-new').hide()
+  // pets
+  $('#new-pets').on('click', eventsPets.onNewPetButton)
+  $('.add-new').on('submit', eventsPets.onAddNew)
+  $('#get-pets').on('click', eventsPets.seeAllPets)
 })

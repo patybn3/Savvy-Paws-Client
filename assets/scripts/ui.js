@@ -54,7 +54,7 @@ const signUpSuccess = function (response) {
 
   setTimeout(() => {
     $('#modal-signup').modal('hide')
-  }, 1500)
+  }, 1000)
 }
 
 const signUpFail = function (response) {
@@ -76,10 +76,16 @@ const logInSuccess = function (response) {
   $('#button-portal').show()
   $('.button-signup').hide()
   $('.button-login').hide()
+  $('#get-pets').show()
+  $('#clear-pets').show()
+  $('#new-pets').show()
+  $('#about-me').hide()
+  $('#welcome').hide()
+  $('#main-text').hide()
 
   setTimeout(() => {
     $('#modal-signin').modal('hide')
-  }, 1500)
+  }, 1000)
 }
 
 const logInFail = function (response) {
@@ -97,7 +103,7 @@ const changePwSuccess = function (response) {
 
   setTimeout(() => {
     $('#modal-changepw').modal('hide')
-  }, 1500)
+  }, 1000)
 }
 
 const changePwFail = function (response) {
@@ -119,23 +125,64 @@ const logOutSuccess = function (response) {
   store.user = null
   $('.button-signup').show()
   $('.button-login').show()
+  $('#get-pets').hide()
+  $('#clear-pets').hide()
+  $('#new-pets').hide()
+  $('#about-me').show()
+  $('#welcome').show()
+  $('#main-text').show()
 
   setTimeout(() => {
     $('.space').text('')
-  }, 1500)
+  }, 1000)
 }
 
 // Button on side bar functionality (starts here):
+//
 const showHomeSuccess = function (response) {
   $('#about-me').show()
   $('#welcome').show()
   $('#main-text').show()
+  $('.add-new').hide()
+}
+
+const showHomeFail = function (response) {
+  $('#about-me').hide()
+  $('#welcome').text('Home Failed to Open, Please Try Again.')
+  $('#welcome').addClass('failure')
+  $('#main-text').text('')
 }
 
 const showPortalSuccess = function (response) {
   $('#about-me').hide()
   $('#welcome').hide()
   $('#main-text').hide()
+}
+
+const showPortalFail = function (response) {
+  $('#about-me').hide()
+  $('#welcome').text('User Portal Failed to Open, Please Try Again.')
+  $('#welcome').addClass('failure')
+  $('#main-text').text('')
+}
+
+const goBackSuccess = function (response) {
+  $('#modal-signin').modal('hide')
+  $('#modal-signup').modal('hide')
+  $('#modal-changepw').modal('hide')
+  $('.add-new').hide()
+}
+
+const goBackFail = function (response) {
+  $('#changepw-message').removeClass('success')
+  $('#changepw-message').text('Unable to Go Back. Please Try Again')
+  $('#changepw-message').addClass('failure')
+  $('#login-message').removeClass('success')
+  $('#login-message').text('Unable to Go Back. Please Try Again')
+  $('#login-message').addClass('failure')
+  $('#sign-up-message').removeClass('success')
+  $('#sign-up-message').text('Unable to Go Back. Please Try Again')
+  $('#sign-up-message').addClass('failure')
 }
 
 module.exports = {
@@ -153,5 +200,9 @@ module.exports = {
   changePwFail,
   showHomeSuccess,
   showPortalSuccess,
-  logOutSuccess
+  logOutSuccess,
+  goBackSuccess,
+  showHomeFail,
+  showPortalFail,
+  goBackFail
 }

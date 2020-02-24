@@ -25,17 +25,61 @@
         <div class="col-12 col-lg-9 space">Blank</div>
         <div class="col-12 col-lg-3 space-two">Blank</div>
         <!-- About me Section-->
-        <div class="col-12 col-lg-9 main-section"><br><br>
+        <div class="col-12 col-lg-9 main-section">
+          <br>
+          <button id="get-pets" class="btn btn-primary button button-view">View Your Pets</button>
+          <button id="clear-pets" class="btn btn-primary button">Clear All Pets</button>
+          <button id="new-pets" class="btn btn-primary button">Add New Pet</button>
+          <!-- form to add a new pet to the system -->
+          <form class="add-new">
+          <div class="row">
+          <div class="col">
+            <br>
+            <legend>Add a New Pet!</legend>
+            <p id="add-message"></p>
+            <label>Pet's Name</label>
+            <input type="text" class="form-control" name="pet[name]"
+            placeholder="Name Here">
+            <label>Species</label>
+            <!--<input type="text" class="form-control" name="pet[species]"
+            placeholder="Dog"> -->
+            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name=pet[species]>
+            <option selected>Select Species</option>
+            <option value="1" id="dog">Dog</option>
+            <option value="2" id="cat">Cat</option>
+            <!-- <option value="3">Three</option> -->
+            </select>
+            <label>Breed</label>
+            <input type="text" class="form-control" name="pet[breed]"
+            placeholder="Pitbull">
+            <label>Date of Birth</label>
+            <input type="date" class="form-control" name="pet[dob]"
+            placeholder="2020/12/01">
+            <label>Favorite Toy</label>
+            <input type="text" class="form-control" name="pet[favorite_toy]"
+            placeholder="Ball">
+            <br>
+            <input type='submit' class="btn btn-primary btn-lg btn-block button" value="Submit">
+            <br>
+            <button type="button" class="btn btn-primary btn-lg btn-block go-back">
+            Go Back</button>
+          </div>
+        </div>
+      </form>
+          <br><br>
           <h2 id="about-me">About Savvy Paws</h2>
           <h5 id="welcome">Welcome to Savvy Paws</h5>
           <p id="main-text">Savvy Paws is an online application dedicated...</p>
         </div>
+        <br>
         <!--About Me Section ends here-->
         <!-- Second column plus buttons-->
         <div class="col-12 col-lg-3 side-section">
           <!-- <div class="btn-lg btn-block"> -->
             <br>
           <input type="submit" class="btn btn-primary btn-lg btn-block button" id="button-home" value="Home">
+
+          <input type="submit" class="btn btn-primary btn-lg btn-block button button-view" id="view-pets" value="View All Pets">
           <!-- <br> -->
           <input type="submit" class="btn btn-primary btn-lg btn-block button button-signup" value="Sign Up">
           <!-- <br> -->
@@ -64,29 +108,23 @@
               <label>First Name</label>
               <input type="text" class="form-control" name="credentials[first_name]"
               placeholder="Name Here">
-              <br>
               <label>Last Name</label>
               <input type="text" class="form-control" name="credentials[last_name]"
               placeholder="Last Name Here">
-              <br>
               <label>Email</label>
               <input type="email" class="form-control" name="credentials[email]"
               placeholder="email@email.com">
-              <br>
               <label>Password</label>
               <input type="password" class="form-control" name="credentials[password]"
               placeholder="Enter Password Here">
-              <br>
               <label>Confirm Password</label>
               <input type="password" class="form-control" name="credentials[password_confirmation]"
               placeholder="Reenter Password Here">
-              <br>
-              <input type='submit' class="btn btn-primary button" value='Sign Up!'>
-              <br>
+              <input type='submit' class="btn btn-primary btn-lg btn-block button" value='Sign Up!'>
               <label>Already a Member?</label><br>
-              <button type="button" class="btn btn-primary button button-login">
+              <button type="button" class="btn btn-primary btn-lg btn-block button button-login">
               Sign In!</button>Or
-              <button type="button" class="btn btn-primary go-back">
+              <button type="button" class="btn btn-primary btn-lg btn-block go-back">
               Go Back</button><br>
             </div>
           </fieldset>
@@ -112,12 +150,12 @@
             <input type="password" class="form-control" name="credentials[password]"
             placeholder="Enter Password Here">
             <br>
-            <input type='submit' class="btn btn-primary button" value='Sign In!'>
+            <input type='submit' class="btn btn-primary btn-lg btn-block button" value='Sign In!'>
             <br>
             <label>Not a Member?</label><br>
-            <button type="button" class="btn btn-primary button button-signup">
+            <button type="button" class="btn btn-primary btn-lg btn-block button button-signup">
             Sign Up!</button>Or
-            <button type="button" class="btn btn-primary go-back">
+            <button type="button" class="btn btn-primary btn-lg btn-block go-back">
             Go Back</button><br>
           </div>
         </fieldset>
@@ -143,9 +181,10 @@
           <input type="password" class="form-control" name="passwords[new]"
           placeholder="Reenter Password Here">
           <br>
-          <button type="button" class="btn btn-primary go-back">
+          <input type='submit' class="btn btn-primary btn-lg btn-block button" value="Submit">
+          <br>
+          <button type="button" class="btn btn-primary btn-lg btn-block go-back">
           Go Back</button>
-          <input type='submit' class="btn btn-primary" value="Submit">
         </div>
       </fieldset>
     </form>
@@ -155,7 +194,7 @@
 <!--Modals End here-->
 <div class="container">
   <div class="row">
-  <div class="col-12 col-lg-9 space">Blank</div>
+  <div class="col-12 col-lg-9 space-blank">Blank</div>
   <div class="col-12 col-lg-3 space-two">Blank</div>
 </div>
 </div>
