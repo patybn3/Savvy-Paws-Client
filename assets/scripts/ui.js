@@ -6,16 +6,37 @@ const showModalSignUpSuccess = function (response) {
   $('#modal-signup').modal('show')
 }
 
+const showModalSignUpfail = function (response) {
+  $('#about-me').hide()
+  $('#welcome').text('Sign Up Window Failed to Open, Please Try Again.')
+  $('#welcome').addClass('failure')
+  $('#main-text').text(`Click on "Home" to go back.`)
+}
+
 const showModalLogInSuccess = function (response) {
   // console.log('something')
   $('#sign-up').trigger('reset')
   $('#modal-signin').modal('show')
 }
 
+const showModalLogInfail = function (response) {
+  $('#about-me').hide()
+  $('#welcome').text('Sign In Window Failed to Open, Please Try Again.')
+  $('#welcome').addClass('failure')
+  $('#main-text').text(`Click on "Home" to go back.`)
+}
+
 const showModalChangeSuccess = function (response) {
   // console.log('something')
   $('#sign-up').trigger('reset')
   $('#modal-changepw').modal('show')
+}
+
+const showModalChangefail = function (response) {
+  $('#about-me').hide()
+  $('#welcome').text('Change Password Window Failed to Open, Please Try Again.')
+  $('#welcome').addClass('failure')
+  $('#main-text').text(`Click on "Home" to go back.`)
 }
 // User forms start Here
 
@@ -37,5 +58,8 @@ module.exports = {
   showModalSignUpSuccess,
   showModalLogInSuccess,
   showModalChangeSuccess,
-  signUpSuccess
+  signUpSuccess,
+  showModalSignUpfail,
+  showModalLogInfail,
+  showModalChangefail
 }

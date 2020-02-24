@@ -7,6 +7,7 @@ body {
 
 #navbar {
   background: $navbar-color;
+  box-shadow: 0 8px 8px -2px $shadow;
   color: $white-color;
   height: 150px;
   margin: auto;
@@ -23,7 +24,7 @@ body {
 
 h1 {
   padding: 50px 260px;
-  text-shadow: 4px 4px $shadow;
+  text-shadow: 3px 3px $shadow;
 }
 
 .main-section {
@@ -32,9 +33,23 @@ h1 {
 
 .side-section {
   background-color: $white-color;
+  // border-left: 10px solid $background-color;
 }
 
 .success {
   color: $success-message;
   font-size: 20px;
+}
+
+.failure {
+  color: $failure-message;
+  font-size: 20px;
+}
+
+#footer {
+  background-color: $shadow;
+  color: $white-color;
+  display: fixed;
+  margin: auto;
+  padding: 10px 0 20px 30px;
 }
