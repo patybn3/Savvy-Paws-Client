@@ -2,12 +2,12 @@
 @import 'variables';
 
 body {
-  background: $background-color;
+  background: $white-color;
 }
 
 #navbar {
   background: $navbar-color;
-  box-shadow: 0 8px 8px -2px $shadow;
+  // box-shadow: 0 8px 8px -2px $shadow;
   color: $white-color;
   height: 150px;
   margin: auto;
@@ -29,11 +29,27 @@ h1 {
 
 .main-section {
   background: $white-color;
+  box-shadow: 4px 2px 5px 3px $shadow;
+  // border-radius: 10px;
+}
+
+.space-two {
+  background-color: $background-color;
+  color: $background-color;
+  font-size: 35px;
+}
+
+.space {
+  color: $white-color;
+  font-size: 35px;
 }
 
 .side-section {
-  background-color: $white-color;
-  // border-left: 10px solid $background-color;
+  background-color: $background-color;
+  // border-radius: 10px;
+  // box-shadow: 4px 0px 8px -2px $shadow;
+  border-left: 20px solid $white-color;
+
 }
 
 .success {
@@ -52,4 +68,12 @@ h1 {
   display: fixed;
   margin: auto;
   padding: 10px 0 20px 30px;
+}
+
+.button {
+  background-color: $buttons !important;
+}
+
+.button:hover, .button:active, .button:visited {
+ background-color: $buttons-hover !important;
 }

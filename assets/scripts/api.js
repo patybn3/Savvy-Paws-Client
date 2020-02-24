@@ -1,8 +1,9 @@
 const config = require('./config')
 
-// const store = require('./store')
+const store = require('./store')
 
 // Shows all Modals
+// Buttons on side bar uses this api as well
 const showModal = () => {
   return $.ajax({
     url: config.apiUrl + '/pets',
@@ -10,7 +11,7 @@ const showModal = () => {
   })
 }
 // User forms
-const onSignUp = (data) => {
+const signUp = (data) => {
   return $.ajax({
     url: config.apiUrl + '/sign-up',
     method: 'POST',
@@ -18,7 +19,39 @@ const onSignUp = (data) => {
   })
 }
 
+const logIn = data => {
+  return $.ajax({
+    url: config.apiUrl + '/sign-in',
+    method: 'POST',
+    data: data
+  })
+}
+
+const onChange = data => {
+  return $.ajax({
+    url: config.apiUrl + '/change-password',
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
+const logOut = data => {
+  return $.ajax({
+    url: config.apiUrl + '/sign-out',
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
   showModal,
-  onSignUp
+  signUp,
+  logIn,
+  onChange,
+  logOut
 }

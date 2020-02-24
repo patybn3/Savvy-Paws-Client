@@ -10,10 +10,19 @@ $(() => {
   // your JS code goes here
   // User forms
   // Shows Modals
-  $('#button-signup').on('click', eventsFile.onShowSignUpModal)
-  $('#button-login').on('click', eventsFile.onShowLogInModal)
+  $('.button-signup').on('click', eventsFile.onShowSignUpModal)
+  $('.button-login').on('click', eventsFile.onShowLogInModal)
   $('#button-changepw').on('click', eventsFile.onShowChangeModal)
-  // makes forms work
+  // makes forms work:
   $('#sign-up').on('submit', eventsFile.onSignUp)
-  // $('#button-login').on('click')
+  $('#sign-in').on('submit', eventsFile.onLogIn)
+  $('#change-pw').on('submit', eventsFile.onChangePw)
+  // other buttons functionality
+  $('#button-logout').on('click', eventsFile.onLogout)
+  $('#button-home').on('click', eventsFile.onShowHome)
+  $('#button-portal').on('click', eventsFile.onShowPortal)
+  // hides and shows
+  $('#button-changepw').hide()
+  $('#button-logout').hide()
+  $('#button-portal').hide()
 })

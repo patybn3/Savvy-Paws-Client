@@ -22,8 +22,8 @@
     <div class="container">
       <div class="row">
         <!--This div creates an space between the navbar and the main sections-->
-        <!-- <div class="col-4" id="space">Blank</div> -->
-
+        <div class="col-12 col-lg-9 space">Blank</div>
+        <div class="col-12 col-lg-3 space-two">Blank</div>
         <!-- About me Section-->
         <div class="col-12 col-lg-9 main-section"><br><br>
           <h2 id="about-me">About Savvy Paws</h2>
@@ -31,25 +31,24 @@
           <p id="main-text">Savvy Paws is an online application dedicated...</p>
         </div>
         <!--About Me Section ends here-->
-
         <!-- Second column plus buttons-->
         <div class="col-12 col-lg-3 side-section">
-          <div class="btn-group-vertical">
+          <!-- <div class="btn-lg btn-block"> -->
             <br>
-          <input type="submit" class="btn btn-primary button" id="button-home" value="Home">
-          <br>
-          <input type="submit" class="btn btn-primary button" id="button-signup" value="Sign Up">
-          <br>
-          <input type="submit" class="btn btn-primary button" id="button-login" value="Sign In">
-           <br>
-          <input type="submit" class="btn btn-primary button" id="button-portal" value="User Portal">
-           <br>
-          <input type="submit" class="btn btn-primary button" id="button-changepw" value="Change Password">
-           <br>
-          <input type="submit" class="btn btn-primary button" id="button-logout" value="Log Out">
-          <br>
+          <input type="submit" class="btn btn-primary btn-lg btn-block button" id="button-home" value="Home">
+          <!-- <br> -->
+          <input type="submit" class="btn btn-primary btn-lg btn-block button button-signup" value="Sign Up">
+          <!-- <br> -->
+          <input type="submit" class="btn btn-primary btn-lg btn-block button button-login" value="Sign In">
+           <!-- <br> -->
+          <input type="submit" class="btn btn-primary btn-lg btn-block button" id="button-portal" value="User Portal">
+           <!-- <br> -->
+          <input type="submit" class="btn btn-primary btn-lg btn-block button" id="button-changepw" value="Change Password">
+           <!-- <br> -->
+          <input type="submit" class="btn btn-primary btn-lg btn-block button" id="button-logout" value="Log Out">
+          <!-- <br> -->
         </div>
-        </div>
+        <!-- </div> -->
       </div>
     </div>
 <!-- Modals, first modal is sign up -->
@@ -85,9 +84,9 @@
               <input type='submit' class="btn btn-primary button" value='Sign Up!'>
               <br>
               <label>Already a Member?</label><br>
-              <button type="button" class="btn btn-primary button" id="already-signedup">
+              <button type="button" class="btn btn-primary button button-login">
               Sign In!</button>Or
-              <button type="button" class="btn btn-primary button" class="go-back">
+              <button type="button" class="btn btn-primary go-back">
               Go Back</button><br>
             </div>
           </fieldset>
@@ -103,6 +102,7 @@
       <form id="sign-in">
         <fieldset>
           <legend>Sign In!</legend>
+          <p id="login-message"></p>
           <div class="form group">
             <label>Email</label>
             <input type="email" class="form-control" name="credentials[email]"
@@ -115,9 +115,9 @@
             <input type='submit' class="btn btn-primary button" value='Sign In!'>
             <br>
             <label>Not a Member?</label><br>
-            <button type="button" class="btn btn-primary button" id="not-member">
+            <button type="button" class="btn btn-primary button button-signup">
             Sign Up!</button>Or
-            <button type="button" class="btn btn-primary button" class="go-back">
+            <button type="button" class="btn btn-primary go-back">
             Go Back</button><br>
           </div>
         </fieldset>
@@ -130,21 +130,22 @@
   aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="false">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
-    <form id="change-password">
+    <form id="change-pw">
       <fieldset>
         <legend>Change Password</legend>
+        <p id='changepw-message'></p>
         <div class="form group">
           <label>Current Password</label>
-          <input type="password" class="form-control" name="password[old]"
+          <input type="password" class="form-control" name="passwords[old]"
           placeholder="Enter Password Here">
           <br>
           <label>New Password</label>
-          <input type="password" class="form-control" name="password[new]"
+          <input type="password" class="form-control" name="passwords[new]"
           placeholder="Reenter Password Here">
           <br>
-          <button type="button" class="btn btn-primary button" class="go-back">
+          <button type="button" class="btn btn-primary go-back">
           Go Back</button>
-          <input type='submit' class="btn btn-primary button" value="Submit">
+          <input type='submit' class="btn btn-primary" value="Submit">
         </div>
       </fieldset>
     </form>
@@ -152,6 +153,13 @@
   </div>
 </div>
 <!--Modals End here-->
+<div class="container">
+  <div class="row">
+  <div class="col-12 col-lg-9 space">Blank</div>
+  <div class="col-12 col-lg-3 space-two">Blank</div>
+</div>
+</div>
+
 <footer id='footer'>
             <p id="footer-text">By Patricia Antlitz</p>
     </footer>

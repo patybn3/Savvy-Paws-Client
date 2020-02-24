@@ -9,7 +9,7 @@ const onShowSignUpModal = event => {
 
   api.showModal()
     .then(ui.showModalSignUpSuccess)
-    .catch(ui.showModalSignUpfail)
+    .catch(ui.showModalSignUpFail)
 }
 
 const onShowLogInModal = event => {
@@ -17,7 +17,7 @@ const onShowLogInModal = event => {
 
   api.showModal()
     .then(ui.showModalLogInSuccess)
-    .catch(ui.showModalLogInfail)
+    .catch(ui.showModalLogInFail)
 }
 
 const onShowChangeModal = event => {
@@ -25,7 +25,7 @@ const onShowChangeModal = event => {
 
   api.showModal()
     .then(ui.showModalChangeSuccess)
-    .catch(ui.showModalChangefail)
+    .catch(ui.showModalChangeFail)
 }
 // User forms start Here
 const onSignUp = event => {
@@ -34,14 +34,66 @@ const onSignUp = event => {
   const form = event.target
   const data = getForm(form)
 
-  api.onSignUp(data)
+  api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFail)
+}
+
+const onLogIn = event => {
+  event.preventDefault()
+
+  const form = event.target
+  const data = getForm(form)
+
+  api.logIn(data)
+    .then(ui.logInSuccess)
+    .catch(ui.logInFail)
+}
+
+const onChangePw = event => {
+  event.preventDefault()
+
+  const form = event.target
+  const data = getForm(form)
+
+  api.onChange(data)
+    .then(ui.changePwSuccess)
+    .catch(ui.changePwFail)
+}
+
+const onLogout = event => {
+  event.preventDefault()
+
+  api.logOut()
+    .then(ui.logOutSuccess)
+    .catch(ui.logOutFail)
+}
+
+// Fuctions to make buttons work
+const onShowHome = event => {
+  event.preventDefault()
+
+  api.showModal()
+    .then(ui.showHomeSuccess)
+    .catch(ui.showHomeFail)
+}
+
+const onShowPortal = event => {
+  event.preventDefault()
+
+  api.showModal()
+    .then(ui.showPortalSuccess)
+    .catch(ui.showPortalFail)
 }
 
 module.exports = {
   onShowSignUpModal,
   onShowLogInModal,
   onShowChangeModal,
-  onSignUp
+  onSignUp,
+  onLogIn,
+  onChangePw,
+  onLogout,
+  onShowHome,
+  onShowPortal
 }
