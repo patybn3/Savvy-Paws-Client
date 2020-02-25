@@ -88,10 +88,17 @@ const clearPets = () => {
   $('.text-all').empty()
 }
 
+const editPetsButtonSuccess = function (response) {
+  // console.log('something')
+  $('.text-all').hide()
+  $('#edit-form').show()
+}
+
 module.exports = {
   newPetButtonSuccess,
   newPetSuccess,
   seeAllSuccess,
   seeUsersPetsSuccess,
-  clearPets
+  clearPets,
+  editPetsButtonSuccess
 }

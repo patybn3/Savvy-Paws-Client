@@ -45,10 +45,10 @@
             <label>Species</label>
             <!--<input type="text" class="form-control" name="pet[species]"
             placeholder="Dog"> -->
-            <select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name=pet[species]>
+            <select class="custom-select my-1 mr-sm-2 inlineFormCustomSelectPref" name=pet[species]>
             <option selected>Select Species</option>
-            <option value="1" id="dog">Dog</option>
-            <option value="2" id="cat">Cat</option>
+            <option value="1" class="dog">Dog</option>
+            <option value="2" class="cat">Cat</option>
             <!-- <option value="3">Three</option> -->
             </select>
             <label>Breed</label>
@@ -73,6 +73,38 @@
           <h2 id="about-me">About Savvy Paws</h2>
           <h5 id="welcome">Welcome to Savvy Paws</h5>
           <p id="main-text">Savvy Paws is an online application dedicated...</p>
+
+          <!-- this form is the edit form -->
+          <form id="edit-form">
+          <legend>Edit This Pet!</legend>
+          <p id="edit-message"></p>
+          <label>Pet's Name</label>
+          <input type="text" class="form-control" name="pet[name]"
+          placeholder="Name Here">
+          <label>Species</label>
+          <!--<input type="text" class="form-control" name="pet[species]"
+          placeholder="Dog"> -->
+          <select class="custom-select my-1 mr-sm-2 inlineFormCustomSelectPref" name=pet[species]>
+          <option selected>Select Species</option>
+          <option value="1" class="dog">Dog</option>
+          <option value="2" class="cat">Cat</option>
+          <!-- <option value="3">Three</option> -->
+          </select>
+          <label>Breed</label>
+          <input type="text" class="form-control" name="pet[breed]"
+          placeholder="Pitbull">
+          <label>Date of Birth</label>
+          <input type="date" class="form-control" name="pet[dob]"
+          placeholder="2020/12/01">
+          <label>Favorite Toy</label>
+          <input type="text" class="form-control" name="pet[favorite_toy]"
+          placeholder="Ball">
+          <br>
+          <input type='submit' class="btn btn-primary btn-lg btn-block button" value="Submit">
+          <br>
+          <button type="button" class="btn btn-primary btn-lg btn-block go-back">
+          Go Back</button>
+        </form>
         </div>
         <br>
         <!--About Me Section ends here-->
@@ -86,7 +118,7 @@
           <!-- <br> -->
           <input type="submit" class="btn btn-primary btn-lg btn-block button button-signup" value="Sign Up">
           <!-- <br> -->
-          <input type="submit" class="btn btn-primary btn-lg btn-block button button-login" value="Sign In">
+          <input type="submit" class="btn btn-primary btn-lg btn-block button button-login" data-toggle="modal" data-target="#modal-signin" value="Sign In">
            <!-- <br> -->
           <input type="submit" class="btn btn-primary btn-lg btn-block button" id="button-changepw" value="Change Password">
            <!-- <br> -->

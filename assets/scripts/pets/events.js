@@ -5,11 +5,7 @@ const ui = require('./ui')
 // const store = require('../store')
 
 const onNewPetButton = event => {
-  event.preventDefault()
-
-  api.onNewButton()
-    .then(ui.newPetButtonSuccess)
-    .catch(ui.newPetButtonFail)
+  $('.add-new').show()
 }
 
 const onAddNew = event => {
@@ -44,10 +40,38 @@ const onClearPets = (event) => {
   ui.clearPets()
 }
 
+const onDeletePets = (event) => {
+  event.preventDefault()
+
+  const petsId = $(event.target).data('id')
+
+  api.deletePets(petsId)
+    .then(() => seeAllPets(event))
+    .catch(ui.onDeletefailure)
+}
+
+const onEditPetsButton = event => {
+  event.preventDefault()
+
+  api.onNewButton()
+    .then(ui.editPetsButtonSuccess)
+    .catch(ui.editPetsButtonfailure)
+}
+
+// const onEditPetsButton = event => {
+//   event.preventDefault()
+//
+//   api.onNewButton()
+//     .then(ui.editPetsButtonSuccess)
+//     .catch(ui.editPetsButtonfailure)
+// }
+
 module.exports = {
   onNewPetButton,
   onAddNew,
   seeAllPets,
   onSeeUsersPets,
-  onClearPets
+  onClearPets,
+  onDeletePets,
+  onEditPetsButton
 }

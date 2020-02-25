@@ -190,6 +190,7 @@ const goBackSuccess = function (response) {
   $('#modal-signup').modal('hide')
   $('#modal-changepw').modal('hide')
   $('.add-new').hide()
+  $('#edit-form').hide()
   // $('#about-me').show()
   // $('#welcome').hide()
   // $('#main-text').hide()

@@ -37,9 +37,32 @@ const getPetsUser = (data) => {
   })
 }
 
+const deletePets = function (petsId) {
+  return $.ajax({
+    url: config.apiUrl + '/pets' + petsId,
+    method: 'DELETE',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
+const editPets = data => {
+  return $.ajax({
+    url: config.apiUrl + '/pets',
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: data
+  })
+}
+
 module.exports = {
   onNewButton,
   onNewPet,
   getPetsUser,
-  getAllPets
+  getAllPets,
+  deletePets,
+  editPets
 }
