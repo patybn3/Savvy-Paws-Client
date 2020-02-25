@@ -4,12 +4,6 @@ const store = require('./store')
 
 // Shows all Modals
 // Buttons on side bar uses this api as well
-const showModal = () => {
-  return $.ajax({
-    url: config.apiUrl + '/pets',
-    method: 'GET'
-  })
-}
 // User forms
 const signUp = (data) => {
   return $.ajax({
@@ -49,7 +43,6 @@ const logOut = data => {
 }
 
 module.exports = {
-  showModal,
   signUp,
   logIn,
   onChange,

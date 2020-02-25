@@ -12,7 +12,7 @@ $(() => {
   // User forms
   // Shows Modals
   $('.button-signup').on('click', eventsFile.onShowSignUpModal)
-  // $('.button-login').on('click', eventsFile.onShowLogInModal)
+  $('.button-login').on('click', eventsFile.onShowLogInModal)
   $('#button-changepw').on('click', eventsFile.onShowChangeModal)
   // makes forms work:
   $('#sign-up').on('submit', eventsFile.onSignUp)

@@ -4,21 +4,12 @@ const store = require('./store')
 const showModalSignUpSuccess = function (response) {
   // console.log('something')
   $('#sign-up').trigger('reset')
-  $('#modal-signup').modal('show')
   $('#sign-up-message').text('')
   $('#modal-signin').modal('hide')
   $('.text-all').empty()
   $('#about-me').show()
   $('#welcome').show()
   $('#main-text').show()
-}
-
-const showModalSignUpFail = function (response) {
-  $('#about-me').hide()
-  $('#welcome').text('Sign Up Window Failed to Open, Please Try Again.')
-  $('#welcome').addClass('failure')
-  $('#main-text').text(`Click on "Home" to go back.`)
-  $('.text-all').empty()
 }
 
 const showModalLogInSuccess = function (response) {
@@ -33,27 +24,11 @@ const showModalLogInSuccess = function (response) {
   $('#main-text').show()
 }
 
-const showModalLogInFail = function (response) {
-  $('#about-me').hide()
-  $('#welcome').text('Sign In Window Failed to Open, Please Try Again.')
-  $('#welcome').addClass('failure')
-  $('#main-text').text(`Click on "Home" to go back.`)
-  $('.text-all').empty()
-}
-
 const showModalChangeSuccess = function (response) {
   // console.log('something')
   $('#sign-up').trigger('reset')
   $('#modal-changepw').modal('show')
   $('#changepw-message').text('')
-  $('.text-all').empty()
-}
-
-const showModalChangeFail = function (response) {
-  $('#about-me').hide()
-  $('#welcome').text('Change Password Window Failed to Open, Please Try Again.')
-  $('#welcome').addClass('failure')
-  $('#main-text').text(`Click on "Home" to go back.`)
   $('.text-all').empty()
 }
 
@@ -213,9 +188,6 @@ module.exports = {
   showModalLogInSuccess,
   showModalChangeSuccess,
   signUpSuccess,
-  showModalSignUpFail,
-  showModalLogInFail,
-  showModalChangeFail,
   logInSuccess,
   signUpFail,
   logInFail,

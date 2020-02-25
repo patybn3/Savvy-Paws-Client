@@ -26,7 +26,7 @@ const newPetSuccess = function (response) {
 // Show all pets, no user linked
 const seeAllSuccess = (data) => {
   $('.add-new').hide()
-  $('.text-all').show()
+  // $('.text-all').show()
   $('#view-pets').trigger('reset')
   $('.text-all').trigger('reset')
   $('#about-me').hide()

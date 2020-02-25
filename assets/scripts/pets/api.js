@@ -2,13 +2,6 @@ const config = require('../config')
 
 const store = require('../store')
 
-const onNewButton = (data) => {
-  return $.ajax({
-    url: config.apiUrl + '/pets',
-    method: 'GET'
-  })
-}
-
 const onNewPet = (data) => {
   return $.ajax({
     url: config.apiUrl + '/pets',
@@ -59,7 +52,7 @@ const editPets = data => {
 }
 
 module.exports = {
-  onNewButton,
+  // onNewButton,
   onNewPet,
   getPetsUser,
   getAllPets,

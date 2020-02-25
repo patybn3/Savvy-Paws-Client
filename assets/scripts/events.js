@@ -7,25 +7,19 @@ const ui = require('./ui')
 const onShowSignUpModal = event => {
   event.preventDefault()
 
-  api.showModal()
-    .then(ui.showModalSignUpSuccess)
-    .catch(ui.showModalSignUpFail)
+  ui.showModalSignUpSuccess()
 }
 
 const onShowLogInModal = event => {
   event.preventDefault()
 
-  api.showModal()
-    .then(ui.showModalLogInSuccess)
-    .catch(ui.showModalLogInFail)
+  ui.showModalLogInSuccess()
 }
-
+//
 const onShowChangeModal = event => {
   event.preventDefault()
 
-  api.showModal()
-    .then(ui.showModalChangeSuccess)
-    .catch(ui.showModalChangeFail)
+  ui.showModalChangeSuccess()
 }
 // User forms start Here
 const onSignUp = event => {
@@ -89,9 +83,8 @@ const onShowPortal = event => {
 const onGoBack = event => {
   event.preventDefault()
 
-  api.showModal()
-    .then(ui.goBackSuccess)
-    .catch(ui.goBackFail)
+  ui.goBackSuccess()
+  ui.goBackFail()
 }
 
 module.exports = {

@@ -116,11 +116,11 @@
 
           <input type="submit" class="btn btn-primary btn-lg btn-block button button-view" id="view-pets" value="View All Pets">
           <!-- <br> -->
-          <input type="submit" class="btn btn-primary btn-lg btn-block button button-signup" value="Sign Up">
+          <input type="submit" class="btn btn-primary btn-lg btn-block button button-signup" data-toggle="modal" data-target="#modal-signup" value="Sign Up">
           <!-- <br> -->
           <input type="submit" class="btn btn-primary btn-lg btn-block button button-login" data-toggle="modal" data-target="#modal-signin" value="Sign In">
            <!-- <br> -->
-          <input type="submit" class="btn btn-primary btn-lg btn-block button" id="button-changepw" value="Change Password">
+          <input type="submit" class="btn btn-primary btn-lg btn-block button" id="button-changepw" data-toggle="modal" data-target="#modal-changepw" value="Change Password">
            <!-- <br> -->
           <input type="submit" class="btn btn-primary btn-lg btn-block button" id="button-logout" value="Log Out">
           <!-- <br> -->
@@ -155,9 +155,9 @@
               placeholder="Reenter Password Here">
               <input type='submit' class="btn btn-primary btn-lg btn-block button" value='Sign Up!'>
               <label>Already a Member?</label><br>
-              <button type="button" class="btn btn-primary btn-lg btn-block button button-login">
+              <button type="button" class="btn btn-primary btn-lg btn-block button button-login" data-toggle="modal" data-target="#modal-signin">
               Sign In!</button>Or
-              <button type="button" class="btn btn-primary btn-lg btn-block go-back">
+              <button type="button" class="btn btn-primary btn-lg btn-block go-back" data-toggle="modal" data-target="#modal-signup">
               Go Back</button><br>
             </div>
           </fieldset>
@@ -186,9 +186,9 @@
             <input type='submit' class="btn btn-primary btn-lg btn-block button" value='Sign In!'>
             <br>
             <label>Not a Member?</label><br>
-            <button type="button" class="btn btn-primary btn-lg btn-block button button-signup">
+            <button type="button" class="btn btn-primary btn-lg btn-block button button-signup" data-toggle="modal" data-target="#modal-signup">
             Sign Up!</button>Or
-            <button type="button" class="btn btn-primary btn-lg btn-block go-back">
+            <button type="button" class="btn btn-primary btn-lg btn-block go-back" data-toggle="modal" data-target="#modal-signin">
             Go Back</button><br>
           </div>
         </fieldset>
@@ -216,7 +216,7 @@
           <br>
           <input type='submit' class="btn btn-primary btn-lg btn-block button" value="Submit">
           <br>
-          <button type="button" class="btn btn-primary btn-lg btn-block go-back">
+          <button type="button" class="btn btn-primary btn-lg btn-block go-back" data-toggle="modal" data-target="#modal-changepw">
           Go Back</button>
         </div>
       </fieldset>
