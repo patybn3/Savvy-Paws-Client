@@ -34,5 +34,6 @@ $(() => {
   // pets
   $('#new-pets').on('click', eventsPets.onNewPetButton)
   $('.add-new').on('submit', eventsPets.onAddNew)
-  $('#get-pets').on('click', eventsPets.seeAllPets)
+  $('#view-pets').on('click', eventsPets.seeAllPets)
+  $('#get-pets').on('click', eventsPets.onSeeUsersPets)
 })

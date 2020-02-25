@@ -11,7 +11,7 @@ const onNewButton = (data) => {
 
 const onNewPet = (data) => {
   return $.ajax({
-    url: config.apiUrl + '/pets' + store.user.id,
+    url: config.apiUrl + '/pets',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -22,7 +22,14 @@ const onNewPet = (data) => {
 
 const getAllPets = (data) => {
   return $.ajax({
-    url: config.apiUrl + '/pets' + store.user.id,
+    url: config.apiUrl + '/pets',
+    method: 'GET'
+  })
+}
+
+const getPetsUser = (data) => {
+  return $.ajax({
+    url: config.apiUrl + '/pets/' + store.user.id,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -33,5 +40,6 @@ const getAllPets = (data) => {
 module.exports = {
   onNewButton,
   onNewPet,
+  getPetsUser,
   getAllPets
 }

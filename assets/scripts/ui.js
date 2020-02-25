@@ -7,6 +7,7 @@ const showModalSignUpSuccess = function (response) {
   $('#modal-signup').modal('show')
   $('#sign-up-message').text('')
   $('#modal-signin').modal('hide')
+  $('.text-all').hide()
 }
 
 const showModalSignUpFail = function (response) {
@@ -14,6 +15,7 @@ const showModalSignUpFail = function (response) {
   $('#welcome').text('Sign Up Window Failed to Open, Please Try Again.')
   $('#welcome').addClass('failure')
   $('#main-text').text(`Click on "Home" to go back.`)
+  $('.text-all').hide()
 }
 
 const showModalLogInSuccess = function (response) {
@@ -22,6 +24,7 @@ const showModalLogInSuccess = function (response) {
   $('#modal-signin').modal('show')
   $('#login-message').text('')
   $('#modal-signup').modal('hide')
+  $('.text-all').hide()
 }
 
 const showModalLogInFail = function (response) {
@@ -29,6 +32,7 @@ const showModalLogInFail = function (response) {
   $('#welcome').text('Sign In Window Failed to Open, Please Try Again.')
   $('#welcome').addClass('failure')
   $('#main-text').text(`Click on "Home" to go back.`)
+  $('.text-all').hide()
 }
 
 const showModalChangeSuccess = function (response) {
@@ -36,6 +40,7 @@ const showModalChangeSuccess = function (response) {
   $('#sign-up').trigger('reset')
   $('#modal-changepw').modal('show')
   $('#changepw-message').text('')
+  $('.text-all').hide()
 }
 
 const showModalChangeFail = function (response) {
@@ -43,6 +48,7 @@ const showModalChangeFail = function (response) {
   $('#welcome').text('Change Password Window Failed to Open, Please Try Again.')
   $('#welcome').addClass('failure')
   $('#main-text').text(`Click on "Home" to go back.`)
+  $('.text-all').hide()
 }
 
 // User forms start Here:
@@ -65,6 +71,7 @@ const signUpFail = function (response) {
 }
 
 const logInSuccess = function (response) {
+  $('.text-all').hide()
   $('#sign-in').trigger('reset')
   $('#login-message').removeClass('failure')
   $('#login-message').text('You Have Successfully Signed In!')
@@ -96,6 +103,7 @@ const logInFail = function (response) {
 }
 
 const changePwSuccess = function (response) {
+  $('.text-all').hide()
   $('#change-pw').trigger('reset')
   $('#changepw-message').removeClass('failure')
   $('#changepw-message').text('You Have Changed Your Password.')
@@ -114,6 +122,7 @@ const changePwFail = function (response) {
 }
 
 const logOutSuccess = function (response) {
+  $('#view-pets').trigger('reset')
   $('#button-changepw').hide()
   $('#button-portal').hide()
   $('#button-logout').hide()
@@ -131,6 +140,7 @@ const logOutSuccess = function (response) {
   $('#about-me').show()
   $('#welcome').show()
   $('#main-text').show()
+  $('.text-all').hide()
 
   setTimeout(() => {
     $('.space').text('')
@@ -140,6 +150,7 @@ const logOutSuccess = function (response) {
 // Button on side bar functionality (starts here):
 //
 const showHomeSuccess = function (response) {
+  // $('.main-section').empty()
   $('#about-me').show()
   $('#welcome').show()
   $('#main-text').show()
@@ -154,6 +165,7 @@ const showHomeFail = function (response) {
 }
 
 const showPortalSuccess = function (response) {
+  $('.text-all').hide()
   $('#about-me').hide()
   $('#welcome').hide()
   $('#main-text').hide()
@@ -167,10 +179,14 @@ const showPortalFail = function (response) {
 }
 
 const goBackSuccess = function (response) {
+  $('.text-all').hide()
   $('#modal-signin').modal('hide')
   $('#modal-signup').modal('hide')
   $('#modal-changepw').modal('hide')
   $('.add-new').hide()
+  $('#about-me').text(`Click on the "Home" Buttom to Continue.`)
+  $('#welcome').hide()
+  $('#main-text').hide()
 }
 
 const goBackFail = function (response) {

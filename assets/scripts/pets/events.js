@@ -31,8 +31,17 @@ const seeAllPets = event => {
     .catch(ui.seeAllfailure)
 }
 
+const onSeeUsersPets = event => {
+  event.preventDefault()
+
+  api.getPetsUser()
+    .then(ui.seeUsersPetsSuccess)
+    .catch(ui.seeUsersPetsfailure)
+}
+
 module.exports = {
   onNewPetButton,
   onAddNew,
-  seeAllPets
+  seeAllPets,
+  onSeeUsersPets
 }

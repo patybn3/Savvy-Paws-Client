@@ -1,24 +1,24 @@
+  <h2 class="handles">All Pets</h2>
 {{#each pets as |pet|}}
   {{log pet}} {{!-- {{this is a comment}} --}}
-  <section data-id="{{pet.id}}">
-    <h6>Your Pets:</h6>
+  <section data-id="{{pet.id}}" class="handles">
     <h3>
       {{limit pet.name 15}}
 </h3>
-<h6>Name:</h6>
-<p>
-  {{#if pet.name}}
-    {{pet.Name}}
-  {{else}}
-    No Breed available
-  {{/if}}
-</p>
 <h6>Date of Birth:</h6>
 <p>
   {{#if pet.dob}}
     {{pet.dob}}
   {{else}}
     No Breed available
+  {{/if}}
+</p>
+<h6>Species:</h6>
+<p>
+  {{#if pet.species}}
+    {{pet.species}}
+  {{else}}
+    No Species available
   {{/if}}
 </p>
     <h6>Breed:</h6>
@@ -29,14 +29,6 @@
         No Breed available
       {{/if}}
     </p>
-    <h6>Species:</h6>
-    <p>
-      {{#if pet.species}}
-        {{pet.species}}
-      {{else}}
-        No Species available
-      {{/if}}
-    </p>
     <h6>Favorite Toy:</h6>
     <p>
       {{#if pet.favorite_toy}}
@@ -45,8 +37,6 @@
         No Favorite Toy available
       {{/if}}
     </p>
-
-    <button class='btn btn-danger remove-pet' data-id='{{book.id}}'>DELETE PET</button>
   </section>
 
 {{/each}}
