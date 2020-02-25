@@ -39,9 +39,15 @@ const onSeeUsersPets = event => {
     .catch(ui.seeUsersPetsfailure)
 }
 
+const onClearPets = (event) => {
+  event.preventDefault()
+  ui.clearPets()
+}
+
 module.exports = {
   onNewPetButton,
   onAddNew,
   seeAllPets,
-  onSeeUsersPets
+  onSeeUsersPets,
+  onClearPets
 }

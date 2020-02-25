@@ -29,7 +29,7 @@ const getAllPets = (data) => {
 
 const getPetsUser = (data) => {
   return $.ajax({
-    url: config.apiUrl + '/pets/' + store.user.id,
+    url: config.apiUrl + '/pets',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token

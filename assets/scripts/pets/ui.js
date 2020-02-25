@@ -5,6 +5,7 @@ const showUserTemplate = require('../templates/user-pets.handlebars')
 
 const newPetButtonSuccess = function (response) {
   // console.log('something')
+  $('.text-all').empty()
   $('.add-new').show()
   $('#about-me').hide()
   $('#welcome').hide()
@@ -24,6 +25,7 @@ const newPetSuccess = function (response) {
 }
 // Show all pets, no user linked
 const seeAllSuccess = (data) => {
+  $('.add-new').hide()
   $('.text-all').show()
   $('#view-pets').trigger('reset')
   $('.text-all').trigger('reset')
@@ -37,7 +39,7 @@ const seeAllSuccess = (data) => {
   $('#button-home').click(function (event) {
     event.preventDefault()
     if (!$(this).hasClass('.text-all')) {
-      $('.text-all').hide()
+      $('.text-all').empty()
       $('#about-me').show()
       $('#welcome').show()
       $('#main-text').show()
@@ -47,26 +49,49 @@ const seeAllSuccess = (data) => {
   $('#view-pets').click(function (event) {
     event.preventDefault()
     if (!$(this).hasClass('.text-all')) {
-      $('.text-all').show()
+      $('.text-all').empty()
     }
   })
 }
 
 const seeUsersPetsSuccess = (data) => {
-  $('#get-pets').click(function (event) {
-    event.preventDefault()
-    if (!$(this).hasClass('.text-all')) {
-      $('.text-all').show()
-    }
-  })
+  $('.add-new').hide()
+  $('.text-all').empty()
+  $('#get-pets').trigger('reset')
+  $('.text-all').trigger('reset')
+  $('#about-me').hide()
+  $('#welcome').hide()
+  $('#main-text').hide()
   const showUserHtml = showUserTemplate({ pets: data.pets })
 
   $('.text-all').append(showUserHtml)
+
+  $('#button-home').click(function (event) {
+    event.preventDefault()
+    if (!$(this).hasClass('.text-all')) {
+      $('.text-all').empty()
+      $('#about-me').show()
+      $('#welcome').show()
+      $('#main-text').show()
+    }
+  })
+
+  $('#get-pets').click(function (event) {
+    event.preventDefault()
+    if (!$(this).hasClass('.text-all')) {
+      $('.text-all').empty()
+    }
+  })
+}
+
+const clearPets = () => {
+  $('.text-all').empty()
 }
 
 module.exports = {
   newPetButtonSuccess,
   newPetSuccess,
   seeAllSuccess,
-  seeUsersPetsSuccess
+  seeUsersPetsSuccess,
+  clearPets
 }

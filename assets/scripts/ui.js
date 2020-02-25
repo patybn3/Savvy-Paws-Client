@@ -7,7 +7,10 @@ const showModalSignUpSuccess = function (response) {
   $('#modal-signup').modal('show')
   $('#sign-up-message').text('')
   $('#modal-signin').modal('hide')
-  $('.text-all').hide()
+  $('.text-all').empty()
+  $('#about-me').show()
+  $('#welcome').show()
+  $('#main-text').show()
 }
 
 const showModalSignUpFail = function (response) {
@@ -15,7 +18,7 @@ const showModalSignUpFail = function (response) {
   $('#welcome').text('Sign Up Window Failed to Open, Please Try Again.')
   $('#welcome').addClass('failure')
   $('#main-text').text(`Click on "Home" to go back.`)
-  $('.text-all').hide()
+  $('.text-all').empty()
 }
 
 const showModalLogInSuccess = function (response) {
@@ -24,7 +27,10 @@ const showModalLogInSuccess = function (response) {
   $('#modal-signin').modal('show')
   $('#login-message').text('')
   $('#modal-signup').modal('hide')
-  $('.text-all').hide()
+  $('.text-all').empty()
+  $('#about-me').show()
+  $('#welcome').show()
+  $('#main-text').show()
 }
 
 const showModalLogInFail = function (response) {
@@ -32,7 +38,7 @@ const showModalLogInFail = function (response) {
   $('#welcome').text('Sign In Window Failed to Open, Please Try Again.')
   $('#welcome').addClass('failure')
   $('#main-text').text(`Click on "Home" to go back.`)
-  $('.text-all').hide()
+  $('.text-all').empty()
 }
 
 const showModalChangeSuccess = function (response) {
@@ -40,7 +46,7 @@ const showModalChangeSuccess = function (response) {
   $('#sign-up').trigger('reset')
   $('#modal-changepw').modal('show')
   $('#changepw-message').text('')
-  $('.text-all').hide()
+  $('.text-all').empty()
 }
 
 const showModalChangeFail = function (response) {
@@ -48,7 +54,7 @@ const showModalChangeFail = function (response) {
   $('#welcome').text('Change Password Window Failed to Open, Please Try Again.')
   $('#welcome').addClass('failure')
   $('#main-text').text(`Click on "Home" to go back.`)
-  $('.text-all').hide()
+  $('.text-all').empty()
 }
 
 // User forms start Here:
@@ -71,7 +77,7 @@ const signUpFail = function (response) {
 }
 
 const logInSuccess = function (response) {
-  $('.text-all').hide()
+  $('.text-all').empty()
   $('#sign-in').trigger('reset')
   $('#login-message').removeClass('failure')
   $('#login-message').text('You Have Successfully Signed In!')
@@ -140,7 +146,7 @@ const logOutSuccess = function (response) {
   $('#about-me').show()
   $('#welcome').show()
   $('#main-text').show()
-  $('.text-all').hide()
+  $('.text-all').empty()
 
   setTimeout(() => {
     $('.space').text('')
@@ -184,9 +190,9 @@ const goBackSuccess = function (response) {
   $('#modal-signup').modal('hide')
   $('#modal-changepw').modal('hide')
   $('.add-new').hide()
-  $('#about-me').text(`Click on the "Home" Buttom to Continue.`)
-  $('#welcome').hide()
-  $('#main-text').hide()
+  // $('#about-me').show()
+  // $('#welcome').hide()
+  // $('#main-text').hide()
 }
 
 const goBackFail = function (response) {
