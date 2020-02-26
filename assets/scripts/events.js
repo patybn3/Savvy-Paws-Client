@@ -67,18 +67,17 @@ const onLogout = event => {
 const onShowHome = event => {
   event.preventDefault()
 
-  api.showModal()
-    .then(ui.showHomeSuccess)
-    .catch(ui.showHomeFail)
+  ui.showHomeSuccess()
+  // ui.showHomeFail()
 }
 
-const onShowPortal = event => {
-  event.preventDefault()
-
-  api.showModal()
-    .then(ui.showPortalSuccess)
-    .catch(ui.showPortalFail)
-}
+// const onShowPortal = event => {
+//   event.preventDefault()
+//
+//   api.showModal()
+//     .then(ui.showPortalSuccess)
+//     .catch(ui.showPortalFail)
+// }
 
 const onGoBack = event => {
   event.preventDefault()
@@ -96,6 +95,6 @@ module.exports = {
   onChangePw,
   onLogout,
   onShowHome,
-  onShowPortal,
+  // onShowPortal,
   onGoBack
 }

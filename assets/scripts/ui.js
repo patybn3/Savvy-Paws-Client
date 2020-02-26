@@ -122,6 +122,7 @@ const logOutSuccess = function (response) {
   $('#welcome').show()
   $('#main-text').show()
   $('.text-all').empty()
+  $('.edit-pet').hide()
 
   setTimeout(() => {
     $('.space').text('')
@@ -138,12 +139,12 @@ const showHomeSuccess = function (response) {
   $('.add-new').hide()
 }
 
-const showHomeFail = function (response) {
-  $('#about-me').hide()
-  $('#welcome').text('Home Failed to Open, Please Try Again.')
-  $('#welcome').addClass('failure')
-  $('#main-text').text('')
-}
+// const showHomeFail = function (response) {
+//   $('#about-me').hide()
+//   $('#welcome').text('Home Failed to Open, Please Try Again.')
+//   $('#welcome').addClass('failure')
+//   $('#main-text').text('')
+// }
 
 const showPortalSuccess = function (response) {
   $('.text-all').hide()
@@ -160,12 +161,13 @@ const showPortalFail = function (response) {
 }
 
 const goBackSuccess = function (response) {
-  $('.text-all').hide()
   $('#modal-signin').modal('hide')
   $('#modal-signup').modal('hide')
   $('#modal-changepw').modal('hide')
   $('.add-new').hide()
   $('#edit-form').hide()
+  $('#get-pets').trigger('reset')
+  $('.text-all').trigger('reset')
   // $('#about-me').show()
   // $('#welcome').hide()
   // $('#main-text').hide()
@@ -197,7 +199,7 @@ module.exports = {
   showPortalSuccess,
   logOutSuccess,
   goBackSuccess,
-  showHomeFail,
+  // showHomeFail,
   showPortalFail,
   goBackFail
 }

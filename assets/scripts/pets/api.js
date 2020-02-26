@@ -13,14 +13,14 @@ const onNewPet = (data) => {
   })
 }
 
-const getAllPets = (data) => {
-  return $.ajax({
-    url: config.apiUrl + '/pets',
-    method: 'GET'
-  })
-}
+// const getAllPets = (data) => {
+//   return $.ajax({
+//     url: config.apiUrl + '/pets',
+//     method: 'GET'
+//   })
+// }
 
-const getPetsUser = (data) => {
+const getAllPets = (data) => {
   return $.ajax({
     url: config.apiUrl + '/pets',
     method: 'GET',
@@ -30,9 +30,10 @@ const getPetsUser = (data) => {
   })
 }
 
-const deletePets = function (petsId) {
+const deletePets = function (event) {
+  const id = $(event.target).data('id')
   return $.ajax({
-    url: config.apiUrl + '/pets' + petsId,
+    url: config.apiUrl + '/pets/' + id,
     method: 'DELETE',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -40,9 +41,10 @@ const deletePets = function (petsId) {
   })
 }
 
-const editPets = data => {
+const editPets = function (data) {
+  // const id = $(event.target).data('name')
   return $.ajax({
-    url: config.apiUrl + '/pets',
+    url: config.apiUrl + '/pets/' + data.pet.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -54,7 +56,7 @@ const editPets = data => {
 module.exports = {
   // onNewButton,
   onNewPet,
-  getPetsUser,
+  // getPetsUser,
   getAllPets,
   deletePets,
   editPets

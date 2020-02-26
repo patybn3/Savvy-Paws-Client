@@ -27,13 +27,13 @@ const seeAllPets = event => {
     .catch(ui.seeAllfailure)
 }
 
-const onSeeUsersPets = event => {
-  event.preventDefault()
-
-  api.getPetsUser()
-    .then(ui.seeUsersPetsSuccess)
-    .catch(ui.seeUsersPetsfailure)
-}
+// const seePets = event => {
+//   event.preventDefault()
+//
+//   api.getPetsUser()
+//     .then(ui.seeUsersPetsSuccess)
+//     .catch(ui.seeUsersPetsfailure)
+// }
 
 const onClearPets = (event) => {
   event.preventDefault()
@@ -43,35 +43,45 @@ const onClearPets = (event) => {
 const onDeletePets = (event) => {
   event.preventDefault()
 
-  const petsId = $(event.target).data('id')
-
-  api.deletePets(petsId)
-    .then(() => seeAllPets(event))
+  api.deletePets(event)
+    .then(function () {
+      seeAllPets(event)
+    })
     .catch(ui.onDeletefailure)
 }
 
-const onEditPetsButton = event => {
-  event.preventDefault()
-
-  api.onNewButton()
-    .then(ui.editPetsButtonSuccess)
-    .catch(ui.editPetsButtonfailure)
-}
-
-// const onEditPetsButton = event => {
+// const onEditPets = event => {
 //   event.preventDefault()
 //
-//   api.onNewButton()
-//     .then(ui.editPetsButtonSuccess)
+//   api.editPets(event)
+//     .then(function () {
+//       seeAllPets(event)
+//     })
 //     .catch(ui.editPetsButtonfailure)
 // }
+
+const onEditPets = event => {
+  event.preventDefault()
+
+  const data = getForm(event.target)
+
+  api.editPets(data)
+    .then(ui.editPetSuccess)
+    .catch(ui.editPetFail)
+}
+
+const addHandlers = () => {
+  $('.text-all').on('click', '.remove-pet', onDeletePets)
+  // $('.text-all').on('click', '.edit-pet', onEditPets)
+}
 
 module.exports = {
   onNewPetButton,
   onAddNew,
   seeAllPets,
-  onSeeUsersPets,
+  // onSeeUsersPets,
   onClearPets,
   onDeletePets,
-  onEditPetsButton
+  onEditPets,
+  addHandlers
 }

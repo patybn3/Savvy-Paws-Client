@@ -32,6 +32,8 @@
           <button id="get-pets" class="btn btn-primary button button-view">View Your Pets</button>
           <button id="clear-pets" class="btn btn-primary button">Clear All Pets</button>
           <button id="new-pets" class="btn btn-primary button">Add New Pet</button>
+          <button class='btn btn-primary button edit-pet' data-toggle="modal" data-target="#edit-modal">Edit Pet</button>
+
           <!-- form to add a new pet to the system -->
           <form class="add-new">
           <div class="row">
@@ -47,8 +49,8 @@
             placeholder="Dog"> -->
             <select class="custom-select my-1 mr-sm-2 inlineFormCustomSelectPref" name=pet[species]>
             <option selected>Select Species</option>
-            <option value="1" class="dog">Dog</option>
-            <option value="2" class="cat">Cat</option>
+            <option value="Dog" class="dog">Dog</option>
+            <option value="Cat" class="cat">Cat</option>
             <!-- <option value="3">Three</option> -->
             </select>
             <label>Breed</label>
@@ -56,7 +58,7 @@
             placeholder="Pitbull">
             <label>Date of Birth</label>
             <input type="date" class="form-control" name="pet[dob]"
-            placeholder="2020/12/01">
+            placeholder="02/12/2020">
             <label>Favorite Toy</label>
             <input type="text" class="form-control" name="pet[favorite_toy]"
             placeholder="Ball">
@@ -74,37 +76,6 @@
           <h5 id="welcome">Welcome to Savvy Paws</h5>
           <p id="main-text">Savvy Paws is an online application dedicated...</p>
 
-          <!-- this form is the edit form -->
-          <form id="edit-form">
-          <legend>Edit This Pet!</legend>
-          <p id="edit-message"></p>
-          <label>Pet's Name</label>
-          <input type="text" class="form-control" name="pet[name]"
-          placeholder="Name Here">
-          <label>Species</label>
-          <!--<input type="text" class="form-control" name="pet[species]"
-          placeholder="Dog"> -->
-          <select class="custom-select my-1 mr-sm-2 inlineFormCustomSelectPref" name=pet[species]>
-          <option selected>Select Species</option>
-          <option value="1" class="dog">Dog</option>
-          <option value="2" class="cat">Cat</option>
-          <!-- <option value="3">Three</option> -->
-          </select>
-          <label>Breed</label>
-          <input type="text" class="form-control" name="pet[breed]"
-          placeholder="Pitbull">
-          <label>Date of Birth</label>
-          <input type="date" class="form-control" name="pet[dob]"
-          placeholder="2020/12/01">
-          <label>Favorite Toy</label>
-          <input type="text" class="form-control" name="pet[favorite_toy]"
-          placeholder="Ball">
-          <br>
-          <input type='submit' class="btn btn-primary btn-lg btn-block button" value="Submit">
-          <br>
-          <button type="button" class="btn btn-primary btn-lg btn-block go-back">
-          Go Back</button>
-        </form>
         </div>
         <br>
         <!--About Me Section ends here-->
@@ -114,8 +85,8 @@
             <br>
           <input type="submit" class="btn btn-primary btn-lg btn-block button" id="button-home" value="Home">
 
-          <input type="submit" class="btn btn-primary btn-lg btn-block button button-view" id="view-pets" value="View All Pets">
-          <!-- <br> -->
+          <!-- <input type="submit" class="btn btn-primary btn-lg btn-block button button-view" id="view-pets" value="View All Pets">
+           <br> -->
           <input type="submit" class="btn btn-primary btn-lg btn-block button button-signup" data-toggle="modal" data-target="#modal-signup" value="Sign Up">
           <!-- <br> -->
           <input type="submit" class="btn btn-primary btn-lg btn-block button button-login" data-toggle="modal" data-target="#modal-signin" value="Sign In">
@@ -224,6 +195,50 @@
     </div>
   </div>
 </div>
+
+<!-- edit forms modal -->
+  <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+      <form id="edit-form">
+        <fieldset>
+          <legend>Edit This Pet!</legend>
+          <p id="edit-message"></p>
+          <label>Pet's ID</label>
+          <input type="text" class="form-control" name="pet[id]"
+          placeholder="Pet ID">
+          <label>Pet's Name</label>
+          <input type="text" class="form-control" name="pet[name]"
+          placeholder="Name Here">
+          <label>Species</label>
+<!--<input type="text" class="form-control" name="pet[species]"
+placeholder="Dog"> -->
+          <select class="custom-select my-1 mr-sm-2 inlineFormCustomSelectPref" name=pet[species]>
+          <option selected>Select Species</option>
+          <option value="Dog" class="dog">Dog</option>
+          <option value="Cat" class="cat">Cat</option>
+<!-- <option value="3">Three</option> -->
+          </select>
+          <label>Breed</label>
+          <input type="text" class="form-control" name="pet[breed]"
+          placeholder="Pitbull">
+          <label>Date of Birth</label>
+          <input type="date" class="form-control" name="pet[dob]"
+          placeholder="02/12/2020">
+          <label>Favorite Toy</label>
+          <input type="text" class="form-control" name="pet[favorite_toy]"
+          placeholder="Ball">
+          <br>
+          <input type='submit' class="btn btn-primary btn-lg btn-block button" value="Submit">
+          <br>
+          <button type="button" class="btn btn-primary btn-lg btn-block go-back" data-toggle="modal" data-target="#edit-modal">
+          Go Back</button>
+          </fieldset>
+          </form>
+          </div>
+        </div>
+      </div>
 <!--Modals End here-->
 <div class="container">
   <div class="row">

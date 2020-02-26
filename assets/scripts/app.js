@@ -31,15 +31,15 @@ $(() => {
   $('#clear-pets').hide()
   $('#new-pets').hide()
   $('.add-new').hide()
-  $('#edit-form').hide()
+  $('.edit-pet').hide()
   // pets
   $('#new-pets').on('click', eventsPets.onNewPetButton)
   $('.add-new').on('submit', eventsPets.onAddNew)
-  $('#view-pets').on('click', eventsPets.seeAllPets)
-  $('#get-pets').on('click', eventsPets.onSeeUsersPets)
+  // $('#view-pets').on('click', eventsPets.seeAllPets)
+  $('#get-pets').on('click', eventsPets.seeAllPets)
   $('#clear-pets').on('click', eventsPets.onClearPets)
+  $('#edit-form').on('submit', eventsPets.onEditPets)
+  // $('.remove-pet').on('click', eventsPets.onDeletePets)
+  eventsPets.addHandlers()
   // delete and Edit
-
-  $('.text-all').on('click', '.remove-pet', eventsPets.onDeletePets)
-  $('.text-all').on('click', '.edit-pet', eventsPets.onEditPetsButton)
 })
