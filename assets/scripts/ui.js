@@ -12,14 +12,9 @@ const showModalSignUpSuccess = function (response) {
   $('#main-text').show()
 }
 
-const showModalEditSuccess = function (response) {
-  $('#edit-form').trigger('reset')
-  $('#edit-form').modal('show')
-}
-
 const showModalLogInSuccess = function (response) {
   // console.log('something')
-  $('#sign-up').trigger('reset')
+  $('#sign-in').trigger('reset')
   $('#modal-signin').modal('show')
   $('#login-message').text('')
   $('#modal-signup').modal('hide')
@@ -31,6 +26,8 @@ const showModalLogInSuccess = function (response) {
 
 const showModalChangeSuccess = function (response) {
   // console.log('something')
+  $('#edit-message').hide()
+  $('#click-message').hide()
   $('#sign-up').trigger('reset')
   $('#modal-changepw').modal('show')
   $('#changepw-message').text('')
@@ -128,6 +125,8 @@ const logOutSuccess = function (response) {
   $('#main-text').show()
   $('.text-all').empty()
   $('.edit-pet').hide()
+  $('#edit-message').hide()
+  $('#click-message').hide()
 
   setTimeout(() => {
     $('.space').text('')
@@ -166,6 +165,7 @@ const showPortalFail = function (response) {
 }
 
 const goBackSuccess = function (response) {
+  $('#edit-form').trigger('reset')
   $('.text-all').trigger('reset')
   $('#modal-signin').modal('hide')
   $('#modal-signup').modal('hide')
@@ -204,7 +204,6 @@ module.exports = {
   showPortalSuccess,
   logOutSuccess,
   goBackSuccess,
-  showModalEditSuccess,
   showPortalFail,
   goBackFail
 }

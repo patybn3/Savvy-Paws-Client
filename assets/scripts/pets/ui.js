@@ -1,10 +1,12 @@
 'use strict'
-// const store = require('../store')
+const store = require('./../store')
 // const showPetsTemplate = require('../templates/pets-all.handlebars')
 const showPetsTemplate = require('../templates/user-pets.handlebars')
 
 const newPetButtonSuccess = function (response) {
   // console.log('something')
+  $('#edit-message').hide()
+  $('#click-message').hide()
   $('.text-all').empty()
   $('.add-new').show()
   $('#about-me').hide()
@@ -32,6 +34,8 @@ const newPetSuccess = function (response) {
 
 // Show all pets, no user linked
 const seeAllSuccess = (data) => {
+  $('#edit-message').hide()
+  $('#click-message').hide()
   $('.edit-pet').show()
   $('.add-new').hide()
   // $('.text-all').show()
@@ -42,7 +46,7 @@ const seeAllSuccess = (data) => {
   $('#main-text').hide()
   $('.text-all').html('')
   const showPetsHtml = showPetsTemplate({ pets: data.pets })
-  $('.text-all').html('')
+  // $('.text-all').html('')
   $('.text-all').append(showPetsHtml)
 
   $('#button-home').click(function (event) {
@@ -54,15 +58,6 @@ const seeAllSuccess = (data) => {
       $('#main-text').show()
     }
   })
-
-  // $('#edit-submit').click(function (event) {
-  //   if (!$(this).hasClass('.text-all')) {
-  //     $('#')
-  //     $('.text-all').html('')
-  //     $('.text-all').append(showPetsHtml)
-  //     $('.text-all').html('')
-  //   }
-  // })
 }
 
 const clearPets = () => {
@@ -71,29 +66,41 @@ const clearPets = () => {
 
 const editPetSuccess = function (response) {
   // console.log('something')
-  $('#edit-form').trigger('reset')
+  $('.text-all').empty()
+  $('#edit-message').show()
+  $('#edit-message').addClass('success')
+  $('#edit-message').text('You Have Successfully Edited Your Pet!')
+  $('#click-message').show()
+  $('#click-message').text(`Click on "View Your Pets" Button to Continue.`)
 
+  $('#edit-form').trigger('reset')
   $('#get-pets').trigger('reset')
   $('.text-all').trigger('reset')
-  // $('.text-all').trigger('reset')
-  $('#edit-message').removeClass('failure')
-  $('#edit-message').text(`You Have Successfully Edited Your Pet!`)
-  $('#edit-message').addClass('success')
 
   setTimeout(() => {
     $('#edit-modal').modal('hide')
   }, 800)
+}
 
-  // $('.text-all').html('')
-  // const showPetsHtml = showPetsTemplate({ pets: data.pets })
-  // // $('.text-all').html('')
-  // $('.text-all').append(showPetsHtml)
+const seeAllfailure = function (response) {
+  $('.text-all').empty()
+  $('#edit-message').show()
+  $('#edit-message').removeClass('success')
+  $('#edit-message').text(`"View Your Pets" Failed. Please Try Again!`)
+  $('#edit-message').addClass('failure')
 }
 
 const editPetFail = function (response) {
-  $('#edit-message').removeClass('success')
-  $('#edit-message').text(`Pet Update Failed. Please Try Again or Click on the "GO BACK" Button to Return.`)
-  $('#edit-message').addClass('failure')
+  $('.text-all').empty()
+  $('#about-me').show()
+  $('#about-me').removeClass('success')
+  $('#about-me').text(`Pet Update Failed. Please Try Again!`)
+  $('#about-me').addClass('failure')
+}
+
+const showModalEditSuccess = function (response) {
+  $('#edit-form').trigger('reset')
+  $('#edit-form').modal('show')
 }
 
 module.exports = {
@@ -102,5 +109,7 @@ module.exports = {
   seeAllSuccess,
   editPetSuccess,
   clearPets,
-  editPetFail
+  showModalEditSuccess,
+  editPetFail,
+  seeAllfailure
 }

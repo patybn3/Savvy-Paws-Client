@@ -6,6 +6,8 @@ const ui = require('./ui')
 
 const onNewPetButton = event => {
   $('.add-new').show()
+
+  ui.newPetButtonSuccess()
 }
 
 const onAddNew = event => {
