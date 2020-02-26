@@ -4,7 +4,7 @@
 {{log pet}} {{!-- {{this is a comment}} --}}
 <section data-id="{{pet.id}}" class="handles">
   <h3>
-    {{limit pet.name 15}}
+  {{limit pet.name 15}}
 </h3>
 <h6> Pet ID: </h6>
 <p>
@@ -14,6 +14,7 @@
   No ID available
   {{/if}}
 </p>
+
 <h6>Date of Birth:</h6>
 <p>
 {{#if pet.dob}}

@@ -1,5 +1,4 @@
 'use strict'
-const store = require('./../store')
 // const showPetsTemplate = require('../templates/pets-all.handlebars')
 const showPetsTemplate = require('../templates/user-pets.handlebars')
 
@@ -11,11 +10,12 @@ const newPetButtonSuccess = function (response) {
   $('.add-new').show()
   $('#about-me').hide()
   $('#welcome').hide()
-  $('#main-text').hide()
+  $('.main-text').hide()
 }
 // Created a new pet
 const newPetSuccess = function (response) {
   // console.log('works')
+  $('.text-all').empty()
   $('.add-new').trigger('reset')
   $('#add-message').removeClass('failure')
   $('#add-message').text('You Have Added Your Pet Successfully!')
@@ -43,11 +43,18 @@ const seeAllSuccess = (data) => {
   $('.text-all').trigger('reset')
   $('#about-me').hide()
   $('#welcome').hide()
-  $('#main-text').hide()
+  $('.main-text').hide()
+
   $('.text-all').html('')
   const showPetsHtml = showPetsTemplate({ pets: data.pets })
   // $('.text-all').html('')
   $('.text-all').append(showPetsHtml)
+  // $('.text-all').on('click', '.remove-pet', function (event) {
+  //   // if (!$(this).hasClass('.text-all')) {
+  //   $('#delete-message').addClass('success')
+  //   $('#delete-message').append('You Have Deleted Your Pet!')
+  //   // }
+  // })
 
   $('#button-home').click(function (event) {
     event.preventDefault()
@@ -55,7 +62,7 @@ const seeAllSuccess = (data) => {
       $('.text-all').empty()
       $('#about-me').show()
       $('#welcome').show()
-      $('#main-text').show()
+      $('.main-text').show()
     }
   })
 }
@@ -103,6 +110,12 @@ const showModalEditSuccess = function (response) {
   $('#edit-form').modal('show')
 }
 
+const onDeleteSuccess = function (response) {
+  // $('#edit-message').show()
+  $('#delete-message').addClass('success')
+  $('#delete-message').text('You Have Deleted Your Pet!')
+}
+
 module.exports = {
   newPetButtonSuccess,
   newPetSuccess,
@@ -111,5 +124,6 @@ module.exports = {
   clearPets,
   showModalEditSuccess,
   editPetFail,
-  seeAllfailure
+  seeAllfailure,
+  onDeleteSuccess
 }

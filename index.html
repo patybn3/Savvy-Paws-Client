@@ -6,6 +6,7 @@
 
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
 
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
@@ -14,10 +15,13 @@
     <body>
       <nav id="navbar">
       <h1>Savvy Paws</h1>
+      <h3 id="nav-welcome"></h3>
       <div id="logo">
         <img src="./public/logo.png" alt="Puppy logo"/>
       </div>
     </nav>
+    <img src="./public/Cat.png" alt="cat logo" id="cat-pic"/>
+    <img src="./public/Dog.png" alt="dog logo" id="dog-pic"/>
     <!-- Two main columns -->
 
     <!-- Main Section About Me starts -->
@@ -49,8 +53,8 @@
             placeholder="Dog"> -->
             <select class="custom-select my-1 mr-sm-2 inlineFormCustomSelectPref" name=pet[species]>
             <option selected>Select Species</option>
-            <option value="Dog" class="dog">Dog</option>
-            <option value="Cat" class="cat">Cat</option>
+            <option value="Dog" class="dog" id="pet-dog">Dog</option>
+            <option value="Cat" class="cat" id="pet-cat">Cat</option>
             <!-- <option value="3">Three</option> -->
             </select>
             <label>Breed</label>
@@ -74,9 +78,31 @@
           <p class="text-all"></p>
           <h2 id="edit-message"></h2>
           <p id="click-message"></p>
-          <h2 id="about-me">About Savvy Paws</h2>
-          <h5 id="welcome">Welcome to Savvy Paws</h5>
-          <p id="main-text">Savvy Paws is an online application dedicated...</p>
+          <h2 id="about-me">About Savvy Paws</h2><br>
+          <h4 id="welcome">Welcome!</h4><br>
+          <p class="main-text" id="main-p">Savvy Paws is an online application dedicated to track the information of your fur friend. All you need to do is Sign Up and Sign In to start enjoying this amazing tool!<br></p>
+            <br><h5 class="main-text">You Know what they say about Pets:</h5><br>
+            <p class="main-text">“Money can buy you a fine dog, but only love can make him wag his tail.” <br><strong>– Kinky Friedman</strong><br></p>
+
+  <p class="main-text">“There is no faith which has never yet been broken except that of a truly faithful dog.” <br><strong>– Konrad Lorenz</strong><br></p>
+
+  <p class="main-text">“Nobody can fully understand the meaning of love unless he’s owned a dog. A dog can show you more honest affection with a flick of his tail than a man can gather through a lifetime of handshakes.” <br><strong>– Gene Hill</strong><br></p>
+
+  <p class="main-text">“Dogs come into out lives to teach us about love, they depart to teach us about loss. A new dog never replaces an old dog. It merely expands the heart.” <br><strong>– Author Unknown</strong><br></p>
+
+  <p class="main-text">“Dogs leave pawprints on our hearts” <br><strong>– Author Unknown</strong><br></p>
+
+  <p class="main-text">“The dog is a gentleman; I hope to go to his heaven not mans.” <br><strong>– Mark Twain</strong><br></p>
+
+  <p class="main-text">“A dog will teach you unconditional love. If you can have that in your life, things won’t be too bad.” <br><strong>– Robert Wagner</strong><br></p>
+
+  <p class="main-text">“The greatest fear dogs know is the fear that you will not come back when you go out the door without them.” <br><strong>– Stanley Coren</strong><br></p>
+
+  <h5 class="main-text">"mmmmm I guess cats are pretty cool too..." - Me</h5>
+<br>
+<img src="./public/pets-cute.jpeg" alt="Puppy pic"/>
+<br>
+
 
         </div>
         <br>
@@ -126,7 +152,9 @@
               <label>Confirm Password</label>
               <input type="password" class="form-control" name="credentials[password_confirmation]"
               placeholder="Reenter Password Here">
-              <input type='submit' class="btn btn-primary btn-lg btn-block button" value='Sign Up!'>
+
+              <input type='submit' class="btn btn-primary btn-lg btn-block button" data-toggle="modal" data-target="#modal-signin" value='Sign Up!'>
+
               <label>Already a Member?</label><br>
               <button type="button" class="btn btn-primary btn-lg btn-block button button-login" data-toggle="modal" data-target="#modal-signin">
               Sign In!</button>Or

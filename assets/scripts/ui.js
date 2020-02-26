@@ -9,7 +9,7 @@ const showModalSignUpSuccess = function (response) {
   $('.text-all').empty()
   $('#about-me').show()
   $('#welcome').show()
-  $('#main-text').show()
+  $('.main-text').show()
 }
 
 const showModalLogInSuccess = function (response) {
@@ -21,7 +21,7 @@ const showModalLogInSuccess = function (response) {
   $('.text-all').empty()
   $('#about-me').show()
   $('#welcome').show()
-  $('#main-text').show()
+  $('.main-text').show()
 }
 
 const showModalChangeSuccess = function (response) {
@@ -71,7 +71,7 @@ const logInSuccess = function (response) {
   $('#new-pets').show()
   $('#about-me').hide()
   $('#welcome').hide()
-  $('#main-text').hide()
+  $('.main-text').hide()
 
   setTimeout(() => {
     $('#modal-signin').modal('hide')
@@ -122,7 +122,7 @@ const logOutSuccess = function (response) {
   $('#new-pets').hide()
   $('#about-me').show()
   $('#welcome').show()
-  $('#main-text').show()
+  $('.main-text').show()
   $('.text-all').empty()
   $('.edit-pet').hide()
   $('#edit-message').hide()
@@ -139,7 +139,7 @@ const showHomeSuccess = function (response) {
   // $('.main-section').empty()
   $('#about-me').show()
   $('#welcome').show()
-  $('#main-text').show()
+  $('.main-text').show()
   $('.add-new').hide()
 }
 
@@ -154,14 +154,14 @@ const showPortalSuccess = function (response) {
   $('.text-all').hide()
   $('#about-me').hide()
   $('#welcome').hide()
-  $('#main-text').hide()
+  $('.main-text').hide()
 }
 
 const showPortalFail = function (response) {
   $('#about-me').hide()
   $('#welcome').text('User Portal Failed to Open, Please Try Again.')
   $('#welcome').addClass('failure')
-  $('#main-text').text('')
+  $('.main-text').text('')
 }
 
 const goBackSuccess = function (response) {
@@ -178,17 +178,17 @@ const goBackSuccess = function (response) {
   // $('#main-text').hide()
 }
 
-const goBackFail = function (response) {
-  $('#changepw-message').removeClass('success')
-  $('#changepw-message').text('Unable to Go Back. Please Try Again')
-  $('#changepw-message').addClass('failure')
-  $('#login-message').removeClass('success')
-  $('#login-message').text('Unable to Go Back. Please Try Again')
-  $('#login-message').addClass('failure')
-  $('#sign-up-message').removeClass('success')
-  $('#sign-up-message').text('Unable to Go Back. Please Try Again')
-  $('#sign-up-message').addClass('failure')
-}
+// const goBackFail = function (response) {
+//   $('#changepw-message').removeClass('success')
+//   $('#changepw-message').text('Unable to Go Back. Please Try Again')
+//   $('#changepw-message').addClass('failure')
+//   $('#login-message').removeClass('success')
+//   $('#login-message').text('Unable to Go Back. Please Try Again')
+//   $('#login-message').addClass('failure')
+//   $('#sign-up-message').removeClass('success')
+//   $('#sign-up-message').text('Unable to Go Back. Please Try Again')
+//   $('#sign-up-message').addClass('failure')
+// }
 
 module.exports = {
   showModalSignUpSuccess,
@@ -204,6 +204,6 @@ module.exports = {
   showPortalSuccess,
   logOutSuccess,
   goBackSuccess,
-  showPortalFail,
-  goBackFail
+  showPortalFail
+  // goBackFail
 }

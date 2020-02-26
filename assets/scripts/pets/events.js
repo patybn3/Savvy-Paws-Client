@@ -2,7 +2,7 @@ const getForm = require('../../../lib/get-form-fields')
 // go back to scrips count one, back to assets, two, back to tic-tac-toe main folder, three, enter lib, name file
 const api = require('./api')
 const ui = require('./ui')
-// const store = require('../store')
+const store = require('../store')
 
 const onNewPetButton = event => {
   $('.add-new').show()
@@ -29,12 +29,14 @@ const seeAllPets = event => {
     .catch(ui.seeAllfailure)
 }
 
-// const seePets = event => {
-//   event.preventDefault()
+// const seePic = event => {
+//   const cat = store.pets.species
+//   const catPic = document.getElementById('pet-cat')
 //
-//   api.getPetsUser()
-//     .then(ui.seeUsersPetsSuccess)
-//     .catch(ui.seeUsersPetsfailure)
+//   if (cat === catPic) {
+//     seeAllPets()
+//     document.write("<img src='./public/Cat.png'>")
+//   }
 // }
 
 const onClearPets = (event) => {
@@ -46,6 +48,8 @@ const onDeletePets = (event) => {
   event.preventDefault()
 
   api.deletePets(event)
+    // .then(ui.seeAllSuccess)
+    .then(ui.onDeleteSuccess)
     .then(function () {
       seeAllPets(event)
     })
@@ -82,4 +86,5 @@ module.exports = {
   onDeletePets,
   onEditPets,
   addHandlers
+  // seePic
 }

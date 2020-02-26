@@ -33,6 +33,8 @@ $(() => {
   $('#new-pets').hide()
   $('.add-new').hide()
   $('.edit-pet').hide()
+  $('#cat-pic').hide()
+  $('#dog-pic').hide()
   // pets
   $('#new-pets').on('click', eventsPets.onNewPetButton)
   $('.add-new').on('submit', eventsPets.onAddNew)

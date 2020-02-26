@@ -2,14 +2,15 @@
 @import 'variables';
 
 body {
-  background: $white-color;
+  background: $sides;
+  font-family: $page-font;
 }
 
 #navbar {
   background: $navbar-color;
   // box-shadow: 0 8px 8px -2px $shadow;
   color: $white-color;
-  height: 150px;
+  height: 170px;
   margin: auto;
 }
 
@@ -29,8 +30,8 @@ h1 {
 
 .main-section {
   background: $white-color;
-  box-shadow: 4px 2px 5px 3px $shadow;
-  // border-radius: 10px;
+  // box-shadow: 4px 2px 5px 3px $shadow;
+  border-radius: 10px 0 0 10px;
 }
 
 .space-two {
@@ -40,7 +41,7 @@ h1 {
 }
 
 .space, .space-blank {
-  color: $white-color;
+  color: $sides;
   font-size: 35px;
 }
 
@@ -92,4 +93,8 @@ h1 {
 
 .handles {
   padding: 20px;
+}
+
+#about-me, #welcome, #main-p {
+  text-align: center;
 }
