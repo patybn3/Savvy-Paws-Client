@@ -18,20 +18,20 @@ body {
   display: inline-block;
   height: auto;
   margin-top: -150px;
-  padding-left: 100px;
+  padding-left: 130px;
   vertical-align: top;
   width: 100px;
 }
 
 h1 {
-  padding: 50px 260px;
+  padding: 60px 300px;
   text-shadow: 3px 3px $shadow;
 }
 
 .main-section {
   background: $white-color;
   // box-shadow: 4px 2px 5px 3px $shadow;
-  border-radius: 10px 0 0 10px;
+  border-radius: 0 10px 10px 0;
 }
 
 .space-two {
@@ -49,7 +49,7 @@ h1 {
   background-color: $background-color;
   // border-radius: 10px;
   // box-shadow: 4px 0px 8px -2px $shadow;
-  border-left: 20px solid $white-color;
+  // border-left: 20px solid $white-color;
 
 }
 
