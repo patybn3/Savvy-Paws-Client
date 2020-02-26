@@ -12,6 +12,11 @@ const showModalSignUpSuccess = function (response) {
   $('#main-text').show()
 }
 
+const showModalEditSuccess = function (response) {
+  $('#edit-form').trigger('reset')
+  $('#edit-form').modal('show')
+}
+
 const showModalLogInSuccess = function (response) {
   // console.log('something')
   $('#sign-up').trigger('reset')
@@ -61,7 +66,7 @@ const logInSuccess = function (response) {
   store.user = response.user
   $('#button-changepw').show()
   $('#button-logout').show()
-  $('#button-portal').show()
+  $('#button-home').show()
   $('.button-signup').hide()
   $('.button-login').hide()
   $('#get-pets').show()
@@ -105,7 +110,7 @@ const changePwFail = function (response) {
 const logOutSuccess = function (response) {
   $('#view-pets').trigger('reset')
   $('#button-changepw').hide()
-  $('#button-portal').hide()
+  $('#button-home').hide()
   $('#button-logout').hide()
   $('.space').text('You Have Successfully Signed Out!')
   $('.space').addClass('success')
@@ -161,13 +166,13 @@ const showPortalFail = function (response) {
 }
 
 const goBackSuccess = function (response) {
+  $('.text-all').trigger('reset')
   $('#modal-signin').modal('hide')
   $('#modal-signup').modal('hide')
   $('#modal-changepw').modal('hide')
   $('.add-new').hide()
-  $('#edit-form').hide()
+  $('#edit-form').modal('hide')
   $('#get-pets').trigger('reset')
-  $('.text-all').trigger('reset')
   // $('#about-me').show()
   // $('#welcome').hide()
   // $('#main-text').hide()
@@ -199,7 +204,7 @@ module.exports = {
   showPortalSuccess,
   logOutSuccess,
   goBackSuccess,
-  // showHomeFail,
+  showModalEditSuccess,
   showPortalFail,
   goBackFail
 }

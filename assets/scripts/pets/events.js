@@ -50,15 +50,11 @@ const onDeletePets = (event) => {
     .catch(ui.onDeletefailure)
 }
 
-// const onEditPets = event => {
-//   event.preventDefault()
-//
-//   api.editPets(event)
-//     .then(function () {
-//       seeAllPets(event)
-//     })
-//     .catch(ui.editPetsButtonfailure)
-// }
+const onEditButton = event => {
+  event.preventDefault()
+
+  ui.showModalEditSuccess()
+}
 
 const onEditPets = event => {
   event.preventDefault()
@@ -79,7 +75,7 @@ module.exports = {
   onNewPetButton,
   onAddNew,
   seeAllPets,
-  // onSeeUsersPets,
+  onEditButton,
   onClearPets,
   onDeletePets,
   onEditPets,

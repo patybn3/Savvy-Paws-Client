@@ -22,6 +22,12 @@ const newPetSuccess = function (response) {
   setTimeout(() => {
     $('#add-message').hide()
   }, 1500)
+
+  setTimeout(() => {
+    $('.add-new').fadeOut()
+  }, 1500)
+
+  $('.text-all').trigger('reset')
 }
 
 // Show all pets, no user linked
@@ -34,6 +40,7 @@ const seeAllSuccess = (data) => {
   $('#about-me').hide()
   $('#welcome').hide()
   $('#main-text').hide()
+  $('.text-all').html('')
   const showPetsHtml = showPetsTemplate({ pets: data.pets })
   $('.text-all').html('')
   $('.text-all').append(showPetsHtml)
@@ -48,12 +55,14 @@ const seeAllSuccess = (data) => {
     }
   })
 
-  $('#get-pets').click(function (event) {
-    event.preventDefault()
-    if (!$(this).hasClass('.text-all')) {
-      $('.text-all').empty()
-    }
-  })
+  // $('#edit-submit').click(function (event) {
+  //   if (!$(this).hasClass('.text-all')) {
+  //     $('#')
+  //     $('.text-all').html('')
+  //     $('.text-all').append(showPetsHtml)
+  //     $('.text-all').html('')
+  //   }
+  // })
 }
 
 const clearPets = () => {
@@ -62,8 +71,11 @@ const clearPets = () => {
 
 const editPetSuccess = function (response) {
   // console.log('something')
+  $('#edit-form').trigger('reset')
+
   $('#get-pets').trigger('reset')
   $('.text-all').trigger('reset')
+  // $('.text-all').trigger('reset')
   $('#edit-message').removeClass('failure')
   $('#edit-message').text(`You Have Successfully Edited Your Pet!`)
   $('#edit-message').addClass('success')
@@ -71,6 +83,11 @@ const editPetSuccess = function (response) {
   setTimeout(() => {
     $('#edit-modal').modal('hide')
   }, 800)
+
+  // $('.text-all').html('')
+  // const showPetsHtml = showPetsTemplate({ pets: data.pets })
+  // // $('.text-all').html('')
+  // $('.text-all').append(showPetsHtml)
 }
 
 const editPetFail = function (response) {

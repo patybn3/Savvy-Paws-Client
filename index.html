@@ -32,7 +32,7 @@
           <button id="get-pets" class="btn btn-primary button button-view">View Your Pets</button>
           <button id="clear-pets" class="btn btn-primary button">Clear All Pets</button>
           <button id="new-pets" class="btn btn-primary button">Add New Pet</button>
-          <button class='btn btn-primary button edit-pet' data-toggle="modal" data-target="#edit-modal">Edit Pet</button>
+          <button class="btn btn-primary button edit-pet" data-toggle="modal" data-target="#edit-modal">Edit Pet By ID</button>
 
           <!-- form to add a new pet to the system -->
           <form class="add-new">
@@ -230,7 +230,7 @@ placeholder="Dog"> -->
           <input type="text" class="form-control" name="pet[favorite_toy]"
           placeholder="Ball">
           <br>
-          <input type='submit' class="btn btn-primary btn-lg btn-block button" value="Submit">
+          <input type='submit' class="btn btn-primary btn-lg btn-block button" id="edit-submit" value="Submit">
           <br>
           <button type="button" class="btn btn-primary btn-lg btn-block go-back" data-toggle="modal" data-target="#edit-modal">
           Go Back</button>

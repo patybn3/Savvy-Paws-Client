@@ -14,6 +14,7 @@ $(() => {
   $('.button-signup').on('click', eventsFile.onShowSignUpModal)
   $('.button-login').on('click', eventsFile.onShowLogInModal)
   $('#button-changepw').on('click', eventsFile.onShowChangeModal)
+  $('.edit-pet').on('click', eventsFile.onEditButton)
   // makes forms work:
   $('#sign-up').on('submit', eventsFile.onSignUp)
   $('#sign-in').on('submit', eventsFile.onLogIn)
@@ -26,7 +27,7 @@ $(() => {
   // hides and shows
   $('#button-changepw').hide()
   $('#button-logout').hide()
-  $('#button-portal').hide()
+  $('#button-home').hide()
   $('#get-pets').hide()
   $('#clear-pets').hide()
   $('#new-pets').hide()
