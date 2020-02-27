@@ -34,12 +34,12 @@ const newPetSuccess = function (response) {
 
 // Show all pets, no user linked
 const seeAllSuccess = (data) => {
+  $('#get-pets').trigger('reset')
   $('#edit-message').hide()
   $('#click-message').hide()
   $('.edit-pet').show()
   $('.add-new').hide()
   // $('.text-all').show()
-  $('#get-pets').trigger('reset')
   $('.text-all').trigger('reset')
   $('#about-me').hide()
   $('#welcome').hide()

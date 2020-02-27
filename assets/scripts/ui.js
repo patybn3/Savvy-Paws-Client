@@ -105,7 +105,7 @@ const changePwFail = function (response) {
 }
 
 const logOutSuccess = function (response) {
-  $('#view-pets').trigger('reset')
+  $('#get-pets').trigger('reset')
   $('#button-changepw').hide()
   $('#button-home').hide()
   $('#button-logout').hide()
