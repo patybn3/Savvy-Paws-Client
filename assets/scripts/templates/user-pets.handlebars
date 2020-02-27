@@ -1,7 +1,7 @@
 
 <h2 class="handles">Your Pets</h2>
 {{#each pets as |pet|}}
-{{log pet}} {{!-- {{this is a comment}} --}}
+{{!-- {{log pet}} -> this is a console log {{this is a comment}} --}}
 <section data-id="{{pet.id}}" class="handles">
   <h3>
   {{limit pet.name 15}}

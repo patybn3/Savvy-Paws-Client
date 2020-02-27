@@ -55,8 +55,6 @@ Your app must not:
  Use alerts for anything.
  Display errors or warnings in the console.
  Display debugging messages in the console.
-Keep this game within a single page application. Do not create multiple pages for this website functions, no browser refreshing is allowed.
-This game should also allow multiple games, one at a time by using a restart function/button, visually display the winner and allow the switch between player X and player O.
 
 ## Technology Used:
 
@@ -73,7 +71,7 @@ The Front-End of this project is written in the following languages:
 
 ## Planning and Development Process:
 
-User stories were created to propose the features of this game that would be used by an user who is to sing up and sign in to play the game:
+# User Stories
 
 1. As an user I would like to sign in
 2. As an user I would like to sign out
@@ -166,5 +164,5 @@ Goals:
 
 
 
-[Savvy-Paws Wireframe 1](./wireframefirst.jpg) ![Savvy-Paws Wireframe 1](/wireframefirst.jpg)
-[Savvy-Paws Wireframe 2](./wireframesecond.jpg) ![Savvy-Paws Wireframe 2](./wireframesecond.jpg)
+![Savvy-Paws Wireframe 1](/wireframefirst.jpg)
+![Savvy-Paws Wireframe 2](./wireframesecond.jpg)

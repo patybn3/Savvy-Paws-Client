@@ -2,7 +2,7 @@ const getForm = require('../../../lib/get-form-fields')
 // go back to scrips count one, back to assets, two, back to tic-tac-toe main folder, three, enter lib, name file
 const api = require('./api')
 const ui = require('./ui')
-const store = require('../store')
+// const store = require('../store')
 
 const onNewPetButton = event => {
   $('.add-new').show()
