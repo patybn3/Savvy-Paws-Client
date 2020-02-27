@@ -75,6 +75,7 @@ const editPetSuccess = function (response) {
   // console.log('something')
   $('.text-all').empty()
   $('#edit-message').show()
+  $('#edit-message').removeClass('failure')
   $('#edit-message').addClass('success')
   $('#edit-message').text('You Have Successfully Edited Your Pet!')
   $('#click-message').show()
