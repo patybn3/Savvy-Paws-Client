@@ -3,6 +3,7 @@
 This is a Full Stack project in which this is the front-end repository
 Check the back-end repository at https://github.com/patybn3/Savvy-Paws-Full-Stack
 Back-end built using Heroku, Git and GitHub
+Heroku: https://tranquil-earth-29477.herokuapp.com/
 
 ## Objective:
 
