@@ -99,10 +99,14 @@ const seeAllfailure = function (response) {
 
 const editPetFail = function (response) {
   $('.text-all').empty()
-  $('#about-me').show()
-  $('#about-me').removeClass('success')
-  $('#about-me').text(`Pet Update Failed. Please Try Again!`)
-  $('#about-me').addClass('failure')
+  $('#edit-message').show()
+  $('#edit-message').removeClass('success')
+  $('#edit-message').text(`Pet Update Failed. Please Try Again!`)
+  $('#edit-message').addClass('failure')
+
+  setTimeout(() => {
+    $('#edit-modal').modal('hide')
+  }, 800)
 }
 
 const showModalEditSuccess = function (response) {

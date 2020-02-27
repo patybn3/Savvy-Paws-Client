@@ -43,13 +43,13 @@ const signUpSuccess = function (response) {
 
   setTimeout(() => {
     $('#modal-signup').modal('hide')
-  }, 1000)
+  }, 500)
 }
 
 const signUpFail = function (response) {
   $('#sign-up').trigger('reset')
   $('#sign-up-message').removeClass('success')
-  $('#sign-up-message').text(`Sign Up Failed. Please Try Again or Click on the "GO BACK" Button to Return.`)
+  $('#sign-up-message').text(`Sign Up Failed. Please Try Again!`)
   $('#sign-up-message').addClass('failure')
 }
 
@@ -75,13 +75,13 @@ const logInSuccess = function (response) {
 
   setTimeout(() => {
     $('#modal-signin').modal('hide')
-  }, 1000)
+  }, 500)
 }
 
 const logInFail = function (response) {
   $('#sign-in').trigger('reset')
   $('#login-message').removeClass('success')
-  $('#login-message').text(`Sign In Failed. Please Try Again or Click on the "GO BACK" Button to Return.`)
+  $('#login-message').text(`Sign In Failed. Please Try Again!`)
   $('#login-message').addClass('failure')
 }
 
@@ -94,13 +94,13 @@ const changePwSuccess = function (response) {
 
   setTimeout(() => {
     $('#modal-changepw').modal('hide')
-  }, 1000)
+  }, 500)
 }
 
 const changePwFail = function (response) {
   $('#change-pw').trigger('reset')
   $('#changepw-message').removeClass('success')
-  $('#changepw-message').text(`Change Password Failed. Please Try Again or Click on the "GO BACK" Button to Return.`)
+  $('#changepw-message').text(`Change Password Failed. Please Try Again!`)
   $('#changepw-message').addClass('failure')
 }
 
