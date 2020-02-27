@@ -164,5 +164,5 @@ Goals:
 
 
 
-![Savvy-Paws Wireframe 1](/wireframefirst.jpg)
-![Savvy-Paws Wireframe 2](./wireframesecond.jpg)
+1. ![Savvy-Paws Wireframe 1](/wireframefirst.jpg)
+2. ![Savvy-Paws Wireframe 2](./wireframesecond.jpg)
