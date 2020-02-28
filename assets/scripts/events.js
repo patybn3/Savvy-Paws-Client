@@ -83,7 +83,7 @@ const onGoBack = event => {
   event.preventDefault()
 
   ui.goBackSuccess()
-  // ui.goBackFail()
+  ui.goBackFail()
 }
 
 module.exports = {
