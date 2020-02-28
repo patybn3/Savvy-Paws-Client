@@ -56,15 +56,15 @@ const seeAllSuccess = (data) => {
   //   // }
   // })
 
-  // $('#button-home').click(function (event) {
-  //   event.preventDefault()
-  //   if (!$(this).hasClass('.text-all')) {
-  //     $('.text-all').empty()
-  //     $('#about-me').show()
-  //     $('#welcome').show()
-  //     $('.main-text').show()
-  //   }
-  // })
+  $('#button-home').click(function (event) {
+    event.preventDefault()
+    if (!$(this).hasClass('.text-all')) {
+      $('.text-all').empty()
+      $('#about-me').show()
+      $('#welcome').show()
+      $('.main-text').show()
+    }
+  })
 }
 
 const clearPets = () => {

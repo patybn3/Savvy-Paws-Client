@@ -137,7 +137,6 @@ const logOutSuccess = function (response) {
 //
 const showHomeSuccess = function (response) {
   // $('.main-section').empty()
-  $('.text-all').empty()
   $('#about-me').show()
   $('#welcome').show()
   $('.main-text').show()
