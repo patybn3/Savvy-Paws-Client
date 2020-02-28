@@ -1,0 +1,54 @@
+
+<h2 class="handles">Your Pets</h2>
+{{#each pets as |pet|}}
+{{!-- {{log pet}} -> this is a console log {{this is a comment}} --}}
+<section data-id="{{pet.id}}" class="handles">
+  <h3>
+  {{limit pet.name 15}}
+</h3>
+<h6> Pet ID: </h6>
+<p>
+  {{#if pet.id}}
+    {{pet.id}}
+  {{else}}
+  No ID available
+  {{/if}}
+</p>
+
+<h6>Date of Birth:</h6>
+<p>
+{{#if pet.dob}}
+  {{pet.dob}}
+{{else}}
+  No Date of Birth available
+{{/if}}
+</p>
+<h6>Species:</h6>
+<p>
+{{#if pet.species}}
+  {{pet.species}}
+{{else}}
+  No Species available
+{{/if}}
+</p>
+  <h6>Breed:</h6>
+  <p>
+    {{#if pet.breed}}
+      {{pet.breed}}
+    {{else}}
+      No Breed available
+    {{/if}}
+  </p>
+  <h6>Favorite Toy:</h6>
+  <p>
+    {{#if pet.favorite_toy}}
+      {{pet.favorite_toy}}
+    {{else}}
+      No Favorite Toy available
+    {{/if}}
+    <br>
+  </p>
+    {{> partial }}
+</section>
+
+{{/each}}

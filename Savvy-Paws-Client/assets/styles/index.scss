@@ -1,0 +1,104 @@
+@import '~bootstrap/scss/bootstrap';
+@import 'variables';
+
+body {
+  background: $sides;
+  font-family: $page-font;
+}
+
+#navbar {
+  background: $navbar-color;
+  // box-shadow: 0 8px 8px -2px $shadow;
+  color: $white-color;
+  height: 170px;
+  margin: auto;
+}
+
+#logo {
+  display: inline-block;
+  height: auto;
+  margin-top: -150px;
+  padding-left: 130px;
+  vertical-align: top;
+  width: 100px;
+}
+
+h1 {
+  padding: 60px 300px;
+  text-shadow: 3px 3px $shadow;
+}
+
+.main-section {
+  background: $white-color;
+  // box-shadow: 4px 2px 5px 3px $shadow;
+  border-radius: 0 10px 10px 0;
+}
+
+.space-two {
+  background-color: $background-color;
+  color: $background-color;
+  font-size: 35px;
+}
+
+.space, .space-blank {
+  color: $sides;
+  font-size: 35px;
+}
+
+.side-section {
+  background-color: $background-color;
+  // border-radius: 10px;
+  // box-shadow: 4px 0px 8px -2px $shadow;
+  // border-left: 20px solid $white-color;
+
+}
+
+.success {
+  color: $success-message;
+  font-size: 20px;
+}
+
+.failure {
+  color: $failure-message;
+  font-size: 20px;
+}
+
+#footer {
+  background-color: $shadow;
+  bottom: 0;
+  color: $white-color;
+  left: 0;
+  position: fixed;
+  text-align: left;
+  width: 100%;
+  padding: 10px 0px 10px 15px;
+}
+
+.button {
+  background-color: $buttons !important;
+  font-size: 17px !important;
+}
+
+.go-back {
+  font-size: 17px !important;
+}
+
+.button:hover, .button:active, .button:visited {
+  background-color: $buttons-hover !important;
+}
+
+#sign-in, #sign-up, #change-pw, #edit-form {
+  text-align: center;
+}
+
+.handles {
+  padding: 20px;
+}
+
+#about-me, #welcome, #main-p {
+  text-align: center;
+}
+
+#edit-message, #click-message {
+  text-align: center;
+}
