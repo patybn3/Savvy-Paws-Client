@@ -86,7 +86,8 @@ const logInFail = function (response) {
 }
 
 const changePwSuccess = function (response) {
-  $('.text-all').hide()
+  $('#get-pets').trigger('reset')
+  $('.text-all').empty()
   $('#change-pw').trigger('reset')
   $('#changepw-message').removeClass('failure')
   $('#changepw-message').text('You Have Changed Your Password.')
