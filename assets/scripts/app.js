@@ -35,6 +35,12 @@ $(() => {
   $('.edit-pet').hide()
   $('#cat-pic').hide()
   $('#dog-pic').hide()
+  $('#hamburger').hide()
+  $('.main-section').hide()
+  $('#about-me').hide()
+  $('#welcome').hide()
+  $('.main-text').hide()
+  $('.main-section').hide()
   // pets
   $('#new-pets').on('click', eventsPets.onNewPetButton)
   $('.add-new').on('submit', eventsPets.onAddNew)

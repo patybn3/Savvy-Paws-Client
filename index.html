@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-      <title>Example</title>
+      <title>Savvy Paws</title>
       <meta name="viewport" content="width=device-width, initial-scale=1">
 
       <!-- Do not add `link` tags-->
@@ -13,87 +13,60 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
+
+      <!-- Orange nav bar-->
       <nav id="navbar">
-      <h1>Savvy Paws</h1>
       <h3 id="nav-welcome"></h3>
-      <div id="logo">
-        <img src="./public/logo.png" alt="Puppy logo"/>
-      </div>
+      <!-- Hamburger toolbar -->
+      <button id="hamburger" class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="icon-lines"></div>
+      <div class="icon-lines"></div>
+      <div class="icon-lines"></div>
+    </button>
+    <input type="submit" class="btn btn-primary button" id="button-logout" value="Log Out" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+      <!-- Home Button near main title on navbar -->
+
+        <div class="row" id="name-icon">
+      <input type="submit" class="btn btn-primary button mr-3 home" value="SP">
+      <h4 id="nav-bar-title">Savvy Paws</h4>
+    </div>
+    <!-- this is the hamburger navbar menu -->
+                <div class="collapse navbar-collapse col btn-group-vertical" id="navbarNav">
+    <!-- this is the side bar -->
+                  <div class="side-section col-12 col-lg-2">
+                    <div class="btn-lg btn-block">
+                      <div>
+
+                        <img src="./public/logo.png" alt="Puppy logo" class="logo-side"/>
+                      </div>
+
+                  <input type="submit" class="btn btn-primary btn-lg btn-block button home" value="Home">
+
+                  <input type="submit" class="btn btn-primary btn-lg btn-block button" id="button-home" value="About Us">
+
+                  <input type="submit" class="btn btn-primary btn-lg btn-block button" id="button-portal" value="User Portal">
+
+                  <input type="submit" class="btn btn-primary btn-lg btn-block button" id="button-changepw" data-toggle="modal" data-target="#modal-changepw" value="Change Password">
+
+                  <button id="get-pets" class="btn btn-primary btn-lg btn-block button button-view">View Your Pets</button>
+                  <button id="clear-pets" class="btn btn-primary btn-lg btn-block button">Clear All Pets</button>
+                  <button id="new-pets" class="btn btn-primary btn-lg btn-block button" data-toggle="modal" data-target="#modal-addnew">Add New Pet</button>
+                  <button class="btn btn-primary btn-lg btn-block button edit-pet" data-toggle="modal" data-target="#edit-modal">Edit Pet By ID</button>
+
+                </div>
+              </div>
+            </div>
+
     </nav>
-    <!-- <img src="./public/Cat.png" alt="cat logo" id="cat-pic"/>
-    <img src="./public/Dog.png" alt="dog logo" id="dog-pic"/> -->
-    <!-- Two main columns -->
+    <!-- nav bar and sidebar ends here -->
 
-    <!-- Main Section About Me starts -->
     <div class="container">
-      <div class="row">
-        <!--This div creates an space between the navbar and the main sections-->
-        <div class="col-12 col-lg-3 space-two">Blank</div>
-        <div class="col-12 col-lg-9 space">Blank</div>
-        <!-- <div class="col-12 col-lg-3 space-two">Blank</div> -->
-
-        <div class="col-12 col-lg-3 side-section">
-          <!-- <div class="btn-lg btn-block"> -->
-            <br>
-          <input type="submit" class="btn btn-primary btn-lg btn-block button" id="button-home" value="Home">
-
-          <!-- <input type="submit" class="btn btn-primary btn-lg btn-block button button-view" id="view-pets" value="View All Pets">
-           <br> -->
-          <input type="submit" class="btn btn-primary btn-lg btn-block button button-signup" data-toggle="modal" data-target="#modal-signup" value="Sign Up">
-          <!-- <br> -->
-          <input type="submit" class="btn btn-primary btn-lg btn-block button button-login" data-toggle="modal" data-target="#modal-signin" value="Sign In">
-           <!-- <br> -->
-          <input type="submit" class="btn btn-primary btn-lg btn-block button" id="button-changepw" data-toggle="modal" data-target="#modal-changepw" value="Change Password">
-           <!-- <br> -->
-          <input type="submit" class="btn btn-primary btn-lg btn-block button" id="button-logout" value="Log Out">
-          <!-- <br> -->
-        </div>
-        <!-- About me Section-->
-        <div class="col-12 col-lg-9 main-section">
-          <br>
-          <button id="get-pets" class="btn btn-primary button button-view">View Your Pets</button>
-          <button id="clear-pets" class="btn btn-primary button">Clear All Pets</button>
-          <button id="new-pets" class="btn btn-primary button">Add New Pet</button>
-          <button class="btn btn-primary button edit-pet" data-toggle="modal" data-target="#edit-modal">Edit Pet By ID</button>
-
-          <!-- form to add a new pet to the system -->
-          <form class="add-new">
           <div class="row">
-          <div class="col">
-            <br>
-            <legend>Add a New Pet!</legend>
-            <p id="add-message"></p>
-            <label>Pet's Name</label>
-            <input type="text" class="form-control" name="pet[name]"
-            placeholder="Name Here">
-            <label>Species</label>
-            <!--<input type="text" class="form-control" name="pet[species]"
-            placeholder="Dog"> -->
-            <select class="custom-select my-1 mr-sm-2 inlineFormCustomSelectPref" name=pet[species]>
-            <option selected>Select Species</option>
-            <option value="Dog" class="dog" id="pet-dog">Dog</option>
-            <option value="Cat" class="cat" id="pet-cat">Cat</option>
-            <!-- <option value="3">Three</option> -->
-            </select>
-            <label>Breed</label>
-            <input type="text" class="form-control" name="pet[breed]"
-            placeholder="Pitbull">
-            <label>Date of Birth</label>
-            <input type="date" class="form-control" name="pet[dob]"
-            placeholder="02/12/2020">
-            <label>Favorite Toy</label>
-            <input type="text" class="form-control" name="pet[favorite_toy]"
-            placeholder="Ball">
-            <br>
-            <input type='submit' class="btn btn-primary btn-lg btn-block button" value="Submit">
-            <br>
-            <button type="button" class="btn btn-primary btn-lg btn-block go-back">
-            Go Back</button>
-          </div>
-        </div>
-      </form>
-          <br><br>
-          <p class="text-all"></p>
+    <!-- Main Section About Me starts -->
+        <!-- About me Section-->
+        <div class="col-12 col-lg-12 main-section">
+    <!-- About me Section-->
           <h2 id="edit-message"></h2>
           <p id="click-message"></p>
           <h2 id="about-me">About Savvy Paws</h2><br>
@@ -102,30 +75,45 @@
             <br><h5 class="main-text">You Know what they say about Pets:</h5><br>
             <p class="main-text">“Money can buy you a fine dog, but only love can make him wag his tail.” <br><strong>– Kinky Friedman</strong><br></p>
 
-  <p class="main-text">“There is no faith which has never yet been broken except that of a truly faithful dog.” <br><strong>– Konrad Lorenz</strong><br></p>
+    <p class="main-text">“There is no faith which has never yet been broken except that of a truly faithful dog.” <br><strong>– Konrad Lorenz</strong><br></p>
 
-  <p class="main-text">“Nobody can fully understand the meaning of love unless he’s owned a dog. A dog can show you more honest affection with a flick of his tail than a man can gather through a lifetime of handshakes.” <br><strong>– Gene Hill</strong><br></p>
+    <p class="main-text">“Nobody can fully understand the meaning of love unless he’s owned a dog. A dog can show you more honest affection with a flick of his tail than a man can gather through a lifetime of handshakes.” <br><strong>– Gene Hill</strong><br></p>
 
-  <p class="main-text">“Dogs come into out lives to teach us about love, they depart to teach us about loss. A new dog never replaces an old dog. It merely expands the heart.” <br><strong>– Author Unknown</strong><br></p>
+    <p class="main-text">“Dogs come into out lives to teach us about love, they depart to teach us about loss. A new dog never replaces an old dog. It merely expands the heart.” <br><strong>– Author Unknown</strong><br></p>
 
-  <p class="main-text">“Dogs leave pawprints on our hearts” <br><strong>– Author Unknown</strong><br></p>
+    <p class="main-text">“Dogs leave pawprints on our hearts” <br><strong>– Author Unknown</strong><br></p>
 
-  <p class="main-text">“The dog is a gentleman; I hope to go to his heaven not mans.” <br><strong>– Mark Twain</strong><br></p>
+    <p class="main-text">“The dog is a gentleman; I hope to go to his heaven not mans.” <br><strong>– Mark Twain</strong><br></p>
 
-  <p class="main-text">“A dog will teach you unconditional love. If you can have that in your life, things won’t be too bad.” <br><strong>– Robert Wagner</strong><br></p>
+    <p class="main-text">“A dog will teach you unconditional love. If you can have that in your life, things won’t be too bad.” <br><strong>– Robert Wagner</strong><br></p>
 
-  <p class="main-text">“The greatest fear dogs know is the fear that you will not come back when you go out the door without them.” <br><strong>– Stanley Coren</strong><br></p>
+    <p class="main-text">“The greatest fear dogs know is the fear that you will not come back when you go out the door without them.” <br><strong>– Stanley Coren</strong><br></p>
 
-  <h5 class="main-text">"mmmmm I guess cats are pretty cool too..." - Me</h5>
-<br>
-<img src="./public/pets-cute.jpeg" alt="Puppy pic"/>
-<br>
-
-
-        </div>
-        <br>
-      </div>
+    <h5 class="main-text">"mmmmm I guess cats are pretty cool too..." - Me</h5>
     </div>
+    </div>
+    </div>
+    <!-- container for pets-->
+    <div class="content text-all"></div>
+    <!-- Background Images -->
+<img src="./public/Animal-Dog.jpg" alt="Background Image of a Dog" id="dog-image" class="back-images">
+<img src="./public/Animal-Cat.jpg" alt="Background Image of a Cat" id="cat-image" class="back-images">
+<img src="./public/dog-sunset.jpg" alt="Background Image of a Dog in the sunset" id="dog-sun-image" class="back-images">
+
+<!-- centered nav bar -->
+<div id="centered-bar">
+  <div id="logo">
+    <h2 class="middle-title">Savvy</h2>
+    <img src="./public/logo-white.png" alt="Puppy logo"/>
+    <h2 class="middle-title">Paws</h2>
+  </div>
+  <div id="navbar-buttons" class="col text-center">
+  <input type="submit" class="btn btn-primary mr-3 btn-lg button button-signup" data-toggle="modal" data-target="#modal-signup" value="Sign Up">
+
+  <input type="submit" class="btn btn-primary mr-3 btn-lg button button-login" data-toggle="modal" data-target="#modal-signin" value="Sign In">
+</div>
+</div>
+
 <!-- Modals, first modal is sign up -->
       <div class="modal fade" id="modal-signup" tabindex="-1" role="dialog"
       aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="false">
@@ -267,14 +255,55 @@ placeholder="Dog"> -->
           </div>
         </div>
       </div>
+
+  <!-- add new pet modal -->
+  <div class="modal fade" id="modal-addnew" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="false">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <form class="add-new" id="add-form">
+      <fieldset>
+        <legend>Add a New Pet!</legend>
+        <p id="add-message"></p>
+        <label>Pet's Name</label>
+        <input type="text" class="form-control" name="pet[name]"
+        placeholder="Name Here">
+        <label>Species</label>
+        <!--<input type="text" class="form-control" name="pet[species]"
+        placeholder="Dog"> -->
+        <select class="custom-select my-1 mr-sm-2 inlineFormCustomSelectPref" name=pet[species]>
+        <option selected>Select Species</option>
+        <option value="Dog" class="dog" id="pet-dog">Dog</option>
+        <option value="Cat" class="cat" id="pet-cat">Cat</option>
+        <!-- <option value="3">Three</option> -->
+        </select>
+        <label>Breed</label>
+        <input type="text" class="form-control" name="pet[breed]"
+        placeholder="Pitbull">
+        <label>Date of Birth</label>
+        <input type="date" class="form-control" name="pet[dob]"
+        placeholder="02/12/2020">
+        <label>Favorite Toy</label>
+        <input type="text" class="form-control" name="pet[favorite_toy]"
+        placeholder="Ball">
+        <br>
+        <input type='submit' class="btn btn-primary btn-lg btn-block button" value="Submit">
+        <br>
+        <button type="button" class="btn btn-primary btn-lg btn-block go-back" data-toggle="modal" data-target="#modal-addnew">
+        Go Back</button>
+      </fieldset>
+  </form>
+</div>
+</div>
+</div>
 <!--Modals End here-->
-<div class="container">
-  <div class="row">
-  <div class="col-12 col-lg-3 space-two">Blank</div>
-  <div class="col-12 col-lg-9 space-blank">Blank</div>
+<!-- <div class="container"> -->
+  <!-- <div class="row"> -->
   <!-- <div class="col-12 col-lg-3 space-two">Blank</div> -->
-</div>
-</div>
+  <!-- <div class="col-12 col-lg-9 space-blank">Blank</div> -->
+  <!-- <div class="col-12 col-lg-3 space-two">Blank</div> -->
+<!-- </div> -->
+<!-- </div> -->
 
 <footer id='footer'>
             <p id="footer-text">By Patricia Antlitz</p>

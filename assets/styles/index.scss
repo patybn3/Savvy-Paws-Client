@@ -2,55 +2,95 @@
 @import 'variables';
 
 body {
-  background: $sides;
+  background: $white-color;
   font-family: $page-font;
 }
 
 #navbar {
-  background: $navbar-color;
+  background: $navbar-color 70%;
   // box-shadow: 0 8px 8px -2px $shadow;
-  color: $white-color;
-  height: 170px;
+  height: 55px;
   margin: auto;
+  position: fixed;
+  width: 100%;
+  // opacity: 70%;
 }
 
-#logo {
-  display: inline-block;
-  height: auto;
-  margin-top: -150px;
-  padding-left: 130px;
-  vertical-align: top;
-  width: 100px;
+.icon-lines {
+  width: 25px;
+  height: 4px;
+  background-color: $black-color;
+  margin: 6px 0;
+  transition: 0.4s;
 }
 
-h1 {
-  padding: 60px 300px;
-  text-shadow: 3px 3px $shadow;
+.custom-toggler {
+  float: left;
+  padding: 2px 20px 0 30px;
+  border-right: solid $shadow 1px;
+}
+
+#centered-bar {
+  background-color: $white-color;
+  height: 200px;
+  position: fixed;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: linear-gradient(90deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,1) 51%, rgba(255,255,255,0.6348914565826331) 100%);
+}
+
+.back-images {
+  width: 100%;
+}
+
+#logo,
+#logo-side {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.logo-side {
+  height: 120px;
+  border: 4px solid $black-color;
+  width: 130px;
+  border-radius: 50% !important;
+  margin: 0 40px 20px 30px;
+}
+
+#nav-bar-title {
+  color: $white-color;
+  margin-top: 5px;
+}
+
+#name-icon {
+  padding: 0 20px 8px 20px !important;
+  margin-left: 10px !important;
+}
+
+.middle-title {
+  display: inline;
 }
 
 .main-section {
-  background: $white-color;
-  // box-shadow: 4px 2px 5px 3px $shadow;
-  border-radius: 0 10px 10px 0;
-}
-
-.space-two {
-  background-color: $background-color;
-  color: $background-color;
-  font-size: 35px;
-}
-
-.space, .space-blank {
-  color: $sides;
-  font-size: 35px;
+  background-color: $white-transparent;
+  width: 80% !important;
+  margin: 100px 50px 100px 120px !important;
+  padding: 60px !important;
+  border-radius: 5px;
+  position: absolute !important;
 }
 
 .side-section {
   background-color: $background-color;
-  // border-radius: 10px;
+  border-radius: 5px;
+  height: 100% !important;
   // box-shadow: 4px 0px 8px -2px $shadow;
-  // border-left: 20px solid $white-color;
-
+  padding: 20px !important;
+  left: 0 !important;
+  position: fixed !important;
+  margin-top: 326px !important;
 }
 
 .success {
@@ -71,7 +111,7 @@ h1 {
   position: fixed;
   text-align: left;
   width: 100%;
-  padding: 10px 0px 10px 15px;
+  padding: 5px 0 5px 15px;
 }
 
 .button {
@@ -83,22 +123,66 @@ h1 {
   font-size: 17px !important;
 }
 
-.button:hover, .button:active, .button:visited {
+.button:active,
+.button:hover,
+.button:visited {
   background-color: $buttons-hover !important;
 }
 
-#sign-in, #sign-up, #change-pw, #edit-form {
+#add-form,
+#change-pw,
+#edit-form,
+#sign-in,
+#sign-up {
   text-align: center;
+}
+
+#about-me,
+#main-p,
+#welcome {
+  text-align: center;
+}
+
+#click-message,
+#edit-message {
+  text-align: center;
+}
+
+.button-signup {
+  padding: 8px 45px 8px 45px !important;
+}
+
+.button-login {
+  padding: 8px 49px !important;
+}
+
+#navbar-buttons {
+  padding: 10px 100px 10px 120px;
+}
+
+#button-logout {
+  float: right;
+  margin-right: 30px !important;
+}
+
+.content {
+  @include make-row;
+  background-color: $no-color;
+  border-radius: 5px;
+  position: absolute;
+  width: auto;
+  margin: 100px 100px 30px 300px !important;
+}
+
+
+.background {
+  background-color: $white-transparent;
 }
 
 .handles {
-  padding: 20px;
-}
-
-#about-me, #welcome, #main-p {
-  text-align: center;
-}
-
-#edit-message, #click-message {
-  text-align: center;
+  background-color: $white-color;
+  padding: 50px;
+  border: solid 2px $black-color;
+  border-radius: 5px;
+  margin-right: 20px;
 }

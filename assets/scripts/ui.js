@@ -7,9 +7,6 @@ const showModalSignUpSuccess = function (response) {
   $('#sign-up-message').text('')
   $('#modal-signin').modal('hide')
   $('.text-all').empty()
-  $('#about-me').show()
-  $('#welcome').show()
-  $('.main-text').show()
 }
 
 const showModalLogInSuccess = function (response) {
@@ -19,9 +16,6 @@ const showModalLogInSuccess = function (response) {
   $('#login-message').text('')
   $('#modal-signup').modal('hide')
   $('.text-all').empty()
-  $('#about-me').show()
-  $('#welcome').show()
-  $('.main-text').show()
 }
 
 const showModalChangeSuccess = function (response) {
@@ -54,6 +48,7 @@ const signUpFail = function (response) {
 }
 
 const logInSuccess = function (response) {
+  $('.side-section').trigger('reset')
   $('.text-all').empty()
   $('#sign-in').trigger('reset')
   $('#login-message').removeClass('failure')
@@ -69,13 +64,20 @@ const logInSuccess = function (response) {
   $('#get-pets').show()
   $('#clear-pets').show()
   $('#new-pets').show()
-  $('#about-me').hide()
-  $('#welcome').hide()
-  $('.main-text').hide()
+  $('.side-section').show()
+  $('#centered-bar').hide()
 
   setTimeout(() => {
     $('#modal-signin').modal('hide')
+    $('#centered-bar').fadeOut()
   }, 500)
+
+  setTimeout(() => {
+    $('#hamburger').fadeIn()
+    $('#dog-image').addClass('background')
+    $('#cat-image').addClass('background')
+    $('#dog-sun-image').addClass('background')
+  }, 600)
 }
 
 const logInFail = function (response) {
@@ -121,23 +123,30 @@ const logOutSuccess = function (response) {
   $('#get-pets').hide()
   $('#clear-pets').hide()
   $('#new-pets').hide()
-  $('#about-me').show()
-  $('#welcome').show()
-  $('.main-text').show()
   $('.text-all').empty()
   $('.edit-pet').hide()
   $('#edit-message').hide()
   $('#click-message').hide()
+  $('.side-section').hide()
 
   setTimeout(() => {
     $('.space').text('')
-  }, 1000)
+    $('#hamburger').fadeOut()
+    $('.main-section').fadeOut()
+    $('#dog-image').fadeIn()
+    $('#cat-image').fadeIn()
+    $('#dog-sun-image').fadeIn()
+  }, 500)
+
+  setTimeout(() => {
+    $('#centered-bar').fadeIn()
+  }, 600)
 }
 
 // Button on side bar functionality (starts here):
 //
 const showHomeSuccess = function (response) {
-  // $('.main-section').empty()
+  $('.main-section').show()
   $('#about-me').show()
   $('#welcome').show()
   $('.main-text').show()
