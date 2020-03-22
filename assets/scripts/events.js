@@ -64,20 +64,19 @@ const onLogout = event => {
 }
 
 // Fuctions to make buttons work
-const onShowHome = event => {
+const onAboutMe = event => {
   event.preventDefault()
 
-  ui.showHomeSuccess()
+  ui.aboutMeSuccess()
   // ui.showHomeFail()
 }
 
-// const onShowPortal = event => {
-//   event.preventDefault()
-//
-//   api.showModal()
-//     .then(ui.showPortalSuccess)
-//     .catch(ui.showPortalFail)
-// }
+const onShowPortal = event => {
+  event.preventDefault()
+
+  ui.showPortalSuccess()
+  ui.showPortalFail()
+}
 
 const onGoBack = event => {
   event.preventDefault()
@@ -94,7 +93,7 @@ module.exports = {
   onLogIn,
   onChangePw,
   onLogout,
-  onShowHome,
-  // onShowPortal,
+  onAboutMe,
+  onShowPortal,
   onGoBack
 }

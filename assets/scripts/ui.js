@@ -65,12 +65,19 @@ const logInSuccess = function (response) {
   $('#clear-pets').show()
   $('#new-pets').show()
   $('.side-section').show()
-  $('#centered-bar').hide()
+  $('#middle-logo').hide()
+  $('.middle-title').hide()
+
+  const firstName = store.user.first_name
+  const lastName = store.user.last_name
+
+  setTimeout(() => {
+    $('#middle-welcome').text(`Welcome ${firstName} ${lastName}!`)
+  }, 200)
 
   setTimeout(() => {
     $('#modal-signin').modal('hide')
-    $('#centered-bar').fadeOut()
-  }, 500)
+  }, 400)
 
   setTimeout(() => {
     $('#hamburger').fadeIn()
@@ -128,6 +135,7 @@ const logOutSuccess = function (response) {
   $('#edit-message').hide()
   $('#click-message').hide()
   $('.side-section').hide()
+  $('#middle-welcome').hide()
 
   setTimeout(() => {
     $('.space').text('')
@@ -136,17 +144,20 @@ const logOutSuccess = function (response) {
     $('#dog-image').fadeIn()
     $('#cat-image').fadeIn()
     $('#dog-sun-image').fadeIn()
-  }, 500)
+  }, 400)
 
   setTimeout(() => {
+    $('#middle-logo').fadeIn()
+    $('.middle-title').fadeIn()
     $('#centered-bar').fadeIn()
-  }, 600)
+  }, 500)
 }
 
 // Button on side bar functionality (starts here):
 //
-const showHomeSuccess = function (response) {
+const aboutMeSuccess = function (response) {
   $('.main-section').show()
+  $('.text-all').empty()
   $('#about-me').show()
   $('#welcome').show()
   $('.main-text').show()
@@ -161,6 +172,7 @@ const showHomeSuccess = function (response) {
 // }
 
 const showPortalSuccess = function (response) {
+  $('.main-section').show()
   $('.text-all').hide()
   $('#about-me').hide()
   $('#welcome').hide()
@@ -210,7 +222,7 @@ module.exports = {
   logInFail,
   changePwSuccess,
   changePwFail,
-  showHomeSuccess,
+  aboutMeSuccess,
   showPortalSuccess,
   logOutSuccess,
   goBackSuccess,

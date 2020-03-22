@@ -21,7 +21,7 @@ $(() => {
   $('#change-pw').on('submit', eventsFile.onChangePw)
   // other buttons functionality
   $('#button-logout').on('click', eventsFile.onLogout)
-  $('#button-home').on('click', eventsFile.onShowHome)
+  $('#button-about').on('click', eventsFile.onAboutMe)
   $('#button-portal').on('click', eventsFile.onShowPortal)
   $('.go-back').on('click', eventsFile.onGoBack)
   // hides and shows

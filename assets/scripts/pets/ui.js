@@ -44,6 +44,7 @@ const seeAllSuccess = (data) => {
   $('#about-me').hide()
   $('#welcome').hide()
   $('.main-text').hide()
+  $('.main-section').hide()
 
   $('.text-all').html('')
   const showPetsHtml = showPetsTemplate({ pets: data.pets })
@@ -56,15 +57,15 @@ const seeAllSuccess = (data) => {
   //   // }
   // })
 
-  $('#button-home').click(function (event) {
-    event.preventDefault()
-    if (!$(this).hasClass('.text-all')) {
-      $('.text-all').empty()
-      $('#about-me').show()
-      $('#welcome').show()
-      $('.main-text').show()
-    }
-  })
+  // $('#button-home').click(function (event) {
+  //   event.preventDefault()
+  //   if (!$(this).hasClass('.main-section')) {
+  //     $('.text-all').hide()
+  //     $('#about-me').show()
+  //     $('#welcome').show()
+  //     $('.main-text').show()
+  //   }
+  // })
 }
 
 const clearPets = () => {
