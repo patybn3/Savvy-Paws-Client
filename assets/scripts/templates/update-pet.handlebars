@@ -1,0 +1,42 @@
+<!-- edit forms modal -->
+  <div class="modal fade edit-modal" id="edit-modal" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+      <form id="edit-form">
+        <fieldset>
+          <legend>Edit This Pet!</legend>
+          <label>Pet's ID</label>
+          <input type="text" class="form-control" name="pet[id]"
+          placeholder="Pet ID">
+          <label>Pet's Name</label>
+          <input type="text" class="form-control" name="pet[name]"
+          placeholder="Name Here">
+          <label>Species</label>
+<!--<input type="text" class="form-control" name="pet[species]"
+placeholder="Dog"> -->
+          <select class="custom-select my-1 mr-sm-2 inlineFormCustomSelectPref" name=pet[species]>
+          <option selected>Select Species</option>
+          <option value="Dog" class="dog">Dog</option>
+          <option value="Cat" class="cat">Cat</option>
+<!-- <option value="3">Three</option> -->
+          </select>
+          <label>Breed</label>
+          <input type="text" class="form-control" name="pet[breed]"
+          placeholder="Pitbull">
+          <label>Date of Birth</label>
+          <input type="date" class="form-control" name="pet[dob]"
+          placeholder="02/12/2020">
+          <label>Favorite Toy</label>
+          <input type="text" class="form-control" name="pet[favorite_toy]"
+          placeholder="Ball">
+          <br>
+          <input type='submit' class="btn btn-primary btn-lg btn-block button" id="edit-submit" value="Submit">
+          <br>
+          <button type="button" class="btn btn-primary btn-lg btn-block go-back" data-toggle="modal" data-target="#edit-modal">
+          Go Back</button>
+          </fieldset>
+          </form>
+          </div>
+        </div>
+      </div>

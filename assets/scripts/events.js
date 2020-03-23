@@ -2,6 +2,7 @@ const getForm = require('./../../lib/get-form-fields')
 
 const api = require('./api')
 const ui = require('./ui')
+const eventsPets = require('./pets/events')
 
 // Shows the three modals
 const onShowSignUpModal = event => {
@@ -41,7 +42,10 @@ const onLogIn = event => {
 
   api.logIn(data)
     .then(ui.logInSuccess)
-    .catch(ui.logInFail)
+    .then(function () {
+      eventsPets.seeAllPets(event)
+    })
+    .catch(ui.logOutFail)
 }
 
 const onChangePw = event => {
@@ -71,6 +75,13 @@ const onAboutMe = event => {
   // ui.showHomeFail()
 }
 
+const onHome = event => {
+  event.preventDefault()
+
+  ui.homeSuccess()
+  // ui.showHomeFail()
+}
+
 const onShowPortal = event => {
   event.preventDefault()
 
@@ -85,6 +96,13 @@ const onGoBack = event => {
   // ui.goBackFail()
 }
 
+const onHamburger = event => {
+  event.preventDefault()
+
+  ui.hamburgerSuccess()
+  // ui.goBackFail()
+}
+
 module.exports = {
   onShowSignUpModal,
   onShowLogInModal,
@@ -95,5 +113,7 @@ module.exports = {
   onLogout,
   onAboutMe,
   onShowPortal,
-  onGoBack
+  onGoBack,
+  onHamburger,
+  onHome
 }

@@ -11,7 +11,7 @@ body {
   // box-shadow: 0 8px 8px -2px $shadow;
   height: 55px;
   margin: auto;
-  position: fixed;
+  position: absolute;
   width: 100%;
   // opacity: 70%;
 }
@@ -76,21 +76,10 @@ body {
 .main-section {
   background-color: $white-transparent;
   width: 80% !important;
-  margin: 100px 50px 100px 120px !important;
+  margin: 100px 30px 100px 120px !important;
   padding: 60px !important;
   border-radius: 5px;
   position: absolute !important;
-}
-
-.side-section {
-  background-color: $background-color;
-  border-radius: 5px;
-  height: 100% !important;
-  // box-shadow: 4px 0px 8px -2px $shadow;
-  padding: 20px !important;
-  left: 0 !important;
-  position: fixed !important;
-  margin-top: 326px !important;
 }
 
 .success {
@@ -135,7 +124,7 @@ body {
 #sign-in,
 #sign-up {
   text-align: center;
-  padding: 20px;
+  padding: 20px !important;
 }
 
 #about-me,
@@ -172,7 +161,7 @@ body {
   border-radius: 5px;
   position: absolute;
   width: auto;
-  margin: 100px 100px 30px 300px !important;
+  margin: 100px 50px 30px 80px !important;
 }
 
 
@@ -182,8 +171,19 @@ body {
 
 .handles {
   background-color: $white-color;
-  padding: 50px;
+  padding: 60px;
+  max-width: 280px;
   border: solid 2px $black-color;
+  border-radius: 8px;
+  margin: 20px;
+}
+
+
+.side-section {
+  background-color: $background-color;
   border-radius: 5px;
-  margin-right: 20px;
+  width: 290px;
+  height: 100% !important;
+  padding: 20px !important;
+  margin-right: 1150px;
 }

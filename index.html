@@ -18,17 +18,21 @@
       <nav id="navbar">
       <h3 id="nav-welcome"></h3>
       <!-- Hamburger toolbar -->
+      <div id='menu'>
       <button id="hamburger" class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <div class="icon-lines"></div>
       <div class="icon-lines"></div>
       <div class="icon-lines"></div>
     </button>
+  </div>
     <input type="submit" class="btn btn-primary button" id="button-logout" value="Log Out" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 
+    <!-- container for pets-->
+    <div class="content text-all"></div>
       <!-- Home Button near main title on navbar -->
 
         <div class="row" id="name-icon">
-      <input type="submit" class="btn btn-primary button mr-3 home" value="SP">
+      <input type="submit" class="btn btn-primary button mr-3 button-home" value="SP">
       <h4 id="nav-bar-title">Savvy Paws</h4>
     </div>
     <!-- this is the hamburger navbar menu -->
@@ -41,19 +45,15 @@
                         <img src="./public/logo.png" alt="Puppy logo" class="logo-side"/>
                       </div>
 
-                  <input type="submit" class="btn btn-primary btn-lg btn-block button home" value="Home">
+                  <input type="submit" class="btn btn-primary btn-lg btn-block button button-home" value="Home">
 
                   <input type="submit" class="btn btn-primary btn-lg btn-block button" id="button-about" value="About Us">
-
                   <input type="submit" class="btn btn-primary btn-lg btn-block button" id="button-portal" value="User Portal">
-
-                  <input type="submit" class="btn btn-primary btn-lg btn-block button" id="button-changepw" data-toggle="modal" data-target="#modal-changepw" value="Change Password">
-
-                  <button id="get-pets" class="btn btn-primary btn-lg btn-block button button-view">View Your Pets</button>
+                  <button id="get-pets" class="btn btn-primary btn-lg btn-block button button-view">View ALL Pets</button>
+                  <button id="get-my-pets" class="btn btn-primary btn-lg btn-block button button-view-my">View My Pets</button>
                   <button id="clear-pets" class="btn btn-primary btn-lg btn-block button">Clear All Pets</button>
                   <button id="new-pets" class="btn btn-primary btn-lg btn-block button" data-toggle="modal" data-target="#modal-addnew">Add New Pet</button>
-                  <button class="btn btn-primary btn-lg btn-block button edit-pet" data-toggle="modal" data-target="#edit-modal">Edit Pet By ID</button>
-
+                  <input type="submit" class="btn btn-primary btn-lg btn-block button" id="button-changepw" data-toggle="modal" data-target="#modal-changepw" value="Password">
                 </div>
               </div>
             </div>
@@ -94,8 +94,7 @@
     </div>
     </div>
     </div>
-    <!-- container for pets-->
-    <div class="content text-all"></div>
+
     <!-- Background Images -->
 <img src="./public/Animal-Dog.jpg" alt="Background Image of a Dog" id="dog-image" class="back-images">
 <img src="./public/Animal-Cat.jpg" alt="Background Image of a Cat" id="cat-image" class="back-images">
@@ -217,97 +216,9 @@
   </div>
 </div>
 
-<!-- edit forms modal -->
-  <div class="modal fade" id="edit-modal" tabindex="-1" role="dialog"
-    aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="false">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-      <form id="edit-form">
-        <fieldset>
-          <legend>Edit This Pet!</legend>
-          <label>Pet's ID</label>
-          <input type="text" class="form-control" name="pet[id]"
-          placeholder="Pet ID">
-          <label>Pet's Name</label>
-          <input type="text" class="form-control" name="pet[name]"
-          placeholder="Name Here">
-          <label>Species</label>
-<!--<input type="text" class="form-control" name="pet[species]"
-placeholder="Dog"> -->
-          <select class="custom-select my-1 mr-sm-2 inlineFormCustomSelectPref" name=pet[species]>
-          <option selected>Select Species</option>
-          <option value="Dog" class="dog">Dog</option>
-          <option value="Cat" class="cat">Cat</option>
-<!-- <option value="3">Three</option> -->
-          </select>
-          <label>Breed</label>
-          <input type="text" class="form-control" name="pet[breed]"
-          placeholder="Pitbull">
-          <label>Date of Birth</label>
-          <input type="date" class="form-control" name="pet[dob]"
-          placeholder="02/12/2020">
-          <label>Favorite Toy</label>
-          <input type="text" class="form-control" name="pet[favorite_toy]"
-          placeholder="Ball">
-          <br>
-          <input type='submit' class="btn btn-primary btn-lg btn-block button" id="edit-submit" value="Submit">
-          <br>
-          <button type="button" class="btn btn-primary btn-lg btn-block go-back" data-toggle="modal" data-target="#edit-modal">
-          Go Back</button>
-          </fieldset>
-          </form>
-          </div>
-        </div>
-      </div>
 
-  <!-- add new pet modal -->
-  <div class="modal fade" id="modal-addnew" tabindex="-1" role="dialog"
-  aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="false">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <form class="add-new" id="add-form">
-      <fieldset>
-        <legend>Add a New Pet!</legend>
-        <p id="add-message"></p>
-        <label>Pet's Name</label>
-        <input type="text" class="form-control" name="pet[name]"
-        placeholder="Name Here">
-        <label>Species</label>
-        <!--<input type="text" class="form-control" name="pet[species]"
-        placeholder="Dog"> -->
-        <select class="custom-select my-1 mr-sm-2 inlineFormCustomSelectPref" name=pet[species]>
-        <option selected>Select Species</option>
-        <option value="Dog" class="dog" id="pet-dog">Dog</option>
-        <option value="Cat" class="cat" id="pet-cat">Cat</option>
-        <!-- <option value="3">Three</option> -->
-        </select>
-        <label>Breed</label>
-        <input type="text" class="form-control" name="pet[breed]"
-        placeholder="Pitbull">
-        <label>Date of Birth</label>
-        <input type="date" class="form-control" name="pet[dob]"
-        placeholder="02/12/2020">
-        <label>Favorite Toy</label>
-        <input type="text" class="form-control" name="pet[favorite_toy]"
-        placeholder="Ball">
-        <br>
-        <input type='submit' class="btn btn-primary btn-lg btn-block button" value="Submit">
-        <br>
-        <button type="button" class="btn btn-primary btn-lg btn-block go-back" data-toggle="modal" data-target="#modal-addnew">
-        Go Back</button>
-      </fieldset>
-  </form>
-</div>
-</div>
-</div>
 <!--Modals End here-->
-<!-- <div class="container"> -->
-  <!-- <div class="row"> -->
-  <!-- <div class="col-12 col-lg-3 space-two">Blank</div> -->
-  <!-- <div class="col-12 col-lg-9 space-blank">Blank</div> -->
-  <!-- <div class="col-12 col-lg-3 space-two">Blank</div> -->
-<!-- </div> -->
-<!-- </div> -->
+
 
 <footer id='footer'>
             <p id="footer-text">By Patricia Antlitz</p>

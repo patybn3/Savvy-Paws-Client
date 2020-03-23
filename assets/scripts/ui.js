@@ -56,24 +56,14 @@ const logInSuccess = function (response) {
   $('#login-message').addClass('success')
   $('#modal-changepw').trigger('reset')
   store.user = response.user
-  $('#button-changepw').show()
   $('#button-logout').show()
   $('#button-home').show()
   $('.button-signup').hide()
   $('.button-login').hide()
   $('#get-pets').show()
   $('#clear-pets').show()
-  $('#new-pets').show()
-  $('.side-section').show()
   $('#middle-logo').hide()
   $('.middle-title').hide()
-
-  const firstName = store.user.first_name
-  const lastName = store.user.last_name
-
-  setTimeout(() => {
-    $('#middle-welcome').text(`Welcome ${firstName} ${lastName}!`)
-  }, 200)
 
   setTimeout(() => {
     $('#modal-signin').modal('hide')
@@ -81,9 +71,7 @@ const logInSuccess = function (response) {
 
   setTimeout(() => {
     $('#hamburger').fadeIn()
-    $('#dog-image').addClass('background')
-    $('#cat-image').addClass('background')
-    $('#dog-sun-image').addClass('background')
+    $('#centered-bar').fadeOut()
   }, 600)
 }
 
@@ -136,6 +124,7 @@ const logOutSuccess = function (response) {
   $('#click-message').hide()
   $('.side-section').hide()
   $('#middle-welcome').hide()
+  $('.side-section').trigger('reset')
 
   setTimeout(() => {
     $('.space').text('')
@@ -177,6 +166,39 @@ const showPortalSuccess = function (response) {
   $('#about-me').hide()
   $('#welcome').hide()
   $('.main-text').hide()
+  $('#get-my-pets').show()
+  $('#button-changepw').show()
+  $('#new-pets').show()
+  $('#button-about').hide()
+  $('.button-view').hide()
+  $('#button-portal').hide()
+}
+
+const homeSuccess = function () {
+  $('.side-section').trigger('reset')
+  $('.main-section').hide()
+  $('.text-all').hide()
+  $('#about-me').hide()
+  $('#welcome').hide()
+  $('.main-text').hide()
+  $('#get-my-pets').hide()
+  $('#button-changepw').hide()
+  $('#new-pets').hide()
+  $('#button-about').show()
+  $('.button-view').show()
+  $('#button-portal').show()
+
+  setTimeout(() => {
+    $('.side-section').fadeOut()
+  }, 200)
+
+  setTimeout(() => {
+    $('#centered-bar').fadeOut()
+  }, 300)
+
+  setTimeout(() => {
+    $('#centered-bar').fadeIn()
+  }, 400)
 }
 
 const showPortalFail = function (response) {
@@ -211,6 +233,10 @@ const goBackSuccess = function (response) {
 //   $('#sign-up-message').text('Unable to Go Back. Please Try Again')
 //   $('#sign-up-message').addClass('failure')
 // }
+const hamburgerSuccess = function () {
+  $('.side-section').trigger('reset')
+  $('.side-section').show()
+}
 
 module.exports = {
   showModalSignUpSuccess,
@@ -226,6 +252,8 @@ module.exports = {
   showPortalSuccess,
   logOutSuccess,
   goBackSuccess,
-  showPortalFail
+  showPortalFail,
+  hamburgerSuccess,
+  homeSuccess
   // goBackFail
 }

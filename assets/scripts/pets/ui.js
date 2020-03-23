@@ -1,13 +1,12 @@
 'use strict'
 // const showPetsTemplate = require('../templates/pets-all.handlebars')
 const showPetsTemplate = require('../templates/user-pets.handlebars')
+const showPetsTemplateMy = require('../templates/my-pets.handlebars')
 
 const newPetButtonSuccess = function (response) {
   // console.log('something')
   $('#edit-message').hide()
   $('#click-message').hide()
-  $('.text-all').empty()
-  $('.add-new').show()
   $('#about-me').hide()
   $('#welcome').hide()
   $('.main-text').hide()
@@ -15,8 +14,6 @@ const newPetButtonSuccess = function (response) {
 // Created a new pet
 const newPetSuccess = function (response) {
   // console.log('works')
-  $('.text-all').empty()
-  $('.add-new').trigger('reset')
   $('#add-message').removeClass('failure')
   $('#add-message').text('You Have Added Your Pet Successfully!')
   $('#add-message').addClass('success')
@@ -28,8 +25,6 @@ const newPetSuccess = function (response) {
   setTimeout(() => {
     $('.add-new').fadeOut()
   }, 1500)
-
-  $('.text-all').trigger('reset')
 }
 
 // Show all pets, no user linked
@@ -37,35 +32,25 @@ const seeAllSuccess = (data) => {
   $('#get-pets').trigger('reset')
   $('#edit-message').hide()
   $('#click-message').hide()
-  $('.edit-pet').show()
-  $('.add-new').hide()
-  // $('.text-all').show()
   $('.text-all').trigger('reset')
   $('#about-me').hide()
   $('#welcome').hide()
   $('.main-text').hide()
   $('.main-section').hide()
+  $('.side-section').hide()
 
   $('.text-all').html('')
   const showPetsHtml = showPetsTemplate({ pets: data.pets })
-  // $('.text-all').html('')
-  $('.text-all').append(showPetsHtml)
-  // $('.text-all').on('click', '.remove-pet', function (event) {
-  //   // if (!$(this).hasClass('.text-all')) {
-  //   $('#delete-message').addClass('success')
-  //   $('#delete-message').append('You Have Deleted Your Pet!')
-  //   // }
-  // })
 
-  // $('#button-home').click(function (event) {
-  //   event.preventDefault()
-  //   if (!$(this).hasClass('.main-section')) {
-  //     $('.text-all').hide()
-  //     $('#about-me').show()
-  //     $('#welcome').show()
-  //     $('.main-text').show()
-  //   }
-  // })
+  $('.text-all').append(showPetsHtml)
+}
+
+const seeMySuccess = (data) => {
+  $('#get-my-pets').trigger('reset')
+  $('.main-section').html('')
+  const showPetsHtmlMy = showPetsTemplateMy({ pets: data.pets })
+  // $('.text-all').html('')
+  $('.main-section').append(showPetsHtmlMy)
 }
 
 const clearPets = () => {
@@ -131,5 +116,6 @@ module.exports = {
   showModalEditSuccess,
   editPetFail,
   seeAllfailure,
-  onDeleteSuccess
+  onDeleteSuccess,
+  seeMySuccess
 }

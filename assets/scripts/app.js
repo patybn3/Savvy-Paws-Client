@@ -22,13 +22,16 @@ $(() => {
   // other buttons functionality
   $('#button-logout').on('click', eventsFile.onLogout)
   $('#button-about').on('click', eventsFile.onAboutMe)
+  $('.button-home').on('click', eventsFile.onHome)
   $('#button-portal').on('click', eventsFile.onShowPortal)
   $('.go-back').on('click', eventsFile.onGoBack)
+  $('#hamburger').on('click', eventsFile.onHamburger)
   // hides and shows
   $('#button-changepw').hide()
   $('#button-logout').hide()
   $('#button-home').hide()
   $('#get-pets').hide()
+  $('#get-my-pets').hide()
   $('#clear-pets').hide()
   $('#new-pets').hide()
   $('.add-new').hide()
@@ -43,9 +46,9 @@ $(() => {
   $('.main-section').hide()
   // pets
   $('#new-pets').on('click', eventsPets.onNewPetButton)
-  $('.add-new').on('submit', eventsPets.onAddNew)
   // $('#view-pets').on('click', eventsPets.seeAllPets)
   $('#get-pets').on('click', eventsPets.seeAllPets)
+  $('#get-my-pets').on('click', eventsPets.seeMyPets)
   $('#clear-pets').on('click', eventsPets.onClearPets)
   $('#edit-form').on('submit', eventsPets.onEditPets)
   // $('.remove-pet').on('click', eventsPets.onDeletePets)
