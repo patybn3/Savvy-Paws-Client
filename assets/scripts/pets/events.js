@@ -3,10 +3,13 @@ const getForm = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 const showPetsTemplateAdd = require('../templates/add-pet.handlebars')
+const store = require('./../store')
 
 const onNewPetButton = event => {
-  $('.main-sectio').trigger('reset')
-  $('.main-section').empty()
+  $('.text-all').html('')
+  $('.main-section').trigger('reset')
+  $('.main-section').show()
+  $('.main-section').html('')
   const showPetsHtmlAdd = showPetsTemplateAdd()
   // $('.text-all').html('')
   $('.main-section').append(showPetsHtmlAdd)
@@ -52,31 +55,38 @@ const onDeletePets = (event) => {
     // .then(ui.seeAllSuccess)
     .then(ui.onDeleteSuccess)
     .then(function () {
-      seeAllPets(event)
+      seeMyPets(event)
     })
     .catch(ui.onDeletefailure)
 }
 
-const onEditButton = event => {
+const onEditPetsStart = (event) => {
   event.preventDefault()
-
-  ui.showModalEditSuccess()
+  const id = $(event.target).data('id')
+  api.onShowPet(id)
+    .then(ui.editStartSuccess)
 }
 
 const onEditPets = event => {
   event.preventDefault()
 
   const data = getForm(event.target)
+  const id = store.pet.id
+  const pet = {
+    pet: {
+      name: data.pet.name,
+      species: data.pet.species,
+      breed: data.pet.breed,
+      dob: data.pet.dob,
+      favorit_toy: data.pet.favorit_toy
+    }
+  }
 
-  api.editPets(data)
+  api.editPets(pet, id)
     .then(ui.editPetSuccess)
-    .catch(ui.editPetFail)
-}
-
-const onEditPetsStart = event => {
-  const id = $(event.target).data('id')
-  api.onShowPet(id)
-    .then(ui.editPetSuccess)
+    .then(function () {
+      seeMyPets(event)
+    })
     .catch(ui.editPetFail)
 }
 
@@ -84,10 +94,7 @@ const addHandlers = () => {
   $('.text-all').on('click', '.remove-pet', onDeletePets)
   $('.text-all').on('click', '.edit-pet', onEditPetsStart)
 
-  $('.text-all').on('submit', '.edit-modal', function (event) {
-    event.preventDefault()
-    onEditPets(event)
-  })
+  $('.main-section').on('submit', '.edit-form', onEditPets)
 
   $('.main-section').on('submit', '.add-new', onAddNew)
 }
@@ -96,7 +103,6 @@ module.exports = {
   onNewPetButton,
   onAddNew,
   seeAllPets,
-  onEditButton,
   onClearPets,
   onDeletePets,
   onEditPets,

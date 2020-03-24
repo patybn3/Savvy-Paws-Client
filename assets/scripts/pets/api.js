@@ -45,7 +45,7 @@ const deletePets = function (event) {
 const editPets = function (data) {
   // const id = $(event.target).data('name')
   return $.ajax({
-    url: config.apiUrl + '/pets/' + data.pet.id,
+    url: config.apiUrl + '/pets/' + data.pet._id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -54,15 +54,16 @@ const editPets = function (data) {
   })
 }
 
-const onShowPet = function (data) {
+const onShowPet = function (id) {
   return $.ajax({
-    url: config.apiUrl + '/pets/' + data.pet.id,
+    url: `${config.apiUrl}/pets/${id}`,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
     }
   })
 }
+
 module.exports = {
   onShowPet,
   onNewPet,

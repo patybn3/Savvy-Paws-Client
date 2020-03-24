@@ -4,6 +4,7 @@
 body {
   background: $white-color;
   font-family: $page-font;
+  background-repeat: repeat;
 }
 
 #navbar {
@@ -11,7 +12,7 @@ body {
   // box-shadow: 0 8px 8px -2px $shadow;
   height: 55px;
   margin: auto;
-  position: absolute;
+  position: fixed;
   width: 100%;
   // opacity: 70%;
 }
@@ -22,6 +23,31 @@ body {
   background-color: $black-color;
   margin: 6px 0;
   transition: 0.4s;
+  border-radius: 2px;
+}
+
+#mdiv {
+  width: 30px;
+  height: 30px;
+}
+
+.mdiv {
+  height: 30px;
+  width: 5px;
+  margin: 4px 12px 0;
+  background-color: black;
+  transform: rotate(45deg);
+  border-radius: 2px;
+  Z-index: 1;
+}
+
+.md {
+  height: 30px;
+  width: 5px;
+  background-color: black;
+  border-radius: 2px;
+  transform: rotate(90deg);
+  Z-index: 2;
 }
 
 .custom-toggler {
@@ -118,9 +144,7 @@ body {
   background-color: $buttons-hover !important;
 }
 
-#add-form,
 #change-pw,
-#edit-form,
 #sign-in,
 #sign-up {
   text-align: center;
@@ -175,15 +199,22 @@ body {
   max-width: 280px;
   border: solid 2px $black-color;
   border-radius: 8px;
-  margin: 20px;
+  margin: 20px 30px;
 }
 
 
 .side-section {
   background-color: $background-color;
-  border-radius: 5px;
-  width: 290px;
-  height: 100% !important;
+  margin-right: 1190px;
   padding: 20px !important;
-  margin-right: 1150px;
+  width: 287px;
+  padding-bottom: 450px !important;
+}
+
+.aside {
+  margin: 100px 50px 30px 250px !important;
+}
+
+.handles-aside {
+  margin: 20px 10px;
 }

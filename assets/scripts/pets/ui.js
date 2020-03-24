@@ -2,6 +2,7 @@
 // const showPetsTemplate = require('../templates/pets-all.handlebars')
 const showPetsTemplate = require('../templates/user-pets.handlebars')
 const showPetsTemplateMy = require('../templates/my-pets.handlebars')
+const showPetsTemplateUpdate = require('../templates/update-pet.handlebars')
 
 const newPetButtonSuccess = function (response) {
   // console.log('something')
@@ -29,28 +30,35 @@ const newPetSuccess = function (response) {
 
 // Show all pets, no user linked
 const seeAllSuccess = (data) => {
-  $('#get-pets').trigger('reset')
+  $('.button-view').trigger('reset')
   $('#edit-message').hide()
   $('#click-message').hide()
-  $('.text-all').trigger('reset')
   $('#about-me').hide()
   $('#welcome').hide()
   $('.main-text').hide()
   $('.main-section').hide()
-  $('.side-section').hide()
+  $('#get-my-pets').hide()
+  $('#button-changepw').hide()
+  $('#new-pets').hide()
+  $('#button-about').show()
+  $('#button-portal').show()
 
-  $('.text-all').html('')
-  const showPetsHtml = showPetsTemplate({ pets: data.pets })
+  setTimeout(() => {
+    $('.text-all').html('')
+    const showPetsHtml = showPetsTemplate({ pets: data.pets })
 
-  $('.text-all').append(showPetsHtml)
+    $('.text-all').append(showPetsHtml)
+  }, 500)
 }
 
 const seeMySuccess = (data) => {
   $('#get-my-pets').trigger('reset')
-  $('.main-section').html('')
+  $('.main-section').hide()
+  $('.text-all').html('')
   const showPetsHtmlMy = showPetsTemplateMy({ pets: data.pets })
   // $('.text-all').html('')
-  $('.main-section').append(showPetsHtmlMy)
+  $('.text-all').append(showPetsHtmlMy)
+  $('.handles').addClass('handles-aside')
 }
 
 const clearPets = () => {
@@ -59,7 +67,8 @@ const clearPets = () => {
 
 const editPetSuccess = function (response) {
   // console.log('something')
-  $('.text-all').empty()
+  $('.text-all').html('')
+  $('.main-section').show()
   $('#edit-message').show()
   $('#edit-message').removeClass('failure')
   $('#edit-message').addClass('success')
@@ -74,6 +83,16 @@ const editPetSuccess = function (response) {
   setTimeout(() => {
     $('#edit-modal').modal('hide')
   }, 800)
+}
+
+const editStartSuccess = function (data) {
+  $('.text-all').html('')
+  $('.main-section').trigger('reset')
+  $('.main-section').show()
+  $('.main-section').html('')
+  const showPetsHtmlUpdate = showPetsTemplateUpdate()
+  // $('.text-all').html('')
+  $('.main-section').append(showPetsHtmlUpdate)
 }
 
 const seeAllfailure = function (response) {
@@ -117,5 +136,6 @@ module.exports = {
   editPetFail,
   seeAllfailure,
   onDeleteSuccess,
-  seeMySuccess
+  seeMySuccess,
+  editStartSuccess
 }

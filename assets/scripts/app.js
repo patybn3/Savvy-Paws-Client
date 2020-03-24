@@ -8,13 +8,13 @@ const eventsPets = require('./pets/events')
 // require('./example')
 
 $(() => {
+  $('#get').attr('disabled', true)
   // your JS code goes here
   // User forms
   // Shows Modals
   $('.button-signup').on('click', eventsFile.onShowSignUpModal)
   $('.button-login').on('click', eventsFile.onShowLogInModal)
   $('#button-changepw').on('click', eventsFile.onShowChangeModal)
-  $('.edit-pet').on('click', eventsFile.onEditButton)
   // makes forms work:
   $('#sign-up').on('submit', eventsFile.onSignUp)
   $('#sign-in').on('submit', eventsFile.onLogIn)
@@ -22,14 +22,13 @@ $(() => {
   // other buttons functionality
   $('#button-logout').on('click', eventsFile.onLogout)
   $('#button-about').on('click', eventsFile.onAboutMe)
-  $('.button-home').on('click', eventsFile.onHome)
   $('#button-portal').on('click', eventsFile.onShowPortal)
   $('.go-back').on('click', eventsFile.onGoBack)
   $('#hamburger').on('click', eventsFile.onHamburger)
+  $('#hamburgerX').on('click', eventsFile.onHamburgerX)
   // hides and shows
   $('#button-changepw').hide()
   $('#button-logout').hide()
-  $('#button-home').hide()
   $('#get-pets').hide()
   $('#get-my-pets').hide()
   $('#clear-pets').hide()
@@ -39,6 +38,7 @@ $(() => {
   $('#cat-pic').hide()
   $('#dog-pic').hide()
   $('#hamburger').hide()
+  $('#hamburgerX').hide()
   $('.main-section').hide()
   $('#about-me').hide()
   $('#welcome').hide()
@@ -47,7 +47,7 @@ $(() => {
   // pets
   $('#new-pets').on('click', eventsPets.onNewPetButton)
   // $('#view-pets').on('click', eventsPets.seeAllPets)
-  $('#get-pets').on('click', eventsPets.seeAllPets)
+  $('.button-view').on('click', eventsPets.seeAllPets)
   $('#get-my-pets').on('click', eventsPets.seeMyPets)
   $('#clear-pets').on('click', eventsPets.onClearPets)
   $('#edit-form').on('submit', eventsPets.onEditPets)

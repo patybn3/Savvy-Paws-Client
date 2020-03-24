@@ -49,7 +49,7 @@ const signUpFail = function (response) {
 
 const logInSuccess = function (response) {
   $('.side-section').trigger('reset')
-  $('.text-all').empty()
+  $('.text-all').trigger('reset')
   $('#sign-in').trigger('reset')
   $('#login-message').removeClass('failure')
   $('#login-message').text('You Have Successfully Signed In!')
@@ -65,6 +65,8 @@ const logInSuccess = function (response) {
   $('#middle-logo').hide()
   $('.middle-title').hide()
 
+  $('#get').attr('disabled', false)
+
   setTimeout(() => {
     $('#modal-signin').modal('hide')
   }, 400)
@@ -72,7 +74,7 @@ const logInSuccess = function (response) {
   setTimeout(() => {
     $('#hamburger').fadeIn()
     $('#centered-bar').fadeOut()
-  }, 600)
+  }, 450)
 }
 
 const logInFail = function (response) {
@@ -125,32 +127,36 @@ const logOutSuccess = function (response) {
   $('.side-section').hide()
   $('#middle-welcome').hide()
   $('.side-section').trigger('reset')
+  $('#hamburger').trigger('reset')
+
+  $('#get').attr('disabled', true)
 
   setTimeout(() => {
     $('.space').text('')
     $('#hamburger').fadeOut()
+    $('#hamburgerX').fadeOut()
     $('.main-section').fadeOut()
     $('#dog-image').fadeIn()
     $('#cat-image').fadeIn()
     $('#dog-sun-image').fadeIn()
-  }, 400)
+  }, 300)
 
   setTimeout(() => {
     $('#middle-logo').fadeIn()
     $('.middle-title').fadeIn()
     $('#centered-bar').fadeIn()
-  }, 500)
+  }, 400)
 }
 
 // Button on side bar functionality (starts here):
 //
 const aboutMeSuccess = function (response) {
+  $('#button-about').trigger('reset')
   $('.main-section').show()
-  $('.text-all').empty()
+  $('.text-all').html('')
   $('#about-me').show()
   $('#welcome').show()
   $('.main-text').show()
-  $('.add-new').hide()
 }
 
 // const showHomeFail = function (response) {
@@ -161,8 +167,9 @@ const aboutMeSuccess = function (response) {
 // }
 
 const showPortalSuccess = function (response) {
+  $('#button-about').trigger('reset')
   $('.main-section').show()
-  $('.text-all').hide()
+  $('.text-all').html('')
   $('#about-me').hide()
   $('#welcome').hide()
   $('.main-text').hide()
@@ -170,35 +177,7 @@ const showPortalSuccess = function (response) {
   $('#button-changepw').show()
   $('#new-pets').show()
   $('#button-about').hide()
-  $('.button-view').hide()
   $('#button-portal').hide()
-}
-
-const homeSuccess = function () {
-  $('.side-section').trigger('reset')
-  $('.main-section').hide()
-  $('.text-all').hide()
-  $('#about-me').hide()
-  $('#welcome').hide()
-  $('.main-text').hide()
-  $('#get-my-pets').hide()
-  $('#button-changepw').hide()
-  $('#new-pets').hide()
-  $('#button-about').show()
-  $('.button-view').show()
-  $('#button-portal').show()
-
-  setTimeout(() => {
-    $('.side-section').fadeOut()
-  }, 200)
-
-  setTimeout(() => {
-    $('#centered-bar').fadeOut()
-  }, 300)
-
-  setTimeout(() => {
-    $('#centered-bar').fadeIn()
-  }, 400)
 }
 
 const showPortalFail = function (response) {
@@ -234,8 +213,33 @@ const goBackSuccess = function (response) {
 //   $('#sign-up-message').addClass('failure')
 // }
 const hamburgerSuccess = function () {
+  $('#get').trigger('reset')
+  $('#get-pets').trigger('reset')
+  $('#hamburger').trigger('reset')
+  $('#hamburger').hide()
+  $('#hamburgerX').show()
   $('.side-section').trigger('reset')
   $('.side-section').show()
+
+  setTimeout(() => {
+    $('.content').addClass('aside')
+    $('.handles').addClass('handles-aside')
+  }, 100)
+}
+
+const hamburgerXSuccess = function () {
+  $('#get').trigger('reset')
+  $('#get-pets').trigger('reset')
+  $('#hamburgerX').trigger('reset')
+  $('#hamburger').show()
+  $('#hamburgerX').hide()
+  $('.side-section').trigger('reset')
+  $('.side-section').show()
+
+  setTimeout(() => {
+    $('.content').removeClass('aside')
+    $('.handles').removeClass('handles-aside')
+  }, 100)
 }
 
 module.exports = {
@@ -254,6 +258,6 @@ module.exports = {
   goBackSuccess,
   showPortalFail,
   hamburgerSuccess,
-  homeSuccess
+  hamburgerXSuccess
   // goBackFail
 }

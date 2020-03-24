@@ -1,14 +1,7 @@
-<!-- edit forms modal -->
-  <div class="modal fade edit-modal" id="edit-modal" tabindex="-1" role="dialog"
-    aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="false">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-      <form id="edit-form">
+<!-- edit forms -->
+      <form id="edit-form" class="form-group edit-form pet-edit">
         <fieldset>
           <legend>Edit This Pet!</legend>
-          <label>Pet's ID</label>
-          <input type="text" class="form-control" name="pet[id]"
-          placeholder="Pet ID">
           <label>Pet's Name</label>
           <input type="text" class="form-control" name="pet[name]"
           placeholder="Name Here">
@@ -19,6 +12,9 @@ placeholder="Dog"> -->
           <option selected>Select Species</option>
           <option value="Dog" class="dog">Dog</option>
           <option value="Cat" class="cat">Cat</option>
+          <option value="Reptile" class="Reptile">Reptile</option>
+          <option value="Fish" class="Fish">Fish</option>
+          <option value="Rodentia" class="Rodentia">Rodentia</option>
 <!-- <option value="3">Three</option> -->
           </select>
           <label>Breed</label>
@@ -37,6 +33,3 @@ placeholder="Dog"> -->
           Go Back</button>
           </fieldset>
           </form>
-          </div>
-        </div>
-      </div>
