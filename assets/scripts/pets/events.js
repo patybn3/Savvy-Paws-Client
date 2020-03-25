@@ -5,6 +5,17 @@ const ui = require('./ui')
 const showPetsTemplateAdd = require('../templates/add-pet.handlebars')
 const store = require('./../store')
 
+const addHandlers = () => {
+  $('.text-all').on('click', '.remove-pet', onDeletePets)
+  $('.text-all').on('click', '.edit-pet', onEditPetsStart)
+  $('.main-section').on('click', '.preview', onPreview)
+  $('.text-all').on('click', '.info', onShowInfo)
+
+  $('.main-section').on('submit', '.edit-form', onEditPets)
+
+  $('.main-section').on('submit', '.add-new', onAddNew)
+}
+
 const onNewPetButton = event => {
   $('.text-all').html('')
   $('.main-section').trigger('reset')
@@ -24,7 +35,30 @@ const onAddNew = event => {
 
   api.onNewPet(data)
     .then(ui.newPetSuccess)
+    .then(function () {
+      seeMyPets()
+    })
     .catch(ui.newPetFail)
+}
+
+// alows you to preview you pet picture
+const onPreview = event => {
+  if (validURL($('.photo-url').val())) {
+    ui.onPreviewSuccess($('.photo-url').val())
+  } else {
+    ui.onPreviewFailure()
+  }
+}
+
+// set up to validate URL for pet's picture
+const validURL = (str) => {
+  const pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain
+    '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // path and port of url
+    '(\\?[;&a-z\\d%_.~+=-]*)?' + // this is query string
+    '(\\#[-a-z\\d_]*)?$', 'i') // locates the fragments of the url
+  return !!pattern.test(str)
 }
 
 const seeAllPets = event => {
@@ -33,6 +67,13 @@ const seeAllPets = event => {
   api.getAllPets()
     .then(ui.seeAllSuccess)
     .catch(ui.seeAllfailure)
+}
+
+const onShowInfo = () => {
+  event.preventDefault()
+
+  // $('.text-all').html('')
+  $('#modal-info').modal('show')
 }
 
 const seeMyPets = event => {
@@ -90,18 +131,10 @@ const onEditPets = event => {
     .catch(ui.editPetFail)
 }
 
-const addHandlers = () => {
-  $('.text-all').on('click', '.remove-pet', onDeletePets)
-  $('.text-all').on('click', '.edit-pet', onEditPetsStart)
-
-  $('.main-section').on('submit', '.edit-form', onEditPets)
-
-  $('.main-section').on('submit', '.add-new', onAddNew)
-}
-
 module.exports = {
   onNewPetButton,
   onAddNew,
+  onPreview,
   seeAllPets,
   onClearPets,
   onDeletePets,

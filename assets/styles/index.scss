@@ -149,6 +149,20 @@ body {
 #sign-up {
   text-align: center;
   padding: 20px !important;
+  margin: 5px !important;
+}
+
+#info-form {
+  padding: 25px !important;
+  margin: 20px;
+}
+
+#info-form h5 {
+  font-weight: 600;
+}
+
+.info {
+  float: right;
 }
 
 #about-me,
@@ -185,7 +199,7 @@ body {
   border-radius: 5px;
   position: absolute;
   width: auto;
-  margin: 100px 50px 30px 80px !important;
+  margin: 100px 20px 30px 20px !important;
 }
 
 
@@ -195,11 +209,13 @@ body {
 
 .handles {
   background-color: $white-color;
-  padding: 60px;
-  max-width: 280px;
+  padding: 8px;
+  min-width: 200px;
+  max-width: 330px;
+  height: auto;
   border: solid 2px $black-color;
   border-radius: 8px;
-  margin: 20px 30px;
+  margin: 5px 5px 5px 5px;
 }
 
 
@@ -216,5 +232,15 @@ body {
 }
 
 .handles-aside {
-  margin: 20px 10px;
+  margin: 5px;
+}
+
+.picture {
+  width: 100%;
+  height: auto;
+  padding: 5px !important;
+}
+
+.pet-info {
+  padding: 20px;
 }

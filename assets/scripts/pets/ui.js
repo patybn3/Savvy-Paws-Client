@@ -126,6 +126,14 @@ const onDeleteSuccess = function (response) {
   $('#delete-message').text('You Have Deleted Your Pet!')
 }
 
+const onPreviewSuccess = (photoUrl) => {
+  $('.preview-img').attr('src', photoUrl).addClass('img-thumbnail')
+}
+
+const onPreviewFailure = () => {
+  console.log('error')
+}
+
 module.exports = {
   newPetButtonSuccess,
   newPetSuccess,
@@ -137,5 +145,7 @@ module.exports = {
   seeAllfailure,
   onDeleteSuccess,
   seeMySuccess,
-  editStartSuccess
+  editStartSuccess,
+  onPreviewSuccess,
+  onPreviewFailure
 }

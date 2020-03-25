@@ -129,17 +129,19 @@
       aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="false">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
         <form id="sign-up">
           <fieldset>
             <legend>Sign Up!</legend>
             <p id="sign-up-message"></p>
             <div class="form group">
-              <label>First Name</label>
-              <input type="text" class="form-control" name="credentials[first_name]"
-              placeholder="Name Here">
-              <label>Last Name</label>
+              <label>Nickname</label>
               <input type="text" class="form-control" name="credentials[last_name]"
-              placeholder="Last Name Here">
+              placeholder="Name Here">
               <label>Email</label>
               <input type="email" class="form-control" name="credentials[email]"
               placeholder="email@email.com">
@@ -154,9 +156,7 @@
 
               <label>Already a Member?</label><br>
               <button type="button" class="btn btn-primary btn-lg btn-block button button-login" data-toggle="modal" data-target="#modal-signin">
-              Sign In!</button>Or
-              <button type="button" class="btn btn-primary btn-lg btn-block go-back" data-toggle="modal" data-target="#modal-signup">
-              Go Back</button><br>
+              Sign In!</button>
             </div>
           </fieldset>
         </form>
@@ -168,6 +168,11 @@
     aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="false">
     <div class="modal-dialog modal-dialog-centered" role="document">
       <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
       <form id="sign-in">
         <fieldset>
           <legend>Sign In!</legend>
@@ -185,9 +190,7 @@
             <br>
             <label>Not a Member?</label><br>
             <button type="button" class="btn btn-primary btn-lg btn-block button button-signup" data-toggle="modal" data-target="#modal-signup">
-            Sign Up!</button>Or
-            <button type="button" class="btn btn-primary btn-lg btn-block go-back" data-toggle="modal" data-target="#modal-signin">
-            Go Back</button><br>
+            Sign Up!</button>
           </div>
         </fieldset>
       </form>
@@ -199,6 +202,11 @@
   aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="false">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
     <form id="change-pw">
       <fieldset>
         <legend>Change Password</legend>
@@ -213,9 +221,6 @@
           placeholder="Reenter Password Here">
           <br>
           <input type='submit' class="btn btn-primary btn-lg btn-block button" value="Submit">
-          <br>
-          <button type="button" class="btn btn-primary btn-lg btn-block go-back" data-toggle="modal" data-target="#modal-changepw">
-          Go Back</button>
         </div>
       </fieldset>
     </form>

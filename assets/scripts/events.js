@@ -82,13 +82,6 @@ const onShowPortal = event => {
   ui.showPortalFail()
 }
 
-const onGoBack = event => {
-  event.preventDefault()
-
-  ui.goBackSuccess()
-  // ui.goBackFail()
-}
-
 const onHamburger = event => {
   event.preventDefault()
 
@@ -113,7 +106,6 @@ module.exports = {
   onLogout,
   onAboutMe,
   onShowPortal,
-  onGoBack,
   onHamburger,
   onHamburgerX
 }

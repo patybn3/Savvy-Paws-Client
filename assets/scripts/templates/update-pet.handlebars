@@ -2,9 +2,18 @@
       <form id="edit-form" class="form-group edit-form pet-edit">
         <fieldset>
           <legend>Edit This Pet!</legend>
+          <label>Pet's Picture</label>
+          <img style="max-height: 200px;"class="preview-img my-2 mx-auto d-block">
+       <div class="form-group form-inline">
+         <label for="newURL" class="sr-only">URL</label>
+         <input type="URL" class="form-control my-1 mr-2 photo-url" id="newURL" placeholder="Image URL" style="width: 80%" name="pet[site]" required autofocus autocomplete="off" >
+
+         <button type="button" class="btn btn-primary preview button">Preview</button>
+       </div>
           <label>Pet's Name</label>
           <input type="text" class="form-control" name="pet[name]"
           placeholder="Name Here">
+          <br>
           <label>Species</label>
 <!--<input type="text" class="form-control" name="pet[species]"
 placeholder="Dog"> -->
@@ -17,15 +26,15 @@ placeholder="Dog"> -->
           <option value="Rodentia" class="Rodentia">Rodentia</option>
 <!-- <option value="3">Three</option> -->
           </select>
+          <br>
+          <br>
           <label>Breed</label>
           <input type="text" class="form-control" name="pet[breed]"
           placeholder="Pitbull">
+          <br>
           <label>Date of Birth</label>
           <input type="date" class="form-control" name="pet[dob]"
           placeholder="02/12/2020">
-          <label>Favorite Toy</label>
-          <input type="text" class="form-control" name="pet[favorite_toy]"
-          placeholder="Ball">
           <br>
           <input type='submit' class="btn btn-primary btn-lg btn-block button" id="edit-submit" value="Submit">
           <br>

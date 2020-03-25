@@ -187,31 +187,6 @@ const showPortalFail = function (response) {
   $('.main-text').text('')
 }
 
-const goBackSuccess = function (response) {
-  $('#edit-form').trigger('reset')
-  $('.text-all').trigger('reset')
-  $('#modal-signin').modal('hide')
-  $('#modal-signup').modal('hide')
-  $('#modal-changepw').modal('hide')
-  $('.add-new').hide()
-  $('#edit-form').modal('hide')
-  $('#get-pets').trigger('reset')
-  // $('#about-me').show()
-  // $('#welcome').hide()
-  // $('#main-text').hide()
-}
-
-// const goBackFail = function (response) {
-//   $('#changepw-message').removeClass('success')
-//   $('#changepw-message').text('Unable to Go Back. Please Try Again')
-//   $('#changepw-message').addClass('failure')
-//   $('#login-message').removeClass('success')
-//   $('#login-message').text('Unable to Go Back. Please Try Again')
-//   $('#login-message').addClass('failure')
-//   $('#sign-up-message').removeClass('success')
-//   $('#sign-up-message').text('Unable to Go Back. Please Try Again')
-//   $('#sign-up-message').addClass('failure')
-// }
 const hamburgerSuccess = function () {
   $('#get').trigger('reset')
   $('#get-pets').trigger('reset')
@@ -255,9 +230,7 @@ module.exports = {
   aboutMeSuccess,
   showPortalSuccess,
   logOutSuccess,
-  goBackSuccess,
   showPortalFail,
   hamburgerSuccess,
   hamburgerXSuccess
-  // goBackFail
 }

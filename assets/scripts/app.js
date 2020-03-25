@@ -23,7 +23,6 @@ $(() => {
   $('#button-logout').on('click', eventsFile.onLogout)
   $('#button-about').on('click', eventsFile.onAboutMe)
   $('#button-portal').on('click', eventsFile.onShowPortal)
-  $('.go-back').on('click', eventsFile.onGoBack)
   $('#hamburger').on('click', eventsFile.onHamburger)
   $('#hamburgerX').on('click', eventsFile.onHamburgerX)
   // hides and shows

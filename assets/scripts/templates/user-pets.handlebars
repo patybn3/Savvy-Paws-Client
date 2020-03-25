@@ -1,10 +1,30 @@
 {{#each pets as |pet|}}
 {{!-- {{log pet}} -> this is a console log {{this is a comment}} --}}
 <section data-id="{{pet.id}}" class="handles">
-  <h2 class="name">
-  {{limit pet.name 7}}
-</h2>
+  <div class="card mx-auto my-4 picture" data-id="{{pet.id}}">
+    <img src="{{pet.site}}" class="card-img-top clickable lazyload" data-id="{{pet.id}}">
+</div>
+<div class="pet-info">
+  <h3 class="name">
+    {{#if pet.name}}
+{{limit pet.name 10}} <button type="button" class="btn btn-primary btn-sm button info" data-toggle="modal" data-target="#all{{pet.id}}">More Info</button>
+{{/if}}
+</h3>
+</div>
+</section>
 <br>
+<div class="modal fade modal-info" id="all{{pet.id}}" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="false">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLongTitle">{{pet.name}}</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+
 <h5 class="pet-classes">Date of Birth:</h5>
 <p>
 {{#if pet.dob}}
@@ -29,15 +49,9 @@
       Breed Unavailable!
     {{/if}}
   </p>
-  <h5 class="pet-classes">Favorite Toy:</h5>
-  <p>
-    {{#if pet.favorite_toy}}
-      {{pet.favorite_toy}}
-    {{else}}
-      Toy Unavailable!
-    {{/if}}
-    <br>
-    </p>
-</section>
+  </div>
+</div>
+</div>
+</div>
 
 {{/each}}
