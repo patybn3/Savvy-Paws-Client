@@ -2,7 +2,6 @@
 // const showPetsTemplate = require('../templates/pets-all.handlebars')
 const showPetsTemplate = require('../templates/user-pets.handlebars')
 const showPetsTemplateMy = require('../templates/my-pets.handlebars')
-const showPetsTemplateUpdate = require('../templates/update-pet.handlebars')
 
 const newPetButtonSuccess = function (response) {
   // console.log('something')
@@ -37,11 +36,13 @@ const seeAllSuccess = (data) => {
   $('#welcome').hide()
   $('.main-text').hide()
   $('.main-section').hide()
-  $('#get-my-pets').hide()
   $('#button-changepw').hide()
   $('#new-pets').hide()
   $('#button-about').show()
   $('#button-portal').show()
+  $('#get-all-pets').hide()
+  $('#see-my-pets').hide()
+  $('#get-my-pets').show()
 
   setTimeout(() => {
     $('.text-all').html('')
@@ -52,6 +53,19 @@ const seeAllSuccess = (data) => {
 }
 
 const seeMySuccess = (data) => {
+  $('#button-about').trigger('reset')
+  $('#get-my-pets').hide()
+  $('#see-my-pets').show()
+  $('#get-all-pets').show()
+  $('.text-all').trigger('reset')
+  $('.main-section').trigger('reset')
+  // $('.main-section').text(`Welcome ${store.user.last_name}`)
+  $('#about-me').hide()
+  $('#welcome').hide()
+  $('.main-text').hide()
+  $('#button-changepw').show()
+  $('#new-pets').show()
+  $('#button-about').hide()
   $('#get-my-pets').trigger('reset')
   $('.main-section').hide()
   $('.text-all').html('')
@@ -67,8 +81,6 @@ const clearPets = () => {
 
 const editPetSuccess = function (response) {
   // console.log('something')
-  $('.text-all').html('')
-  $('.main-section').show()
   $('#edit-message').show()
   $('#edit-message').removeClass('failure')
   $('#edit-message').addClass('success')
@@ -85,15 +97,21 @@ const editPetSuccess = function (response) {
   }, 800)
 }
 
-const editStartSuccess = function (data) {
-  $('.text-all').html('')
-  $('.main-section').trigger('reset')
-  $('.main-section').show()
-  $('.main-section').html('')
-  const showPetsHtmlUpdate = showPetsTemplateUpdate()
-  // $('.text-all').html('')
-  $('.main-section').append(showPetsHtmlUpdate)
-}
+// const editStartSuccess = function (id) {
+//   const site = $('#' + id + ' > .site').text().trim()
+//   const name = $('#' + id + ' > .name').text().trim()
+//   const species = $('#' + id + ' > .species').text().trim()
+//   const breed = $('#' + id + ' > .breed').text().trim()
+//   const dob = $('#' + id + ' > .dob').text().trim()
+//
+//   store.editId = id
+//
+//   $(".edit-form > fieldset > input[name='pet[site]']").val(site)
+//   $(".edit-form > fieldset > input[name='pet[name]']").val(name)
+//   $(".edit-form > fieldset > input[name='pet[species]']").val(species)
+//   $(".edit-form > fieldset > input[name='pet[breed]']").val(breed)
+//   $(".edit-form > fieldset > input[name='pet[dob]']").val(dob)
+// }
 
 const seeAllfailure = function (response) {
   $('.text-all').empty()
@@ -134,6 +152,25 @@ const onPreviewFailure = () => {
   console.log('error')
 }
 
+const goBackSuccess = function (response) {
+  $('#edit-form').trigger('reset')
+  $('.text-all').trigger('reset')
+  $('.add-new').hide()
+  $('#get-pets').trigger('reset')
+}
+
+// const goBackFail = function (response) {
+//   $('#changepw-message').removeClass('success')
+//   $('#changepw-message').text('Unable to Go Back. Please Try Again')
+//   $('#changepw-message').addClass('failure')
+//   $('#login-message').removeClass('success')
+//   $('#login-message').text('Unable to Go Back. Please Try Again')
+//   $('#login-message').addClass('failure')
+//   $('#sign-up-message').removeClass('success')
+//   $('#sign-up-message').text('Unable to Go Back. Please Try Again')
+//   $('#sign-up-message').addClass('failure')
+// }
+
 module.exports = {
   newPetButtonSuccess,
   newPetSuccess,
@@ -145,7 +182,8 @@ module.exports = {
   seeAllfailure,
   onDeleteSuccess,
   seeMySuccess,
-  editStartSuccess,
+  // editStartSuccess,
   onPreviewSuccess,
-  onPreviewFailure
+  onPreviewFailure,
+  goBackSuccess
 }

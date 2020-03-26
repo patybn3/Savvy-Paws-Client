@@ -57,9 +57,9 @@ const logInSuccess = function (response) {
   $('#modal-changepw').trigger('reset')
   store.user = response.user
   $('#button-logout').show()
-  $('#button-home').show()
   $('.button-signup').hide()
   $('.button-login').hide()
+  // this is the home button:
   $('#get-pets').show()
   $('#clear-pets').show()
   $('#middle-logo').hide()
@@ -106,8 +106,6 @@ const changePwFail = function (response) {
 
 const logOutSuccess = function (response) {
   $('#get-pets').trigger('reset')
-  $('#button-changepw').hide()
-  $('#button-home').hide()
   $('#button-logout').hide()
   $('.space').text('You Have Successfully Signed Out!')
   $('.space').addClass('success')
@@ -117,17 +115,13 @@ const logOutSuccess = function (response) {
   store.user = null
   $('.button-signup').show()
   $('.button-login').show()
-  $('#get-pets').hide()
-  $('#clear-pets').hide()
-  $('#new-pets').hide()
   $('.text-all').empty()
-  $('.edit-pet').hide()
   $('#edit-message').hide()
   $('#click-message').hide()
   $('.side-section').hide()
-  $('#middle-welcome').hide()
   $('.side-section').trigger('reset')
   $('#hamburger').trigger('reset')
+  $('.handles').trigger('reset')
 
   $('#get').attr('disabled', true)
 
@@ -136,9 +130,9 @@ const logOutSuccess = function (response) {
     $('#hamburger').fadeOut()
     $('#hamburgerX').fadeOut()
     $('.main-section').fadeOut()
-    $('#dog-image').fadeIn()
-    $('#cat-image').fadeIn()
-    $('#dog-sun-image').fadeIn()
+    // $('#dog-image').fadeIn()
+    // $('#cat-image').fadeIn()
+    // $('#dog-sun-image').fadeIn()
   }, 300)
 
   setTimeout(() => {
@@ -166,26 +160,26 @@ const aboutMeSuccess = function (response) {
 //   $('#main-text').text('')
 // }
 
-const showPortalSuccess = function (response) {
-  $('#button-about').trigger('reset')
-  $('.main-section').show()
-  $('.text-all').html('')
-  $('#about-me').hide()
-  $('#welcome').hide()
-  $('.main-text').hide()
-  $('#get-my-pets').show()
-  $('#button-changepw').show()
-  $('#new-pets').show()
-  $('#button-about').hide()
-  $('#button-portal').hide()
-}
-
-const showPortalFail = function (response) {
-  $('#about-me').hide()
-  $('#welcome').text('User Portal Failed to Open, Please Try Again.')
-  $('#welcome').addClass('failure')
-  $('.main-text').text('')
-}
+// const showPortalSuccess = function (response) {
+//   $('#button-about').trigger('reset')
+//   $('.main-section').show()
+//   $('.text-all').html('')
+//   $('#about-me').hide()
+//   $('#welcome').hide()
+//   $('.main-text').hide()
+//   $('#get-my-pets').show()
+//   $('#button-changepw').show()
+//   $('#new-pets').show()
+//   $('#button-about').hide()
+//   $('#button-portal').hide()
+// }
+//
+// const showPortalFail = function (response) {
+//   $('#about-me').hide()
+//   $('#welcome').text('User Portal Failed to Open, Please Try Again.')
+//   $('#welcome').addClass('failure')
+//   $('.main-text').text('')
+// }
 
 const hamburgerSuccess = function () {
   $('#get').trigger('reset')
@@ -228,9 +222,9 @@ module.exports = {
   changePwSuccess,
   changePwFail,
   aboutMeSuccess,
-  showPortalSuccess,
+  // showPortalSuccess,
   logOutSuccess,
-  showPortalFail,
+  // showPortalFail,
   hamburgerSuccess,
   hamburgerXSuccess
 }

@@ -33,17 +33,70 @@
       Breed Unavailable!
     {{/if}}
   </p>
-  <h5 class="pet-classes">Favorite Toy:</h5>
-  <p>
-    {{#if pet.favorite_toy}}
-      {{pet.favorite_toy}}
-    {{else}}
-      Toy Unavailable!
-    {{/if}}
-    <br>
-    </p>
-    {{> partial id=pet.id }}
-    {{> partial-edit id=pet.id }}
-</section>
+    {{> partial id=pet.id }}  <button class='btn btn-primary edit-pet button' data-toggle="modal" data-target="#edit{{pet.id}}">Edit Pet</button>
+<!-- edit forms -->
+<div class="modal fade modal-edit" id="edit{{pet.id}}" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="false">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLongTitle">{{pet.name}}</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+      <form class="form-group edit-form" data-id="{{pet.id}}">
+        <fieldset>
+          <legend>Edit This Pet!</legend>
+          <label>Pet's Picture</label>
+          <img style="max-height: 200px;"class="preview-img my-2 mx-auto d-block">
+       <div class="form-group form-inline">
+         <label for="newURL" class="sr-only">URL</label>
+         <input type="URL" class="form-control my-1 mr-2 photo-url" id="newURL" placeholder="Image URL" style="width: 80%" name="pet[site]" required autofocus autocomplete="off" >
+
+         <!-- <button type="button" class="btn btn-primary preview button">Preview</button> -->
+       </div>
+          <label>Pet's Name</label>
+          <input type="text" class="form-control" name="pet[name]"
+          placeholder="Name Here">
+          <br>
+          <label>Species</label>
+<!--<input type="text" class="form-control" name="pet[species]"
+placeholder="Dog"> -->
+          <select class="custom-select my-1 mr-sm-2 inlineFormCustomSelectPref" name=pet[species]>
+          <option selected>Select Species</option>
+          <option value="Dog" class="dog" id="pet-dog">Dog 🐶</option>
+          <option value="Cat" class="cat" id="pet-cat">Cat 😼</option>
+          <option value="Reptile" class="Reptile">Reptile 🦎</option>
+          <option value="Fish" class="Fish">Fish 🐠</option>
+          <option value="Rodentia" class="Rodentia">Rodentia 🐹</option>
+          <option value="Amphibians" class="Amphibians">Amphibians 🐸</option>
+          <option value="Bird" class="Bird">Bird 🐤</option>
+          <option value="other" class="other">Other ❓</option>
+<!-- <option value="3">Three</option> -->
+          </select>
+          <br>
+          <br>
+          <label>Breed</label>
+          <input type="text" class="form-control" name="pet[breed]"
+          placeholder="Pitbull">
+          <br>
+          <label>Date of Birth</label>
+          <input type="date" class="form-control" name="pet[dob]"
+          placeholder="02/12/2020">
+          <br>
+          <input type='submit' class="btn btn-primary btn-lg btn-block button" id="edit-submit" value="Submit">
+          <br>
+          <br>
+          <button type="button" class="btn btn-primary btn-lg btn-block go-back" data-toggle="modal" data-target="#edit{{pet.id}}">
+          Cancel</button>
+          </fieldset>
+          </form>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
 
 {{/each}}

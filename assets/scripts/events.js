@@ -74,13 +74,13 @@ const onAboutMe = event => {
   ui.aboutMeSuccess()
   // ui.showHomeFail()
 }
-
-const onShowPortal = event => {
-  event.preventDefault()
-
-  ui.showPortalSuccess()
-  ui.showPortalFail()
-}
+//
+// const onShowPortal = event => {
+//   event.preventDefault()
+//
+//   ui.showPortalSuccess()
+//   ui.showPortalFail()
+// }
 
 const onHamburger = event => {
   event.preventDefault()
@@ -105,7 +105,7 @@ module.exports = {
   onChangePw,
   onLogout,
   onAboutMe,
-  onShowPortal,
+  // onShowPortal,
   onHamburger,
   onHamburgerX
 }

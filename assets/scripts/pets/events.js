@@ -3,17 +3,18 @@ const getForm = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 const showPetsTemplateAdd = require('../templates/add-pet.handlebars')
-const store = require('./../store')
 
 const addHandlers = () => {
   $('.text-all').on('click', '.remove-pet', onDeletePets)
-  $('.text-all').on('click', '.edit-pet', onEditPetsStart)
   $('.main-section').on('click', '.preview', onPreview)
+  // $('.text-all').on('click', '.edit-pet', onEditPetsStart)
   $('.text-all').on('click', '.info', onShowInfo)
+  $('.main-section').on('click', '.go-back', onGoBack)
 
-  $('.main-section').on('submit', '.edit-form', onEditPets)
+  $('.text-all').on('submit', '.edit-form', onEditPets)
 
   $('.main-section').on('submit', '.add-new', onAddNew)
+  // $('.text-all').on('click', '.preview', onPreview)
 }
 
 const onNewPetButton = event => {
@@ -40,9 +41,8 @@ const onAddNew = event => {
     })
     .catch(ui.newPetFail)
 }
-
 // alows you to preview you pet picture
-const onPreview = event => {
+const onPreview = (event) => {
   if (validURL($('.photo-url').val())) {
     ui.onPreviewSuccess($('.photo-url').val())
   } else {
@@ -100,35 +100,34 @@ const onDeletePets = (event) => {
     })
     .catch(ui.onDeletefailure)
 }
-
-const onEditPetsStart = (event) => {
-  event.preventDefault()
-  const id = $(event.target).data('id')
-  api.onShowPet(id)
-    .then(ui.editStartSuccess)
-}
+//
+// const onEditPetsStart = (event) => {
+//   event.preventDefault()
+//
+//   const id = $(event.target).data('id')
+//   api.onShowPet(id)
+//     .then(ui.editStartSuccess)
+// }
 
 const onEditPets = event => {
   event.preventDefault()
 
   const data = getForm(event.target)
-  const id = store.pet.id
-  const pet = {
-    pet: {
-      name: data.pet.name,
-      species: data.pet.species,
-      breed: data.pet.breed,
-      dob: data.pet.dob,
-      favorit_toy: data.pet.favorit_toy
-    }
-  }
+  const id = $(event.target).data('id')
 
-  api.editPets(pet, id)
+  api.editPets(data, id)
     .then(ui.editPetSuccess)
     .then(function () {
       seeMyPets(event)
     })
     .catch(ui.editPetFail)
+}
+
+const onGoBack = event => {
+  event.preventDefault()
+
+  ui.goBackSuccess()
+  // ui.goBackFail()
 }
 
 module.exports = {
@@ -140,7 +139,8 @@ module.exports = {
   onDeletePets,
   onEditPets,
   addHandlers,
-  onEditPetsStart,
-  seeMyPets
+  // onEditPetsStart,
+  seeMyPets,
+  onGoBack
   // seePic
 }

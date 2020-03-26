@@ -43,9 +43,9 @@ const deletePets = function (event) {
 }
 
 const editPets = function (data) {
-  // const id = $(event.target).data('name')
+  const id = $(event.target).data('id')
   return $.ajax({
-    url: config.apiUrl + '/pets/' + data.pet._id,
+    url: config.apiUrl + '/pets/' + id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
