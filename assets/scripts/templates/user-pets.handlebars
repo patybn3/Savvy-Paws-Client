@@ -25,14 +25,6 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="fals
     </div>
     <div class="modal-body">
 
-<h5 class="pet-classes">Date of Birth:</h5>
-<p>
-{{#if pet.dob}}
-  {{pet.dob}}
-{{else}}
-  DOB Unavailable!
-{{/if}}
-</p>
 <h5 class="pet-classes">Species:</h5>
 <p>
 {{#if pet.species}}
@@ -48,6 +40,14 @@ aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="fals
     {{else}}
       Breed Unavailable!
     {{/if}}
+  </p>
+  <h5 class="pet-classes">Date of Birth:</h5>
+  <p>
+  {{#if pet.dob}}
+    {{pet.dob}}
+  {{else}}
+    DOB Unavailable!
+  {{/if}}
   </p>
   </div>
 </div>

@@ -20,18 +20,20 @@
       <!-- Hamburger toolbar -->
       <div id='menu'>
       <button id="hamburger" class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="icon-lines"></div>
-      <div class="icon-lines"></div>
-      <div class="icon-lines"></div>
+        <div class="icon-lines"></div>
+        <div class="icon-lines"></div>
+        <div class="icon-lines"></div>
       </button>
+
       <button id="hamburgerX" class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <div id="mdiv">
-      <div class="mdiv">
-      <div class="md"></div>
-      </div>
-      </div>
-    </button>
-  </div>
+        <div class="mdiv1">
+        <div class="mdiv">
+        <div class="md"></div>
+        </div>
+        </div>
+      </button>
+    </div>
+
     <input type="submit" class="btn btn-primary button" id="button-logout" value="Log Out" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 
       <!-- Home Button near main title on navbar -->
@@ -58,15 +60,29 @@
                   <button id="get-my-pets" class="btn btn-primary btn-lg btn-block button button-view-my">User Portal</button>
                   <button id="clear-pets" class="btn btn-primary btn-lg btn-block button">Clear All Pets</button>
                   <button id="new-pets" class="btn btn-primary btn-lg btn-block button" data-toggle="modal" data-target="#modal-addnew">Add New Pet</button>
-                  <input type="submit" class="btn btn-primary btn-lg btn-block button" id="button-changepw" data-toggle="modal" data-target="#modal-changepw" value="Password">
+                  <input type="submit" class="btn btn-primary btn-lg btn-block button" id="button-changepw" data-toggle="modal" data-target="#modal-changepw" value="Settings">
                 </div>
               </div>
             </div>
 
     </nav>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <p id="error-message"></p>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <p id="success-message"></p>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+  </button>
+</div>
     <!-- nav bar and sidebar ends here -->
 
     <!-- container for pets-->
+
     <div class="content text-all"></div>
 
     <div class="container">
@@ -75,8 +91,6 @@
         <!-- About me Section-->
         <div class="col-12 col-lg-12 main-section">
     <!-- About me Section-->
-          <h2 id="edit-message"></h2>
-          <p id="click-message"></p>
           <h2 id="about-me">About Savvy Paws</h2><br>
           <h4 id="welcome">Welcome!</h4><br>
           <p class="main-text" id="main-p">Savvy Paws is an online application dedicated to track the information of your fur friend. All you need to do is Sign Up and Sign In to start enjoying this amazing tool!<br></p>
@@ -204,7 +218,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <button type="button" class="close go-back" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
           </button>
         </div>

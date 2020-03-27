@@ -2,16 +2,14 @@ const store = require('./store')
 
 // Buttons that open Modals
 const showModalSignUpSuccess = function (response) {
-  // console.log('something')
-  $('#sign-up').trigger('reset')
+  resetAll()
   $('#sign-up-message').text('')
   $('#modal-signin').modal('hide')
   $('.text-all').empty()
 }
 
 const showModalLogInSuccess = function (response) {
-  // console.log('something')
-  $('#sign-in').trigger('reset')
+  resetAll()
   $('#modal-signin').modal('show')
   $('#login-message').text('')
   $('#modal-signup').modal('hide')
@@ -19,10 +17,9 @@ const showModalLogInSuccess = function (response) {
 }
 
 const showModalChangeSuccess = function (response) {
-  // console.log('something')
+  resetAll()
   $('#edit-message').hide()
   $('#click-message').hide()
-  $('#sign-up').trigger('reset')
   $('#modal-changepw').modal('show')
   $('#changepw-message').text('')
   $('.text-all').empty()
@@ -30,7 +27,7 @@ const showModalChangeSuccess = function (response) {
 
 // User forms start Here:
 const signUpSuccess = function (response) {
-  $('#sign-up').trigger('reset')
+  resetAll()
   $('#sign-up-message').removeClass('failure')
   $('#sign-up-message').text('You Have Successfully Signed Up!')
   $('#sign-up-message').addClass('success')
@@ -41,20 +38,17 @@ const signUpSuccess = function (response) {
 }
 
 const signUpFail = function (response) {
-  $('#sign-up').trigger('reset')
+  resetAll()
   $('#sign-up-message').removeClass('success')
   $('#sign-up-message').text(`Sign Up Failed. Please Try Again!`)
   $('#sign-up-message').addClass('failure')
 }
 
 const logInSuccess = function (response) {
-  $('.side-section').trigger('reset')
-  $('.text-all').trigger('reset')
-  $('#sign-in').trigger('reset')
+  resetAll()
   $('#login-message').removeClass('failure')
   $('#login-message').text('You Have Successfully Signed In!')
   $('#login-message').addClass('success')
-  $('#modal-changepw').trigger('reset')
   store.user = response.user
   $('#button-logout').show()
   $('.button-signup').hide()
@@ -78,40 +72,34 @@ const logInSuccess = function (response) {
 }
 
 const logInFail = function (response) {
-  $('#sign-in').trigger('reset')
+  resetAll()
   $('#login-message').removeClass('success')
   $('#login-message').text(`Sign In Failed. Please Try Again!`)
   $('#login-message').addClass('failure')
 }
 
 const changePwSuccess = function (response) {
-  $('#get-pets').trigger('reset')
+  resetAll()
   $('.text-all').empty()
-  $('#change-pw').trigger('reset')
   $('#changepw-message').removeClass('failure')
   $('#changepw-message').text('You Have Changed Your Password.')
   $('#changepw-message').addClass('success')
 
   setTimeout(() => {
     $('#modal-changepw').modal('hide')
-  }, 500)
+  }, 300)
 }
 
 const changePwFail = function (response) {
-  $('#change-pw').trigger('reset')
+  resetAll()
   $('#changepw-message').removeClass('success')
   $('#changepw-message').text(`Change Password Failed. Please Try Again!`)
   $('#changepw-message').addClass('failure')
 }
 
 const logOutSuccess = function (response) {
-  $('#get-pets').trigger('reset')
+  resetAll()
   $('#button-logout').hide()
-  $('.space').text('You Have Successfully Signed Out!')
-  $('.space').addClass('success')
-  $('#modal-signup').trigger('reset')
-  $('#modal-signin').trigger('reset')
-  $('#modal-changepw').trigger('reset')
   store.user = null
   $('.button-signup').show()
   $('.button-login').show()
@@ -119,20 +107,17 @@ const logOutSuccess = function (response) {
   $('#edit-message').hide()
   $('#click-message').hide()
   $('.side-section').hide()
-  $('.side-section').trigger('reset')
-  $('#hamburger').trigger('reset')
-  $('.handles').trigger('reset')
 
   $('#get').attr('disabled', true)
+
+  $('.content').removeClass('aside')
+  $('.handles').removeClass('handles-aside')
 
   setTimeout(() => {
     $('.space').text('')
     $('#hamburger').fadeOut()
     $('#hamburgerX').fadeOut()
     $('.main-section').fadeOut()
-    // $('#dog-image').fadeIn()
-    // $('#cat-image').fadeIn()
-    // $('#dog-sun-image').fadeIn()
   }, 300)
 
   setTimeout(() => {
@@ -145,7 +130,7 @@ const logOutSuccess = function (response) {
 // Button on side bar functionality (starts here):
 //
 const aboutMeSuccess = function (response) {
-  $('#button-about').trigger('reset')
+  resetAll()
   $('.main-section').show()
   $('.text-all').html('')
   $('#about-me').show()
@@ -153,41 +138,10 @@ const aboutMeSuccess = function (response) {
   $('.main-text').show()
 }
 
-// const showHomeFail = function (response) {
-//   $('#about-me').hide()
-//   $('#welcome').text('Home Failed to Open, Please Try Again.')
-//   $('#welcome').addClass('failure')
-//   $('#main-text').text('')
-// }
-
-// const showPortalSuccess = function (response) {
-//   $('#button-about').trigger('reset')
-//   $('.main-section').show()
-//   $('.text-all').html('')
-//   $('#about-me').hide()
-//   $('#welcome').hide()
-//   $('.main-text').hide()
-//   $('#get-my-pets').show()
-//   $('#button-changepw').show()
-//   $('#new-pets').show()
-//   $('#button-about').hide()
-//   $('#button-portal').hide()
-// }
-//
-// const showPortalFail = function (response) {
-//   $('#about-me').hide()
-//   $('#welcome').text('User Portal Failed to Open, Please Try Again.')
-//   $('#welcome').addClass('failure')
-//   $('.main-text').text('')
-// }
-
 const hamburgerSuccess = function () {
-  $('#get').trigger('reset')
-  $('#get-pets').trigger('reset')
-  $('#hamburger').trigger('reset')
+  resetAll()
   $('#hamburger').hide()
   $('#hamburgerX').show()
-  $('.side-section').trigger('reset')
   $('.side-section').show()
 
   setTimeout(() => {
@@ -197,18 +151,36 @@ const hamburgerSuccess = function () {
 }
 
 const hamburgerXSuccess = function () {
-  $('#get').trigger('reset')
-  $('#get-pets').trigger('reset')
-  $('#hamburgerX').trigger('reset')
+  resetAll()
   $('#hamburger').show()
   $('#hamburgerX').hide()
-  $('.side-section').trigger('reset')
   $('.side-section').show()
 
   setTimeout(() => {
     $('.content').removeClass('aside')
     $('.handles').removeClass('handles-aside')
   }, 100)
+}
+
+const resetAll = function () {
+  $('#new-pets').trigger('reset')
+  $('.add-new').trigger('reset')
+  $('#get').trigger('reset')
+  $('#get-pets').trigger('reset')
+  $('#hamburgerX').trigger('reset')
+  $('.side-section').trigger('reset')
+  $('#hamburger').trigger('reset')
+  $('#button-about').trigger('reset')
+  $('.handles').trigger('reset')
+  $('#modal-signup').trigger('reset')
+  $('#modal-signin').trigger('reset')
+  $('#modal-changepw').trigger('reset')
+  $('#change-pw').trigger('reset')
+  $('#sign-in').trigger('reset')
+  $('.text-all').trigger('reset')
+  $('#sign-up').trigger('reset')
+  $('#sign-up').trigger('reset')
+  $('#sign-in').trigger('reset')
 }
 
 module.exports = {
@@ -222,9 +194,7 @@ module.exports = {
   changePwSuccess,
   changePwFail,
   aboutMeSuccess,
-  // showPortalSuccess,
   logOutSuccess,
-  // showPortalFail,
   hamburgerSuccess,
   hamburgerXSuccess
 }

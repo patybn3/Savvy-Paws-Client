@@ -9,14 +9,6 @@
   {{limit pet.name 10}}
 </h2>
 <br>
-<h5 class="pet-classes">Date of Birth:</h5>
-<p>
-{{#if pet.dob}}
-  {{pet.dob}}
-{{else}}
-  DOB Unavailable!
-{{/if}}
-</p>
 <h5 class="pet-classes">Species:</h5>
 <p>
 {{#if pet.species}}
@@ -33,9 +25,18 @@
       Breed Unavailable!
     {{/if}}
   </p>
-    {{> partial id=pet.id }}  <button class='btn btn-primary edit-pet button' data-toggle="modal" data-target="#edit{{pet.id}}">Edit Pet</button>
+  <h5 class="pet-classes">Date of Birth:</h5>
+  <p>
+  {{#if pet.dob}}
+    {{pet.dob}}
+  {{else}}
+    DOB Unavailable!
+  {{/if}}
+  <br>
+  <div>
+    {{> partial id=pet.id }}  <button class='btn btn-primary edit-pet button' data-toggle="modal" data-target="#modalEdit{{pet.id}}">Edit Pet</button>
 <!-- edit forms -->
-<div class="modal fade modal-edit" id="edit{{pet.id}}" tabindex="-1" role="dialog"
+<div class="modal fade modal-edit" id="modalEdit{{pet.id}}" tabindex="-1" role="dialog"
 aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="false">
 <div class="modal-dialog modal-dialog-centered" role="document">
   <div class="modal-content">
@@ -89,7 +90,7 @@ placeholder="Dog"> -->
           <input type='submit' class="btn btn-primary btn-lg btn-block button" id="edit-submit" value="Submit">
           <br>
           <br>
-          <button type="button" class="btn btn-primary btn-lg btn-block go-back" data-toggle="modal" data-target="#edit{{pet.id}}">
+          <button type="button" class="btn btn-primary btn-lg btn-block go-back" data-toggle="modal" data-target="#modalEdit{{pet.id}}">
           Cancel</button>
           </fieldset>
           </form>
@@ -97,6 +98,7 @@ placeholder="Dog"> -->
       </div>
       </div>
     </div>
+    <div>
   </section>
 
 {{/each}}

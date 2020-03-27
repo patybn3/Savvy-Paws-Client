@@ -4,67 +4,63 @@
 body {
   background: $white-color;
   font-family: $page-font;
-  background-repeat: repeat;
 }
 
 #navbar {
   background: $navbar-color 70%;
-  // box-shadow: 0 8px 8px -2px $shadow;
   height: 55px;
   margin: auto;
   position: fixed;
   width: 100%;
-  // opacity: 70%;
 }
 
 .icon-lines {
-  width: 25px;
-  height: 4px;
   background-color: $black-color;
-  margin: 6px 0;
-  transition: 0.4s;
   border-radius: 2px;
+  height: 4px;
+  margin: 6px 0;
+  transition: .4s;
+  width: 25px;
 }
 
-#mdiv {
-  width: 30px;
+.mdiv1 {
   height: 30px;
+  width: 30px;
 }
 
 .mdiv {
-  height: 30px;
-  width: 5px;
-  margin: 4px 12px 0;
-  background-color: black;
-  transform: rotate(45deg);
+  background-color: $black-color;
   border-radius: 2px;
-  Z-index: 1;
+  height: 30px;
+  margin: 4px 12px 0;
+  transform: rotate(45deg);
+  width: 5px;
+  z-index: 1;
 }
 
 .md {
-  height: 30px;
-  width: 5px;
-  background-color: black;
+  background-color: $black-color;
   border-radius: 2px;
+  height: 30px;
   transform: rotate(90deg);
-  Z-index: 2;
+  width: 5px;
+  z-index: 2;
 }
 
 .custom-toggler {
+  border-right: solid $shadow 1px;
   float: left;
   padding: 2px 20px 0 30px;
-  border-right: solid $shadow 1px;
 }
 
 #centered-bar {
-  background-color: $white-color;
+  background: $white-linear;
   height: 200px;
-  position: fixed;
-  width: 100%;
-  top: 50%;
   left: 50%;
+  position: fixed;
+  top: 50%;
   transform: translate(-50%, -50%);
-  background: linear-gradient(90deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,1) 51%, rgba(255,255,255,0.6348914565826331) 100%);
+  width: 100%;
 }
 
 .back-images {
@@ -73,16 +69,16 @@ body {
 
 #logo,
 #logo-side {
-  text-align: center;
   margin-top: 20px;
+  text-align: center;
 }
 
 .logo-side {
-  height: 120px;
   border: 4px solid $black-color;
-  width: 130px;
   border-radius: 50% !important;
+  height: 120px;
   margin: 0 50px 20px 20px;
+  width: 130px;
 }
 
 #nav-bar-title {
@@ -91,8 +87,8 @@ body {
 }
 
 #name-icon {
-  padding: 0 20px 8px 20px !important;
   margin-left: 10px !important;
+  padding: 0 20px 8px !important;
 }
 
 .middle-title {
@@ -101,11 +97,11 @@ body {
 
 .main-section {
   background-color: $white-transparent;
-  width: 80% !important;
+  border-radius: 5px;
   margin: 100px 30px 100px 120px !important;
   padding: 60px !important;
-  border-radius: 5px;
   position: absolute !important;
+  width: 80% !important;
 }
 
 .success {
@@ -123,10 +119,10 @@ body {
   bottom: 0;
   color: $white-color;
   left: 0;
+  padding: 5px 0 5px 15px;
   position: fixed;
   text-align: left;
   width: 100%;
-  padding: 5px 0 5px 15px;
 }
 
 .button {
@@ -147,14 +143,14 @@ body {
 #change-pw,
 #sign-in,
 #sign-up {
-  text-align: center;
   padding: 20px !important;
   margin: 5px !important;
+  text-align: center;
 }
 
 #info-form {
-  padding: 25px !important;
   margin: 20px;
+  padding: 25px !important;
 }
 
 #info-form h5 {
@@ -177,7 +173,7 @@ body {
 }
 
 .button-signup {
-  padding: 8px 45px 8px 45px !important;
+  padding: 8px 45px !important;
 }
 
 .button-login {
@@ -197,9 +193,9 @@ body {
   @include make-row;
   background-color: $no-color;
   border-radius: 5px;
+  margin: 100px 20px 30px 20px !important;
   position: absolute;
   width: auto;
-  margin: 100px 20px 30px 20px !important;
 }
 
 
@@ -209,13 +205,12 @@ body {
 
 .handles {
   background-color: $white-color;
-  padding: 8px;
-  min-width: 200px;
-  max-width: 330px;
-  height: auto;
   border: solid 2px $black-color;
   border-radius: 8px;
-  margin: 5px 5px 5px 5px;
+  height: auto;
+  margin: 5px;
+  padding: 8px;
+  width: 330px;
 }
 
 
@@ -223,8 +218,8 @@ body {
   background-color: $background-color;
   margin-right: 1190px;
   padding: 20px !important;
-  width: 287px;
   padding-bottom: 450px !important;
+  width: 287px;
 }
 
 .aside {
@@ -236,9 +231,9 @@ body {
 }
 
 .picture {
-  width: 100%;
   height: auto;
   padding: 5px !important;
+  width: 100%;
 }
 
 .pet-info {

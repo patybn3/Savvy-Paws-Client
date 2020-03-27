@@ -1,15 +1,10 @@
 'use strict'
 
-// use require with a reference to bundle the file and use it in this file
-// const example = require('./example')
 const eventsFile = require('./events')
 const eventsPets = require('./pets/events')
-// use require without a reference to ensure a file is bundled
-// require('./example')
 
 $(() => {
   $('#get').attr('disabled', true)
-  // your JS code goes here
   // User forms
   // Shows Modals
   $('.button-signup').on('click', eventsFile.onShowSignUpModal)
@@ -22,7 +17,6 @@ $(() => {
   // other buttons functionality
   $('#button-logout').on('click', eventsFile.onLogout)
   $('#button-about').on('click', eventsFile.onAboutMe)
-  // $('#button-portal').on('click', eventsFile.onShowPortal)
   $('#hamburger').on('click', eventsFile.onHamburger)
   $('#hamburgerX').on('click', eventsFile.onHamburgerX)
   // hides and shows
@@ -41,15 +35,15 @@ $(() => {
   $('#welcome').hide()
   $('.main-text').hide()
   $('.main-section').hide()
-  // pets
+  $('.alert-danger').hide()
+  $('.alert-success').hide()
+
   $('#new-pets').on('click', eventsPets.onNewPetButton)
-  // $('#view-pets').on('click', eventsPets.seeAllPets)
+
   $('.button-view').on('click', eventsPets.seeAllPets)
   $('.button-view-my').on('click', eventsPets.seeMyPets)
   $('#clear-pets').on('click', eventsPets.onClearPets)
-  $('#edit-form').on('submit', eventsPets.onEditPets)
   $('.go-back').on('click', eventsPets.onGoBack)
-  // $('.remove-pet').on('click', eventsPets.onDeletePets)
+
   eventsPets.addHandlers()
-  // delete and Edit
 })

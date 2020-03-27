@@ -1,7 +1,7 @@
 # Savvy Paws
 
 This is a Full Stack project in which this is the front-end repository
-Check the back-end repository at https://github.com/patybn3/Savvy-Paws-Full-Stack
+Check the back-end repository at [This URl](https://github.com/patybn3/Savvy-Paws-Full-Stack)
 Back-end built using Heroku, Git and GitHub
 Heroku: https://tranquil-earth-29477.herokuapp.com/
 
@@ -116,6 +116,7 @@ Edit Pet button only appears if "View Your Pets" button is clicked
 Side Bar with Home button
 Change password button and log out
 
+
 ## Schedule Followed:
 
 ## Client
@@ -162,7 +163,17 @@ Goals:
 5. Review all fail and success messages
 6. Add picture of specie when a specie is selected
 
+# Versions
 
+The current layout is the second version of this project
+
+### Original Wireframes:
 
 1. ![Savvy-Paws Wireframe 1](/wireframefirst.jpg)
 2. ![Savvy-Paws Wireframe 2](./wireframesecond.jpg)
+
+### Original Design:
+<img width="500" alt="Screen Shot 2020-03-19 at 7 56 46 PM" src="https://user-images.githubusercontent.com/59259041/77720207-9ce55a00-6fbd-11ea-8b89-2758ce4ab6c7.png">
+<img width="500" alt="Screen Shot 2020-03-19 at 7 57 33 PM" src="https://user-images.githubusercontent.com/59259041/77720276-db7b1480-6fbd-11ea-8a32-e00493b76ee0.png">
+<img width="500" alt="Screen Shot 2020-03-19 at 7 57 00 PM" src="https://user-images.githubusercontent.com/59259041/77720294-e635a980-6fbd-11ea-86e3-7c8ca4650753.png">
+<img width="500" alt="Screen Shot 2020-03-19 at 7 57 37 PM" src="https://user-images.githubusercontent.com/59259041/77720313-f2216b80-6fbd-11ea-8e30-a65beb38d31e.png">
