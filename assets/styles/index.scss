@@ -2,7 +2,9 @@
 @import 'variables';
 
 body {
-  background: $white-color;
+  background: $sides;
+  background-image: url('./public/log-in-back.jpg');
+  background-repeat: repeat-y;
   font-family: $page-font;
 }
 
@@ -167,11 +169,6 @@ body {
   text-align: center;
 }
 
-#click-message,
-#edit-message {
-  text-align: center;
-}
-
 .button-signup {
   padding: 8px 45px !important;
 }
@@ -196,6 +193,7 @@ body {
   margin: 100px 20px 30px 20px !important;
   position: absolute;
   width: auto;
+  padding-bottom: 80px;
 }
 
 
@@ -238,4 +236,152 @@ body {
 
 .pet-info {
   padding: 20px;
+}
+
+
+@media (max-width: 425px) {
+  .handles {
+    padding: 2px;
+    width: 100% !important;
+  }
+
+  #navbar-buttons {
+    padding: 20px;
+  }
+
+  .button-signup {
+    padding: 5px 25px !important;
+  }
+
+  .button-login {
+    padding: 5px 29px !important;
+  }
+
+  #middle-logo {
+  border-radius: 50%;
+  }
+
+  #sign-in,
+  #sign-up {
+    padding: 10px !important;
+    margin: 5px !important;
+  }
+
+  .side-section {
+    background-color: $background-color;
+    margin-right: 0;
+    padding: 20px !important;
+    padding-bottom: 200px !important;
+    width: 320px;
+  }
+
+  .logo-side {
+    display: none;
+  }
+
+  .aside {
+    margin: 400px 20px !important;
+  }
+
+  #nav-bar-title {
+    display: none;
+  }
+
+  .main-section {
+    background-color: $white-transparent;
+    border-radius: 5px;
+    margin: 400px 0 100px !important;
+    padding: 20px !important;
+    position: absolute !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .handles {
+    padding: 2px;
+    width: 720px !important;
+  }
+
+  #navbar-buttons {
+    padding: 20px;
+  }
+
+  .button-signup {
+    padding: 5px 25px !important;
+  }
+
+  .button-login {
+    padding: 5px 29px !important;
+  }
+
+  #middle-logo {
+  border-radius: 50%;
+  }
+
+  #sign-in,
+  #sign-up {
+    padding: 10px !important;
+    margin: 5px !important;
+  }
+
+  .side-section {
+    background-color: $background-color;
+    margin-right: 0;
+    padding: 20px !important;
+    padding-bottom: 200px !important;
+    width: 320px;
+  }
+
+  .logo-side {
+    display: none;
+  }
+
+  .aside {
+    margin: 400px 20px !important;
+  }
+
+  #nav-bar-title {
+    display: none;
+  }
+
+  .main-section {
+    background-color: $white-transparent;
+    border-radius: 5px;
+    margin: 400px 50px 50px 0 !important;
+    padding: 60px !important;
+    position: absolute !important;
+    width: 720px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .handles {
+    padding: 2px;
+    width: 480px !important;
+  }
+
+  .side-section {
+    background-color: $background-color;
+    margin: 0;
+    padding: 20px 0 300px !important;
+    width: 300px !important;
+  }
+
+  .logo-side {
+    display: none;
+  }
+
+  .aside {
+    margin: 450px 20px !important;
+  }
+
+  .main-section {
+    background-color: $white-transparent;
+    border-radius: 5px;
+    margin: 400px -50px 100px -20px !important;
+    padding: 20px 60px !important;
+    position: absolute !important;
+    width: 1000px !important;
+  }
 }

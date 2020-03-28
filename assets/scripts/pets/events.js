@@ -96,10 +96,11 @@ const onDeletePets = (event) => {
 
 const onEditPets = event => {
   event.preventDefault()
-  $('#modalEdit').modal('hide')
 
   const data = getForm(event.target)
   const id = $(event.target).data('id')
+
+  $('#modalEdit').modal('hide')
 
   api.editPets(data, id)
     .then(ui.editPetSuccess)

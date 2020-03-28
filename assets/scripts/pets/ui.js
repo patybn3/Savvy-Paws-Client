@@ -63,7 +63,7 @@ const seeMySuccess = (data) => {
   $('.text-all').html('')
   const showPetsHtmlMy = showPetsTemplateMy({ pets: data.pets })
 
-  $('.text-all').append(showPetsHtmlMy)
+  $('.text-all').html(showPetsHtmlMy)
   $('.handles').addClass('handles-aside')
 }
 
@@ -73,6 +73,7 @@ const clearPets = () => {
 
 const editPetSuccess = function (data) {
   successMessage()
+  resetAllForms()
   $('.modal-backdrop').remove()
 }
 
@@ -119,6 +120,7 @@ const resetAllForms = function () {
   $('.main-section').trigger('reset')
   $('#button-about').trigger('reset')
   $('.button-view').trigger('reset')
+  $('.edit-form').trigger('reset')
 }
 
 module.exports = {

@@ -68,6 +68,7 @@ const logInSuccess = function (response) {
   setTimeout(() => {
     $('#hamburger').fadeIn()
     $('#centered-bar').fadeOut()
+    $('.back-images').fadeOut()
   }, 450)
 }
 
@@ -124,6 +125,7 @@ const logOutSuccess = function (response) {
     $('#middle-logo').fadeIn()
     $('.middle-title').fadeIn()
     $('#centered-bar').fadeIn()
+    $('.back-images').fadeIn()
   }, 400)
 }
 
