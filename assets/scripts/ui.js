@@ -46,6 +46,7 @@ const signUpFail = function (response) {
 
 const logInSuccess = function (response) {
   resetAll()
+  $('#login-message').show()
   $('#login-message').removeClass('failure')
   $('#login-message').text('You Have Successfully Signed In!')
   $('#login-message').addClass('success')
@@ -77,6 +78,10 @@ const logInFail = function (response) {
   $('#login-message').removeClass('success')
   $('#login-message').text(`Sign In Failed. Please Try Again!`)
   $('#login-message').addClass('failure')
+
+  setTimeout(() => {
+    $('#login-message').fadeOut()
+  }, 500)
 }
 
 const changePwSuccess = function (response) {
@@ -183,6 +188,7 @@ const resetAll = function () {
   $('#sign-up').trigger('reset')
   $('#sign-up').trigger('reset')
   $('#sign-in').trigger('reset')
+  $('.preview').trigger('reset')
 }
 
 module.exports = {
