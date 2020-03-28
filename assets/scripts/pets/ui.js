@@ -121,6 +121,7 @@ const resetAllForms = function () {
   $('#button-about').trigger('reset')
   $('.button-view').trigger('reset')
   $('.edit-form').trigger('reset')
+  $('.preview').trigger('reset')
 }
 
 module.exports = {

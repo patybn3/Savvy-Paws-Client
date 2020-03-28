@@ -45,7 +45,7 @@ const onLogIn = event => {
     .then(function () {
       eventsPets.seeAllPets(event)
     })
-    .catch(ui.logOutFail)
+    .catch(ui.logInFail)
 }
 
 const onChangePw = event => {
