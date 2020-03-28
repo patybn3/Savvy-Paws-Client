@@ -1,124 +1,126 @@
 'use strict'
 // const showPetsTemplate = require('../templates/pets-all.handlebars')
 const showPetsTemplate = require('../templates/user-pets.handlebars')
+const showPetsTemplateMy = require('../templates/my-pets.handlebars')
 
+// hides all about me info
 const newPetButtonSuccess = function (response) {
-  // console.log('something')
-  $('#edit-message').hide()
-  $('#click-message').hide()
-  $('.text-all').empty()
-  $('.add-new').show()
   $('#about-me').hide()
   $('#welcome').hide()
   $('.main-text').hide()
 }
 // Created a new pet
 const newPetSuccess = function (response) {
-  // console.log('works')
-  $('.text-all').empty()
-  $('.add-new').trigger('reset')
   $('#add-message').removeClass('failure')
   $('#add-message').text('You Have Added Your Pet Successfully!')
   $('#add-message').addClass('success')
 
   setTimeout(() => {
     $('#add-message').hide()
-  }, 1500)
+  }, 400)
 
   setTimeout(() => {
     $('.add-new').fadeOut()
-  }, 1500)
-
-  $('.text-all').trigger('reset')
+  }, 600)
 }
 
-// Show all pets, no user linked
+// Show all pets, no user linked, also home
 const seeAllSuccess = (data) => {
-  $('#get-pets').trigger('reset')
-  $('#edit-message').hide()
-  $('#click-message').hide()
-  $('.edit-pet').show()
-  $('.add-new').hide()
-  // $('.text-all').show()
-  $('.text-all').trigger('reset')
+  resetAllForms()
   $('#about-me').hide()
   $('#welcome').hide()
   $('.main-text').hide()
+  $('.main-section').hide()
+  $('#button-changepw').hide()
+  $('#new-pets').hide()
+  $('#button-about').show()
+  $('#button-portal').show()
+  $('#get-all-pets').hide()
+  $('#see-my-pets').hide()
+  $('#get-my-pets').show()
+
+  setTimeout(() => {
+    $('.text-all').html('')
+    const showPetsHtml = showPetsTemplate({ pets: data.pets })
+
+    $('.text-all').append(showPetsHtml)
+  }, 500)
+}
+// also user portal
+const seeMySuccess = (data) => {
+  resetAllForms()
+  $('#get-my-pets').hide()
+  $('#see-my-pets').show()
+  $('#get-all-pets').show()
+  $('#about-me').hide()
+  $('#welcome').hide()
+  $('.main-text').hide()
+  $('#button-changepw').show()
+  $('#new-pets').show()
+  $('#button-about').hide()
+  $('.main-section').hide()
 
   $('.text-all').html('')
-  const showPetsHtml = showPetsTemplate({ pets: data.pets })
-  // $('.text-all').html('')
-  $('.text-all').append(showPetsHtml)
-  // $('.text-all').on('click', '.remove-pet', function (event) {
-  //   // if (!$(this).hasClass('.text-all')) {
-  //   $('#delete-message').addClass('success')
-  //   $('#delete-message').append('You Have Deleted Your Pet!')
-  //   // }
-  // })
+  const showPetsHtmlMy = showPetsTemplateMy({ pets: data.pets })
 
-  $('#button-home').click(function (event) {
-    event.preventDefault()
-    if (!$(this).hasClass('.text-all')) {
-      $('.text-all').empty()
-      $('#about-me').show()
-      $('#welcome').show()
-      $('.main-text').show()
-    }
-  })
+  $('.text-all').html(showPetsHtmlMy)
+  $('.handles').addClass('handles-aside')
 }
 
 const clearPets = () => {
   $('.text-all').empty()
 }
 
-const editPetSuccess = function (response) {
-  // console.log('something')
-  $('.text-all').empty()
-  $('#edit-message').show()
-  $('#edit-message').removeClass('failure')
-  $('#edit-message').addClass('success')
-  $('#edit-message').text('You Have Successfully Edited Your Pet!')
-  $('#click-message').show()
-  $('#click-message').text(`Click on "View Your Pets" Button to Continue.`)
-
-  $('#edit-form').trigger('reset')
-  $('#get-pets').trigger('reset')
-  $('.text-all').trigger('reset')
-
-  setTimeout(() => {
-    $('#edit-modal').modal('hide')
-  }, 800)
+const editPetSuccess = function (data) {
+  successMessage()
+  resetAllForms()
+  $('.modal-backdrop').remove()
 }
 
 const seeAllfailure = function (response) {
+  fail()
   $('.text-all').empty()
-  $('#edit-message').show()
-  $('#edit-message').removeClass('success')
-  $('#edit-message').text(`"View Your Pets" Failed. Please Try Again!`)
-  $('#edit-message').addClass('failure')
 }
 
-const editPetFail = function (response) {
-  $('.text-all').empty()
-  $('#edit-message').show()
-  $('#edit-message').removeClass('success')
-  $('#edit-message').text(`Pet Update Failed. Please Try Again!`)
-  $('#edit-message').addClass('failure')
+const onPreviewSuccess = (photoUrl) => {
+  $('.preview-img').attr('src', photoUrl).addClass('img-thumbnail')
+}
+
+const goBackSuccess = function (response) {
+  resetAllForms()
+  successMessage()
+  $('.add-new').hide()
+}
+
+const fail = function () {
+  $('.alert-danger').show()
+  $('#error-message').text('Function is Unavailable. Please Try Again!')
 
   setTimeout(() => {
-    $('#edit-modal').modal('hide')
-  }, 800)
+    $('.alert-danger').fadeOut()
+  }, 1500)
 }
 
-const showModalEditSuccess = function (response) {
+const successMessage = function () {
+  $('.alert-success').show()
+  $('#success-message').text('Request Completed')
+
+  setTimeout(() => {
+    $('.alert-success').fadeOut()
+  }, 1500)
+}
+
+const resetAllForms = function () {
+  $('#new-pets').trigger('reset')
+  $('.add-new').trigger('reset')
+  $('#get-pets').trigger('reset')
   $('#edit-form').trigger('reset')
-  $('#edit-form').modal('show')
-}
-
-const onDeleteSuccess = function (response) {
-  // $('#edit-message').show()
-  $('#delete-message').addClass('success')
-  $('#delete-message').text('You Have Deleted Your Pet!')
+  $('#get-my-pets').trigger('reset')
+  $('.text-all').trigger('reset')
+  $('.main-section').trigger('reset')
+  $('#button-about').trigger('reset')
+  $('.button-view').trigger('reset')
+  $('.edit-form').trigger('reset')
 }
 
 module.exports = {
@@ -127,8 +129,10 @@ module.exports = {
   seeAllSuccess,
   editPetSuccess,
   clearPets,
-  showModalEditSuccess,
-  editPetFail,
   seeAllfailure,
-  onDeleteSuccess
+  seeMySuccess,
+  onPreviewSuccess,
+  goBackSuccess,
+  fail,
+  successMessage
 }

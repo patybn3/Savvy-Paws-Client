@@ -2,6 +2,7 @@ const getForm = require('./../../lib/get-form-fields')
 
 const api = require('./api')
 const ui = require('./ui')
+const eventsPets = require('./pets/events')
 
 // Shows the three modals
 const onShowSignUpModal = event => {
@@ -41,7 +42,10 @@ const onLogIn = event => {
 
   api.logIn(data)
     .then(ui.logInSuccess)
-    .catch(ui.logInFail)
+    .then(function () {
+      eventsPets.seeAllPets(event)
+    })
+    .catch(ui.logOutFail)
 }
 
 const onChangePw = event => {
@@ -52,6 +56,9 @@ const onChangePw = event => {
 
   api.onChange(data)
     .then(ui.changePwSuccess)
+    .then(function () {
+      eventsPets.seeMyPets(event)
+    })
     .catch(ui.changePwFail)
 }
 
@@ -60,30 +67,26 @@ const onLogout = event => {
 
   api.logOut()
     .then(ui.logOutSuccess)
-    .catch(ui.logOutFail)
+    .catch(ui.fail)
 }
 
 // Fuctions to make buttons work
-const onShowHome = event => {
+const onAboutMe = event => {
   event.preventDefault()
 
-  ui.showHomeSuccess()
-  // ui.showHomeFail()
+  ui.aboutMeSuccess()
 }
 
-// const onShowPortal = event => {
-//   event.preventDefault()
-//
-//   api.showModal()
-//     .then(ui.showPortalSuccess)
-//     .catch(ui.showPortalFail)
-// }
-
-const onGoBack = event => {
+const onHamburger = event => {
   event.preventDefault()
 
-  ui.goBackSuccess()
-  // ui.goBackFail()
+  ui.hamburgerSuccess()
+}
+
+const onHamburgerX = event => {
+  event.preventDefault()
+
+  ui.hamburgerXSuccess()
 }
 
 module.exports = {
@@ -94,7 +97,7 @@ module.exports = {
   onLogIn,
   onChangePw,
   onLogout,
-  onShowHome,
-  // onShowPortal,
-  onGoBack
+  onAboutMe,
+  onHamburger,
+  onHamburgerX
 }

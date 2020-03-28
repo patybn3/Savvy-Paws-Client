@@ -3,54 +3,107 @@
 
 body {
   background: $sides;
+  background-image: url('./public/log-in-back.jpg');
+  background-repeat: repeat-y;
   font-family: $page-font;
 }
 
 #navbar {
-  background: $navbar-color;
-  // box-shadow: 0 8px 8px -2px $shadow;
-  color: $white-color;
-  height: 170px;
+  background: $navbar-color 70%;
+  height: 55px;
   margin: auto;
+  position: fixed;
+  width: 100%;
 }
 
-#logo {
-  display: inline-block;
-  height: auto;
-  margin-top: -150px;
-  padding-left: 130px;
-  vertical-align: top;
-  width: 100px;
+.icon-lines {
+  background-color: $black-color;
+  border-radius: 2px;
+  height: 4px;
+  margin: 6px 0;
+  transition: .4s;
+  width: 25px;
 }
 
-h1 {
-  padding: 60px 300px;
-  text-shadow: 3px 3px $shadow;
+.mdiv1 {
+  height: 30px;
+  width: 30px;
+}
+
+.mdiv {
+  background-color: $black-color;
+  border-radius: 2px;
+  height: 30px;
+  margin: 4px 12px 0;
+  transform: rotate(45deg);
+  width: 5px;
+  z-index: 1;
+}
+
+.md {
+  background-color: $black-color;
+  border-radius: 2px;
+  height: 30px;
+  transform: rotate(90deg);
+  width: 5px;
+  z-index: 2;
+}
+
+.custom-toggler {
+  border-right: solid $shadow 1px;
+  float: left;
+  padding: 2px 20px 0 30px;
+}
+
+#centered-bar {
+  background: $white-linear;
+  height: 200px;
+  left: 50%;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.back-images {
+  width: 100%;
+}
+
+#logo,
+#logo-side {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.logo-side {
+  border: 4px solid $black-color;
+  border-radius: 50% !important;
+  height: 120px;
+  margin: 0 50px 20px 20px;
+  width: 130px;
+}
+
+#nav-bar-title {
+  color: $white-color;
+  margin-top: 5px;
+}
+
+#name-icon {
+  margin-left: 10px !important;
+  padding: 0 20px 8px !important;
+}
+
+.middle-title {
+  display: inline;
 }
 
 .main-section {
-  background: $white-color;
-  // box-shadow: 4px 2px 5px 3px $shadow;
-  border-radius: 0 10px 10px 0;
-}
-
-.space-two {
-  background-color: $background-color;
-  color: $background-color;
-  font-size: 35px;
-}
-
-.space, .space-blank {
-  color: $sides;
-  font-size: 35px;
-}
-
-.side-section {
-  background-color: $background-color;
-  // border-radius: 10px;
-  // box-shadow: 4px 0px 8px -2px $shadow;
-  // border-left: 20px solid $white-color;
-
+  background-color: $white-transparent;
+  border-radius: 5px;
+  margin: 100px 30px 100px 120px !important;
+  padding: 60px !important;
+  position: absolute !important;
+  width: 80% !important;
 }
 
 .success {
@@ -68,10 +121,10 @@ h1 {
   bottom: 0;
   color: $white-color;
   left: 0;
+  padding: 5px 0 5px 15px;
   position: fixed;
   text-align: left;
   width: 100%;
-  padding: 10px 0px 10px 15px;
 }
 
 .button {
@@ -83,22 +136,252 @@ h1 {
   font-size: 17px !important;
 }
 
-.button:hover, .button:active, .button:visited {
+.button:active,
+.button:hover,
+.button:visited {
   background-color: $buttons-hover !important;
 }
 
-#sign-in, #sign-up, #change-pw, #edit-form {
+#change-pw,
+#sign-in,
+#sign-up {
+  padding: 20px !important;
+  margin: 5px !important;
   text-align: center;
+}
+
+#info-form {
+  margin: 20px;
+  padding: 25px !important;
+}
+
+#info-form h5 {
+  font-weight: 600;
+}
+
+.info {
+  float: right;
+}
+
+#about-me,
+#main-p,
+#welcome {
+  text-align: center;
+}
+
+.button-signup {
+  padding: 8px 45px !important;
+}
+
+.button-login {
+  padding: 8px 49px !important;
+}
+
+#navbar-buttons {
+  padding: 10px 100px 10px 120px;
+}
+
+#button-logout {
+  float: right;
+  margin-right: 30px !important;
+}
+
+.content {
+  @include make-row;
+  background-color: $no-color;
+  border-radius: 5px;
+  margin: 100px 20px 30px 20px !important;
+  position: absolute;
+  width: auto;
+  padding-bottom: 80px;
+}
+
+
+.background {
+  background-color: $white-transparent;
 }
 
 .handles {
+  background-color: $white-color;
+  border: solid 2px $black-color;
+  border-radius: 8px;
+  height: auto;
+  margin: 5px;
+  padding: 8px;
+  width: 330px;
+}
+
+
+.side-section {
+  background-color: $background-color;
+  margin-right: 1190px;
+  padding: 20px !important;
+  padding-bottom: 450px !important;
+  width: 287px;
+}
+
+.aside {
+  margin: 100px 50px 30px 250px !important;
+}
+
+.handles-aside {
+  margin: 5px;
+}
+
+.picture {
+  height: auto;
+  padding: 5px !important;
+  width: 100%;
+}
+
+.pet-info {
   padding: 20px;
 }
 
-#about-me, #welcome, #main-p {
-  text-align: center;
+
+@media (max-width: 425px) {
+  .handles {
+    padding: 2px;
+    width: 100% !important;
+  }
+
+  #navbar-buttons {
+    padding: 20px;
+  }
+
+  .button-signup {
+    padding: 5px 25px !important;
+  }
+
+  .button-login {
+    padding: 5px 29px !important;
+  }
+
+  #middle-logo {
+  border-radius: 50%;
+  }
+
+  #sign-in,
+  #sign-up {
+    padding: 10px !important;
+    margin: 5px !important;
+  }
+
+  .side-section {
+    background-color: $background-color;
+    margin-right: 0;
+    padding: 20px !important;
+    padding-bottom: 200px !important;
+    width: 320px;
+  }
+
+  .logo-side {
+    display: none;
+  }
+
+  .aside {
+    margin: 400px 20px !important;
+  }
+
+  #nav-bar-title {
+    display: none;
+  }
+
+  .main-section {
+    background-color: $white-transparent;
+    border-radius: 5px;
+    margin: 400px 0 100px !important;
+    padding: 20px !important;
+    position: absolute !important;
+    width: 100% !important;
+  }
 }
 
-#edit-message, #click-message {
-  text-align: center;
+@media (max-width: 768px) {
+  .handles {
+    padding: 2px;
+    width: 720px !important;
+  }
+
+  #navbar-buttons {
+    padding: 20px;
+  }
+
+  .button-signup {
+    padding: 5px 25px !important;
+  }
+
+  .button-login {
+    padding: 5px 29px !important;
+  }
+
+  #middle-logo {
+  border-radius: 50%;
+  }
+
+  #sign-in,
+  #sign-up {
+    padding: 10px !important;
+    margin: 5px !important;
+  }
+
+  .side-section {
+    background-color: $background-color;
+    margin-right: 0;
+    padding: 20px !important;
+    padding-bottom: 200px !important;
+    width: 320px;
+  }
+
+  .logo-side {
+    display: none;
+  }
+
+  .aside {
+    margin: 400px 20px !important;
+  }
+
+  #nav-bar-title {
+    display: none;
+  }
+
+  .main-section {
+    background-color: $white-transparent;
+    border-radius: 5px;
+    margin: 400px 50px 50px 0 !important;
+    padding: 60px !important;
+    position: absolute !important;
+    width: 720px !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .handles {
+    padding: 2px;
+    width: 480px !important;
+  }
+
+  .side-section {
+    background-color: $background-color;
+    margin: 0;
+    padding: 20px 0 300px !important;
+    width: 300px !important;
+  }
+
+  .logo-side {
+    display: none;
+  }
+
+  .aside {
+    margin: 450px 20px !important;
+  }
+
+  .main-section {
+    background-color: $white-transparent;
+    border-radius: 5px;
+    margin: 400px -50px 100px -20px !important;
+    padding: 20px 60px !important;
+    position: absolute !important;
+    width: 1000px !important;
+  }
 }

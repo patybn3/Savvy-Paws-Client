@@ -13,20 +13,21 @@ const onNewPet = (data) => {
   })
 }
 
-// const getAllPets = (data) => {
-//   return $.ajax({
-//     url: config.apiUrl + '/pets',
-//     method: 'GET'
-//   })
-// }
-
 const getAllPets = (data) => {
   return $.ajax({
     url: config.apiUrl + '/pets',
+    method: 'GET'
+  })
+}
+
+const getMyPets = (data) => {
+  return $.ajax({
+    url: `${config.apiUrl}/pets`,
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    }
+    },
+    data: ''
   })
 }
 
@@ -42,9 +43,9 @@ const deletePets = function (event) {
 }
 
 const editPets = function (data) {
-  // const id = $(event.target).data('name')
+  const id = $(event.target).data('id')
   return $.ajax({
-    url: config.apiUrl + '/pets/' + data.pet.id,
+    url: config.apiUrl + '/pets/' + id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -53,10 +54,20 @@ const editPets = function (data) {
   })
 }
 
+const onShowPet = function (id) {
+  return $.ajax({
+    url: `${config.apiUrl}/pets/${id}`,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 module.exports = {
-  // onNewButton,
+  onShowPet,
   onNewPet,
-  // getPetsUser,
+  getMyPets,
   getAllPets,
   deletePets,
   editPets

@@ -1,54 +1,57 @@
-
-<h2 class="handles">Your Pets</h2>
 {{#each pets as |pet|}}
 {{!-- {{log pet}} -> this is a console log {{this is a comment}} --}}
 <section data-id="{{pet.id}}" class="handles">
-  <h3>
-  {{limit pet.name 15}}
-</h3>
-<h6> Pet ID: </h6>
-<p>
-  {{#if pet.id}}
-    {{pet.id}}
-  {{else}}
-  No ID available
-  {{/if}}
-</p>
-
-<h6>Date of Birth:</h6>
-<p>
-{{#if pet.dob}}
-  {{pet.dob}}
-{{else}}
-  No Date of Birth available
+  <div class="card mx-auto my-4 picture" data-id="{{pet.id}}">
+    <img src="{{pet.site}}" class="card-img-top clickable lazyload" data-id="{{pet.id}}">
+</div>
+<div class="pet-info">
+  <h3 class="name">
+    {{#if pet.name}}
+{{limit pet.name 10}} <button type="button" class="btn btn-primary btn-sm button info" data-toggle="modal" data-target="#all{{pet.id}}">Pet Info</button>
 {{/if}}
-</p>
-<h6>Species:</h6>
+</h3>
+</div>
+</section>
+<br>
+<div class="modal fade modal-info" id="all{{pet.id}}" tabindex="-1" role="dialog"
+aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="false">
+<div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-content">
+    <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLongTitle">{{pet.name}}</h3>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+
+<h5 class="pet-classes">Species:</h5>
 <p>
 {{#if pet.species}}
   {{pet.species}}
 {{else}}
-  No Species available
+  Species Unavailable
 {{/if}}
 </p>
-  <h6>Breed:</h6>
+  <h5 class="pet-classes">Breed:</h5>
   <p>
     {{#if pet.breed}}
       {{pet.breed}}
     {{else}}
-      No Breed available
+      Breed Unavailable!
     {{/if}}
   </p>
-  <h6>Favorite Toy:</h6>
+  <h5 class="pet-classes">Date of Birth:</h5>
   <p>
-    {{#if pet.favorite_toy}}
-      {{pet.favorite_toy}}
-    {{else}}
-      No Favorite Toy available
-    {{/if}}
-    <br>
+  {{#if pet.dob}}
+    {{pet.dob}}
+  {{else}}
+    DOB Unavailable!
+  {{/if}}
   </p>
-    {{> partial }}
-</section>
+  </div>
+</div>
+</div>
+</div>
 
 {{/each}}

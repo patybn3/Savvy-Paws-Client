@@ -2,14 +2,30 @@ const getForm = require('../../../lib/get-form-fields')
 // go back to scrips count one, back to assets, two, back to tic-tac-toe main folder, three, enter lib, name file
 const api = require('./api')
 const ui = require('./ui')
-// const store = require('../store')
+const showPetsTemplateAdd = require('../templates/add-pet.handlebars')
 
-const onNewPetButton = event => {
-  $('.add-new').show()
+const addHandlers = () => {
+  $('.text-all').on('click', '.remove-pet', onDeletePets)
+  $('.main-section').on('click', '.preview', onPreview)
+  $('.text-all').on('click', '.preview', onPreview)
+  $('.main-section').on('click', '.go-back', onGoBack)
 
-  ui.newPetButtonSuccess()
+  $('.text-all').on('submit', '.edit-form', onEditPets)
+  $('.main-section').on('submit', '.add-new', onAddNew)
+  // $('.text-all').on('click', '.preview', onPreview)
 }
 
+// shows add form once button is clicked
+const onNewPetButton = event => {
+  $('.text-all').html('')
+  $('.main-section').trigger('reset')
+  $('.main-section').show()
+  const showPetsHtmlAdd = showPetsTemplateAdd()
+
+  $('.main-section').append(showPetsHtmlAdd)
+  ui.newPetButtonSuccess()
+}
+// adds a new pet on submit
 const onAddNew = event => {
   event.preventDefault()
 
@@ -18,26 +34,49 @@ const onAddNew = event => {
 
   api.onNewPet(data)
     .then(ui.newPetSuccess)
+    .then(function () {
+      seeMyPets(event)
+    })
     .catch(ui.newPetFail)
 }
 
+// alows you to preview your pet picture when adding a pet
+const onPreview = (event) => {
+  if (validURL($('.photo-url').val())) {
+    ui.onPreviewSuccess($('.photo-url').val())
+  } else {
+    ui.fail()
+  }
+}
+
+// set up to validate URL for pet's picture
+const validURL = (str) => {
+  const pattern = new RegExp('^(https?:\\/\\/)?' + // protocol
+    '((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|' + // domain
+    '((\\d{1,3}\\.){3}\\d{1,3}))' + // OR ip (v4) address
+    '(\\:\\d+)?(\\/[-a-z\\d%_.~+]*)*' + // path and port of url
+    '(\\?[;&a-z\\d%_.~+=-]*)?' + // this is query string
+    '(\\#[-a-z\\d_]*)?$', 'i') // locates the fragments of the url
+  return !!pattern.test(str)
+}
+// see all pets button and home button
 const seeAllPets = event => {
   event.preventDefault()
 
   api.getAllPets()
     .then(ui.seeAllSuccess)
     .catch(ui.seeAllfailure)
+    .catch(ui.fail)
 }
 
-// const seePic = event => {
-//   const cat = store.pets.species
-//   const catPic = document.getElementById('pet-cat')
-//
-//   if (cat === catPic) {
-//     seeAllPets()
-//     document.write("<img src='./public/Cat.png'>")
-//   }
-// }
+// see user pet's button and user portal button
+const seeMyPets = event => {
+  event.preventDefault()
+
+  api.getMyPets()
+    .then(ui.seeMySuccess)
+    .catch(ui.seeMyfailure)
+}
 
 const onClearPets = (event) => {
   event.preventDefault()
@@ -48,43 +87,46 @@ const onDeletePets = (event) => {
   event.preventDefault()
 
   api.deletePets(event)
-    // .then(ui.seeAllSuccess)
-    .then(ui.onDeleteSuccess)
+    .then(ui.successMessage)
     .then(function () {
-      seeAllPets(event)
+      seeMyPets(event)
     })
-    .catch(ui.onDeletefailure)
-}
-
-const onEditButton = event => {
-  event.preventDefault()
-
-  ui.showModalEditSuccess()
+    .catch(ui.fail)
 }
 
 const onEditPets = event => {
   event.preventDefault()
 
   const data = getForm(event.target)
+  const id = $(event.target).data('id')
 
-  api.editPets(data)
+  $('#modalEdit').modal('hide')
+
+  api.editPets(data, id)
     .then(ui.editPetSuccess)
-    .catch(ui.editPetFail)
+    .then(function () {
+      seeMyPets(event)
+    })
+    .catch(ui.fail)
 }
 
-const addHandlers = () => {
-  $('.text-all').on('click', '.remove-pet', onDeletePets)
-  // $('.text-all').on('click', '.edit-pet', onEditPets)
+const onGoBack = event => {
+  event.preventDefault()
+
+  seeMyPets(event)
+  ui.goBackSuccess()
 }
 
 module.exports = {
   onNewPetButton,
   onAddNew,
+  onPreview,
   seeAllPets,
-  onEditButton,
   onClearPets,
   onDeletePets,
   onEditPets,
-  addHandlers
+  addHandlers,
+  seeMyPets,
+  onGoBack
   // seePic
 }
