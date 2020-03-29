@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Savvy Paws</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap" rel="stylesheet">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+
+      <!-- Orange nav bar-->
+      <nav id="navbar">
+      <h3 id="nav-welcome"></h3>
+      <!-- Hamburger toolbar -->
+      <div id='menu'>
+      <button id="hamburger" class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="icon-lines"></div>
+        <div class="icon-lines"></div>
+        <div class="icon-lines"></div>
+      </button>
+
+      <button id="hamburgerX" class="navbar-toggler ml-auto custom-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="mdiv1">
+        <div class="mdiv">
+        <div class="md"></div>
+        </div>
+        </div>
+      </button>
+    </div>
+
+    <input type="submit" class="btn btn-primary button" id="button-logout" value="Log Out">
+
+      <!-- Home Button near main title on navbar -->
+
+        <div class="row" id="name-icon">
+      <input type="submit" class="btn btn-primary button mr-3 button-view" id="get" value="SP">
+      <h4 id="nav-bar-title">Savvy Paws</h4>
+    </div>
+    <!-- this is the hamburger navbar menu -->
+                <div class="collapse navbar-collapse col btn-group-vertical" id="navbarNav">
+    <!-- this is the side bar -->
+                  <div class="side-section col-12 col-lg-2">
+                    <div class="btn-lg btn-block">
+                      <div>
+
+                        <img src="./public/logo.png" alt="Puppy logo" class="logo-side"/>
+                      </div>
+
+                  <button id="get-pets" class="btn btn-primary btn-lg btn-block button button-view">Home</button>
+
+                  <input type="submit" class="btn btn-primary btn-lg btn-block button" id="button-about" value="About Us">
+                  <button id="see-my-pets" class="btn btn-primary btn-lg btn-block button button-view-my">My Pets</button>
+                  <button id="get-all-pets" class="btn btn-primary btn-lg btn-block button button-view">All Pets</button>
+                  <button id="get-my-pets" class="btn btn-primary btn-lg btn-block button button-view-my">User Portal</button>
+                  <button id="clear-pets" class="btn btn-primary btn-lg btn-block button">Clear All Pets</button>
+                  <button id="new-pets" class="btn btn-primary btn-lg btn-block button" data-toggle="modal" data-target="#modal-addnew">Add New Pet</button>
+                  <input type="submit" class="btn btn-primary btn-lg btn-block button" id="button-changepw" data-toggle="modal" data-target="#modal-changepw" value="Settings">
+
+                </div>
+              </div>
+            </div>
+
+    </nav>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <p id="error-message"></p>
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+  <p id="success-message"></p>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+  <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+    <!-- nav bar and sidebar ends here -->
+
+    <!-- container for pets-->
+
+    <div class="content text-all"></div>
+
+    <div class="container">
+          <div class="row">
+    <!-- Main Section About Me starts -->
+        <!-- About me Section-->
+        <div class="col-12 col-lg-12 main-section">
+    <!-- About me Section-->
+          <h2 id="about-me">About Savvy Paws</h2><br>
+          <h4 id="welcome">Welcome!</h4><br>
+          <p class="main-text" id="main-p">Savvy Paws is an online application dedicated to track the information of your fur friend. All you need to do is Sign Up and Sign In to start enjoying this amazing tool!<br></p>
+            <br><h5 class="main-text">You Know what they say about Pets:</h5><br>
+            <p class="main-text">“Money can buy you a fine dog, but only love can make him wag his tail.” <br><strong>– Kinky Friedman</strong><br></p>
+
+    <p class="main-text">“There is no faith which has never yet been broken except that of a truly faithful dog.” <br><strong>– Konrad Lorenz</strong><br></p>
+
+    <p class="main-text">“Nobody can fully understand the meaning of love unless he’s owned a dog. A dog can show you more honest affection with a flick of his tail than a man can gather through a lifetime of handshakes.” <br><strong>– Gene Hill</strong><br></p>
+
+    <p class="main-text">“Dogs come into out lives to teach us about love, they depart to teach us about loss. A new dog never replaces an old dog. It merely expands the heart.” <br><strong>– Author Unknown</strong><br></p>
+
+    <p class="main-text">“Dogs leave pawprints on our hearts” <br><strong>– Author Unknown</strong><br></p>
+
+    <p class="main-text">“The dog is a gentleman; I hope to go to his heaven not mans.” <br><strong>– Mark Twain</strong><br></p>
+
+    <p class="main-text">“A dog will teach you unconditional love. If you can have that in your life, things won’t be too bad.” <br><strong>– Robert Wagner</strong><br></p>
+
+    <p class="main-text">“The greatest fear dogs know is the fear that you will not come back when you go out the door without them.” <br><strong>– Stanley Coren</strong><br></p>
+
+    <h5 class="main-text">"mmmmm I guess cats are pretty cool too..." - Me</h5>
+    <br>
+    </div>
+    </div>
+    </div>
+
+    <!-- Background Images -->
+<img src="./public/Animal-Dog.jpg" alt="Background Image of a Dog" id="dog-image" class="back-images">
+<img src="./public/Animal-Cat.jpg" alt="Background Image of a Cat" id="cat-image" class="back-images">
+<img src="./public/dog-sunset.jpg" alt="Background Image of a Dog in the sunset" id="dog-sun-image" class="back-images">
+<img src="./public/blue-cat.jpg" alt="Background Image of a Cat laying down" id="laying-cat-image" class="back-images">
+<img src="./public/paws.jpg" alt="Background Image of a puppy hugging owner" id="puppy-image" class="back-images">
+
+<!-- centered nav bar -->
+<div id="centered-bar">
+  <div id="logo">
+    <h2 id='middle-welcome'></h2>
+    <h2 class="middle-title">Savvy</h2>
+    <img src="./public/logo-white.png" alt="Puppy logo" id="middle-logo"/>
+    <h2 class="middle-title">Paws</h2>
+  </div>
+  <div id="navbar-buttons" class="col text-center">
+  <input type="submit" class="btn btn-primary mr-3 btn-lg button button-signup" data-toggle="modal" data-target="#modal-signup" value="Sign Up">
+
+  <input type="submit" class="btn btn-primary mr-3 btn-lg button button-login" data-toggle="modal" data-target="#modal-signin" value="Sign In">
+</div>
+</div>
+
+<!-- Modals, first modal is sign up -->
+      <div class="modal fade" id="modal-signup" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="false">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+              </button>
+          </div>
+        <form id="sign-up">
+          <fieldset>
+            <legend>Sign Up!</legend>
+            <p id="sign-up-message"></p>
+            <div class="form group">
+              <label>Nickname</label>
+              <input type="text" class="form-control" name="credentials[last_name]"
+              placeholder="Name Here">
+              <label>Email</label>
+              <input type="email" class="form-control" name="credentials[email]"
+              placeholder="email@email.com">
+              <label>Password</label>
+              <input type="password" class="form-control" name="credentials[password]"
+              placeholder="Enter Password Here">
+              <label>Confirm Password</label>
+              <input type="password" class="form-control" name="credentials[password_confirmation]"
+              placeholder="Reenter Password Here">
+
+              <input type='submit' class="btn btn-primary btn-lg btn-block button" value='Sign Up!'>
+
+              <label>Already a Member?</label><br>
+              <button type="button" class="btn btn-primary btn-lg btn-block button button-login" data-toggle="modal" data-target="#modal-signin">
+              Sign In!</button>
+            </div>
+          </fieldset>
+        </form>
+        </div>
+      </div>
+    </div>
+    <!-- Second Modal, Sign In-->
+    <div class="modal fade" id="modal-signin" tabindex="-1" role="dialog"
+    aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+      <form id="sign-in">
+        <fieldset>
+          <legend>Sign In!</legend>
+          <p id="login-message"></p>
+          <div class="form group">
+            <label>Email</label>
+            <input type="email" class="form-control" name="credentials[email]"
+            placeholder="email@email.com">
+            <br>
+            <label>Password</label>
+            <input type="password" class="form-control" name="credentials[password]"
+            placeholder="Enter Password Here">
+            <br>
+            <input type='submit' class="btn btn-primary btn-lg btn-block button" value='Sign In!'>
+            <br>
+            <label>Not a Member?</label><br>
+            <button type="button" class="btn btn-primary btn-lg btn-block button button-signup" data-toggle="modal" data-target="#modal-signup">
+            Sign Up!</button>
+          </div>
+        </fieldset>
+      </form>
+      </div>
+    </div>
+  </div>
+  <!--Third Modal, change Password-->
+  <div class="modal fade" id="modal-changepw" tabindex="-1" role="dialog"
+  aria-labelledby="exampleModalCenterTitle" aria-hidden="true" data-backdrop="false">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+          <button type="button" class="close go-back" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+    <form id="change-pw">
+      <fieldset>
+        <legend>Change Password</legend>
+        <p id='changepw-message'></p>
+        <div class="form group">
+          <label>Current Password</label>
+          <input type="password" class="form-control" name="passwords[old]"
+          placeholder="Enter Password Here">
+          <br>
+          <label>New Password</label>
+          <input type="password" class="form-control" name="passwords[new]"
+          placeholder="Reenter Password Here">
+          <br>
+          <input type='submit' class="btn btn-primary btn-lg btn-block button" value="Submit">
+        </div>
+      </fieldset>
+    </form>
+    </div>
+  </div>
+</div>
+
+
+<!--Modals End here-->
+
+
+<footer id='footer'>
+            <p id="footer-text">By <a href="https://www.pantlitz.dev/" target="_blank">Patricia Antlitz</a> &copy; Copyright 2020</p>
+    </footer>
+    </body>
+</html>
